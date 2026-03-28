@@ -581,6 +581,108 @@ h3 {
   margin-top: 5px;
 }
 
+.xai-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.xai-panel,
+.xai-score-card,
+.xai-evidence-card,
+.method-card,
+.usage-card,
+.xai-copy-block {
+  border: 1px solid rgba(23, 50, 77, 0.08);
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 22px;
+}
+
+.xai-panel {
+  display: grid;
+  gap: 14px;
+}
+
+.xai-score-card {
+  padding: 18px;
+  background:
+    linear-gradient(155deg, rgba(11, 93, 91, 0.08), rgba(255, 255, 255, 0.94));
+}
+
+.xai-score-card h3 {
+  margin: 10px 0 6px;
+  font-size: 24px;
+}
+
+.xai-score-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.xai-evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.xai-evidence-card {
+  padding: 14px;
+  display: grid;
+  gap: 4px;
+}
+
+.xai-evidence-card span,
+.usage-card span,
+.method-card__step {
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.xai-evidence-card strong,
+.usage-card strong {
+  font-size: 16px;
+}
+
+.xai-evidence-card small {
+  color: var(--muted);
+}
+
+.xai-copy-block {
+  padding: 16px 18px;
+}
+
+.xai-copy-block strong {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.method-card,
+.usage-card {
+  padding: 15px 16px;
+}
+
+.method-card p,
+.usage-card p {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.usage-grid {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
 .bpmn-shell {
   border: 1px solid rgba(23, 50, 77, 0.08);
   border-radius: 24px;
@@ -626,7 +728,10 @@ h3 {
   .two-col,
   .playbook-grid,
   .variant-grid,
-  .insight-split {
+  .insight-split,
+  .xai-layout,
+  .method-grid,
+  .xai-evidence-grid {
     grid-template-columns: 1fr;
   }
 
@@ -657,5 +762,10 @@ h3 {
 
   .mini-list__item {
     grid-template-columns: 1fr;
+  }
+
+  .usage-card strong,
+  .xai-evidence-card strong {
+    font-size: 15px;
   }
 }

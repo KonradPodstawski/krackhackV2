@@ -25,14 +25,14 @@
     automationShape: string;
     workflow: string[];
     caution: string;
-    candidate: AutomationCandidate;
+    explainableCandidate: ExplainableCandidate;
   };
 
   type WatchItem = {
     title: string;
     note: string;
     recommendation: string;
-    candidate: AutomationCandidate;
+    explainableCandidate: ExplainableCandidate;
   };
 
   type VariantSnapshot = {
@@ -45,13 +45,137 @@
     visibleRows: number;
   };
 
+  type ExplainableFeatureKey = 'activeHours' | 'clipboardOps' | 'userCount' | 'passiveSharePct' | 'instances';
+
+  type FeatureContribution = {
+    key: ExplainableFeatureKey;
+    label: string;
+    explain: string;
+    rawValue: number;
+    rawLabel: string;
+    normalized: number;
+    weightedPoints: number;
+  };
+
+  type ExplainableCandidate = {
+    key: string;
+    candidate: AutomationCandidate;
+    explainableScore: number;
+    referenceScore: number;
+    directFit: boolean;
+    eligibility: 'recommended' | 'watchlist';
+    fitMultiplier: number;
+    contributionSum: number;
+    contributions: FeatureContribution[];
+    explanationSummary: string[];
+    evidenceTrace: string[];
+  };
+
+  type MethodStep = {
+    step: string;
+    detail: string;
+  };
+
+  type AiUsageMode = {
+    label: string;
+    mode: string;
+    why: string;
+  };
+
   const challengeCapabilities = [
     'realny przebieg procesu',
     'warianty i odstepstwa',
     'waskie gardla i context switching',
     'manualne handoffy i copy-paste',
     'priorytety automatyzacji',
-    'workflow gotowy do demo'
+    'workflow gotowy do demo',
+    'explainable scoring'
+  ] as const;
+
+  const explainableWeights: Record<ExplainableFeatureKey, number> = {
+    activeHours: 0.32,
+    clipboardOps: 0.27,
+    userCount: 0.18,
+    passiveSharePct: 0.13,
+    instances: 0.1
+  };
+
+  const featureConfig: Record<
+    ExplainableFeatureKey,
+    { label: string; explain: string; format: (value: number) => string }
+  > = {
+    activeHours: {
+      label: 'Active workload',
+      explain: 'Im wiecej czasu aktywnego pochlania krok, tym wiekszy zwrot z odciazenia pracy.',
+      format: (value) => formatHours(value)
+    },
+    clipboardOps: {
+      label: 'Manual handoffs',
+      explain: 'Clipboard jest bezposrednim sygnalem recznego przenoszenia danych miedzy systemami.',
+      format: (value) => `${formatNumber(value)} ops`
+    },
+    userCount: {
+      label: 'Team reach',
+      explain: 'Szeroki zasieg oznacza wiekszy efekt skali i mniejsza zaleznosc od pojedynczej osoby.',
+      format: (value) => `${formatNumber(value)} users`
+    },
+    passiveSharePct: {
+      label: 'Waiting / latency',
+      explain: 'Wysoki udzial czasu pasywnego sugeruje czekanie na system, dane albo approvals.',
+      format: (value) => formatPercent(value)
+    },
+    instances: {
+      label: 'Repeatability',
+      explain: 'Duza liczba instancji oznacza, ze inwestycja nie jest jednorazowa tylko seryjna.',
+      format: (value) => `${formatNumber(value)} inst`
+    }
+  };
+
+  const methodologySteps: MethodStep[] = [
+    {
+      step: '1. Deterministic evidence extraction',
+      detail: 'Korzystamy z gotowych agregatow z event logow, heatmap, PRM, BPMN i PDD. Nie ma hidden promptingu ani modelu, ktory sam wymysla cechy.'
+    },
+    {
+      step: '2. Feature engineering',
+      detail: 'Kazdy kandydat dostaje piec jawnych cech: active workload, clipboard handoffs, team reach, passive share i repeatability.'
+    },
+    {
+      step: '3. Explainable scoring',
+      detail: 'Cechy sa normalizowane w jednej populacji operacyjnych krokow, wazone stala formula i przechodza przez jawna bramke kwalifikacji.'
+    },
+    {
+      step: '4. AI-assisted workflow drafting',
+      detail: 'AI moze pomagac dopiero po policzeniu evidence: w nazwaniu playbooku, zebraniu argumentow i szkicu workflow do demo.'
+    }
+  ];
+
+  const aiUsageModes: AiUsageMode[] = [
+    {
+      label: 'Where AI is allowed',
+      mode: 'evidence -> explanation -> workflow draft',
+      why: 'LLM dobrze zamienia ustrukturyzowane sygnaly w czytelna narracje, ale nie powinien sam ustalac priorytetu automatyzacji.'
+    },
+    {
+      label: 'Where AI is blocked',
+      mode: 'ranking, eligibility, thresholds',
+      why: 'Krytyczne decyzje sa w pelni audytowalne i deterministyczne. Ten dashboard nie potrzebuje ukrytego modelu rankingowego.'
+    },
+    {
+      label: 'Human review point',
+      mode: 'before rollout',
+      why: 'Workflow draft jest gotowy do demo, ale trigger, idempotencja i granice odpowiedzialnosci dalej wymagaja walidacji biznesowej.'
+    }
+  ];
+
+  const evidenceSources = [
+    'Activity Sequence Export',
+    'Activity Heatmap Export',
+    'PRM Export',
+    'Process Distribution Export',
+    'Tool Use Export',
+    'BPMN model',
+    'PDD variant preview'
   ] as const;
 
   const palette = ['#0b5d5b', '#c65d2e', '#17324d', '#c89b37', '#708238', '#7d5a50'];
@@ -63,6 +187,7 @@
   let data: DashboardData | null = null;
   let selectedPddVariant = 1;
   let transitionMode: 'steps' | 'applications' = 'steps';
+  let selectedExplainableKey = '';
 
   const endpoints = {
     overview: '/data/overview.json',
@@ -193,6 +318,18 @@
     return `${formatNumber(measured)} / ${formatNumber(expected)}`;
   }
 
+  function candidateKey(item: AutomationCandidate): string {
+    return `${item.application}__${item.processStep}`;
+  }
+
+  function normalizeMetric(value: number, min: number, max: number): number {
+    if (max <= min) {
+      return value > 0 ? 1 : 0;
+    }
+
+    return (value - min) / (max - min);
+  }
+
   function isDirectAutomationFit(item: AutomationCandidate): boolean {
     if (item.classification !== 'operational') {
       return false;
@@ -215,7 +352,89 @@
     return !indirectSignals.some((token) => label.includes(token));
   }
 
-  function buildAutomationPlaybook(item: AutomationCandidate): OpportunityPlaybook {
+  function buildExplainableCandidates(items: AutomationCandidate[]): ExplainableCandidate[] {
+    const operational = items.filter((item) => item.classification === 'operational');
+    const featureKeys = Object.keys(explainableWeights) as ExplainableFeatureKey[];
+    const ranges = new Map<ExplainableFeatureKey, { min: number; max: number }>();
+
+    for (const key of featureKeys) {
+      const values = operational.map((item) => item[key]);
+      ranges.set(key, {
+        min: Math.min(...values),
+        max: Math.max(...values)
+      });
+    }
+
+    return operational
+      .map((candidate) => {
+        const directFit = isDirectAutomationFit(candidate);
+        const fitMultiplier = directFit ? 1 : 0.58;
+        const contributions = featureKeys.map((key) => {
+          const range = ranges.get(key) ?? { min: 0, max: 0 };
+          const normalized = normalizeMetric(candidate[key], range.min, range.max);
+          const weightedPoints = normalized * explainableWeights[key] * 100;
+
+          return {
+            key,
+            label: featureConfig[key].label,
+            explain: featureConfig[key].explain,
+            rawValue: candidate[key],
+            rawLabel: featureConfig[key].format(candidate[key]),
+            normalized,
+            weightedPoints
+          };
+        });
+        const contributionSum = sum(contributions.map((item) => item.weightedPoints));
+        const explainableScore = Number((contributionSum * fitMultiplier).toFixed(1));
+        const topSignals = [...contributions]
+          .sort(
+            (a, b) =>
+              b.weightedPoints - a.weightedPoints ||
+              b.rawValue - a.rawValue ||
+              a.label.localeCompare(b.label)
+          )
+          .slice(0, 3);
+
+        return {
+          key: candidateKey(candidate),
+          candidate,
+          explainableScore,
+          referenceScore: candidate.score,
+          directFit,
+          eligibility: (directFit ? 'recommended' : 'watchlist') as ExplainableCandidate['eligibility'],
+          fitMultiplier,
+          contributionSum,
+          contributions,
+          explanationSummary: [
+            ...topSignals.map(
+              (item) =>
+                `${item.label}: ${item.rawLabel} -> ${item.weightedPoints.toFixed(1)} pts from the formula`
+            ),
+            directFit
+              ? 'Passed the operational-fit gate, so the full weighted score is retained.'
+              : 'Failed the direct-fit gate, so the step is kept on the watchlist with a deterministic penalty.'
+          ],
+          evidenceTrace: [
+            'automation-candidates.json for workload, clipboard, reach and repeatability',
+            'clipboard-heatmap-*.json to confirm manual transfer patterns',
+            'bpmn-task-metrics.json and pdd-variants-preview.json as process reference layers'
+          ]
+        };
+      })
+      .sort(
+        (a, b) =>
+          b.explainableScore - a.explainableScore ||
+          Number(b.directFit) - Number(a.directFit) ||
+          b.candidate.clipboardOps - a.candidate.clipboardOps ||
+          b.candidate.activeHours - a.candidate.activeHours ||
+          b.candidate.userCount - a.candidate.userCount ||
+          a.candidate.application.localeCompare(b.candidate.application) ||
+          a.candidate.processStep.localeCompare(b.candidate.processStep)
+      );
+  }
+
+  function buildAutomationPlaybook(explainableCandidate: ExplainableCandidate): OpportunityPlaybook {
+    const { candidate: item } = explainableCandidate;
     const label = `${item.application} ${item.processStep}`.toLowerCase();
 
     if (label.includes('excel') || label.includes('sheet')) {
@@ -231,7 +450,7 @@
           'Notify owner only on exception'
         ],
         caution: 'Excel powinien zostac warstwa wejscia lub kontroli, nie jedynym zrodlem prawdy.',
-        candidate: item
+        explainableCandidate
       };
     }
 
@@ -248,7 +467,7 @@
           'Escalate only when confidence is low'
         ],
         caution: 'Automatyzuj aktualizacje i statusy, nie decyzje merytoryczne wlasciciela sprawy.',
-        candidate: item
+        explainableCandidate
       };
     }
 
@@ -265,7 +484,7 @@
           'Track exceptions and missing metadata'
         ],
         caution: 'Najpierw ustal stabilny model metadanych, inaczej workflow zacznie powielac chaos.',
-        candidate: item
+        explainableCandidate
       };
     }
 
@@ -282,7 +501,7 @@
           'Publish final artifact to target workspace'
         ],
         caution: 'Dobrze dziala tylko wtedy, gdy wejscia maja ustalony schemat i wersjonowanie.',
-        candidate: item
+        explainableCandidate
       };
     }
 
@@ -299,7 +518,7 @@
           'Hand over a ready-to-work environment'
         ],
         caution: 'Tu lepiej automatyzowac bootstrap i walidacje niz sama prace developerska.',
-        candidate: item
+        explainableCandidate
       };
     }
 
@@ -315,7 +534,7 @@
         'Store audit trail and exception state'
       ],
       caution: 'Najpierw potwierdz stabilny trigger i idempotentny zapis, dopiero potem zamykaj petle end-to-end.',
-      candidate: item
+      explainableCandidate
     };
   }
 
@@ -337,12 +556,14 @@
     return 'Wysoki wolumen nie oznacza od razu dobrej automatyzacji. Najpierw ustal trigger i granice odpowiedzialnosci czlowiek - system.';
   }
 
-  function buildWatchItem(item: AutomationCandidate): WatchItem {
+  function buildWatchItem(explainableCandidate: ExplainableCandidate): WatchItem {
+    const { candidate: item } = explainableCandidate;
+
     return {
       title: `${item.application} / ${item.processStep}`,
-      note: `${formatHours(item.activeHours)} aktywnie, ${formatNumber(item.userCount)} users, score ${item.score.toFixed(1)}`,
+      note: `${formatHours(item.activeHours)} aktywnie, ${formatNumber(item.userCount)} users, XAI ${explainableCandidate.explainableScore.toFixed(1)}`,
       recommendation: watchRecommendation(item),
-      candidate: item
+      explainableCandidate
     };
   }
 
@@ -745,9 +966,9 @@
     };
   }
 
-  function buildAutomationPortfolioOptions(items: AutomationCandidate[]) {
-    const top = items.filter((item) => item.classification === 'operational').slice(0, 18);
-    const maxScore = Math.max(...top.map((item) => item.score), 1);
+  function buildAutomationPortfolioOptions(items: ExplainableCandidate[]) {
+    const top = items.filter((item) => item.directFit).slice(0, 18);
+    const maxScore = Math.max(...top.map((item) => item.explainableScore), 1);
 
     return {
       tooltip: {
@@ -757,7 +978,7 @@
           return [
             `<strong>${processStep}</strong>`,
             `${application}`,
-            `Score: ${score.toFixed(1)}`,
+            `XAI score: ${score.toFixed(1)}`,
             `Active: ${formatHours(activeHours)}`,
             `Clipboard: ${formatNumber(clipboardOps)}`,
             `Users: ${formatNumber(userCount)}`,
@@ -788,7 +1009,7 @@
         top: 'middle',
         itemHeight: 120,
         calculable: true,
-        text: ['Opportunity score', ''],
+        text: ['XAI score', ''],
         textStyle: { color: axisColor },
         inRange: {
           color: ['#dfe7e0', '#c89b37', '#c65d2e', '#0b5d5b']
@@ -798,13 +1019,13 @@
         {
           type: 'scatter',
           data: top.map((item) => [
-            item.activeHours,
-            item.clipboardOps,
-            item.userCount,
-            item.passiveSharePct,
-            item.processStep,
-            item.application,
-            item.score
+            item.candidate.activeHours,
+            item.candidate.clipboardOps,
+            item.candidate.userCount,
+            item.candidate.passiveSharePct,
+            item.candidate.processStep,
+            item.candidate.application,
+            item.explainableScore
           ]),
           label: {
             show: true,
@@ -819,6 +1040,58 @@
             borderColor: '#fff',
             borderWidth: 1.4,
             opacity: 0.95
+          }
+        }
+      ]
+    };
+  }
+
+  function buildExplainableContributionOptions(item: ExplainableCandidate) {
+    const sorted = [...item.contributions]
+      .sort(
+        (a, b) =>
+          a.weightedPoints - b.weightedPoints ||
+          a.rawValue - b.rawValue ||
+          a.label.localeCompare(b.label)
+      );
+
+    return {
+      color: [palette[0]],
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: { type: 'shadow' },
+        formatter: (params: Array<{ value: number; name: string; dataIndex: number }>) => {
+          const row = sorted[params[0]?.dataIndex ?? 0];
+
+          return [
+            `<strong>${row.label}</strong>`,
+            `Contribution: ${row.weightedPoints.toFixed(1)} pts`,
+            `Raw value: ${row.rawLabel}`,
+            `Weight: ${(explainableWeights[row.key] * 100).toFixed(0)}%`,
+            row.explain
+          ].join('<br/>');
+        }
+      },
+      grid: { left: 148, right: 24, top: 12, bottom: 24 },
+      xAxis: {
+        type: 'value',
+        name: 'Points',
+        nameTextStyle: { color: axisColor },
+        axisLabel: { color: axisColor },
+        splitLine: { lineStyle: { color: gridColor } }
+      },
+      yAxis: {
+        type: 'category',
+        data: sorted.map((entry) => entry.label),
+        axisLabel: { color: axisColor }
+      },
+      series: [
+        {
+          type: 'bar',
+          barMaxWidth: 18,
+          data: sorted.map((entry) => Number(entry.weightedPoints.toFixed(1))),
+          itemStyle: {
+            borderRadius: [0, 10, 10, 0]
           }
         }
       ]
@@ -905,22 +1178,31 @@
         .join(' + ')
     : '';
 
-  $: operationalCandidates = data
-    ? data.automationCandidates.filter((candidate) => candidate.classification === 'operational')
-    : [];
+  $: explainableCandidates = data ? buildExplainableCandidates(data.automationCandidates) : [];
+
+  $: if (explainableCandidates.length > 0 && !explainableCandidates.some((item) => item.key === selectedExplainableKey)) {
+    selectedExplainableKey = explainableCandidates[0].key;
+  }
+
+  $: selectedExplainableCandidate =
+    explainableCandidates.find((item) => item.key === selectedExplainableKey) ?? explainableCandidates[0];
+
+  $: recommendedCandidates = explainableCandidates.filter((candidate) => candidate.directFit);
+  $: watchCandidates = explainableCandidates.filter((candidate) => !candidate.directFit);
+  $: operationalCandidates = explainableCandidates.map((item) => ({
+    ...item.candidate,
+    explainableScore: item.explainableScore,
+    referenceScore: item.referenceScore,
+    explanationSummary: item.explanationSummary,
+    directFit: item.directFit
+  }));
 
   $: playbooks = data
-    ? operationalCandidates
-        .filter((candidate) => isDirectAutomationFit(candidate))
-        .slice(0, 3)
-        .map((candidate) => buildAutomationPlaybook(candidate))
+    ? recommendedCandidates.slice(0, 3).map((candidate) => buildAutomationPlaybook(candidate))
     : [];
 
   $: watchlist = data
-    ? data.automationCandidates
-        .filter((candidate) => !isDirectAutomationFit(candidate))
-        .slice(0, 4)
-        .map((candidate) => buildWatchItem(candidate))
+    ? watchCandidates.slice(0, 4).map((candidate) => buildWatchItem(candidate))
     : [];
 
   $: selectedVariant = data ? currentVariant(data.pddVariantsPreview) : undefined;
@@ -942,7 +1224,7 @@
     ? sum(data.appTransitions.filter((flow) => flow.source !== flow.target).map((flow) => flow.count))
     : 0;
   $: strongCandidateCount = data
-    ? operationalCandidates.filter((candidate) => candidate.score >= 20).length
+    ? recommendedCandidates.filter((candidate) => candidate.explainableScore >= 35).length
     : 0;
   $: dominantWorkloadShare = data
     ? (sum(data.overview.dominantProcesses.slice(0, 2).map((process) => process.hours)) /
@@ -968,7 +1250,8 @@
         <p class="hero__lead">
           Dashboard odpowiada bezposrednio na brief z PDF: rekonstruuje rzeczywisty przebieg procesu,
           pokazuje warianty i odstepstwa, izoluje reczne handoffy oraz zamienia je w priorytety
-          automatyzacji i uproszczone workflow do demonstracji.
+          automatyzacji i uproszczone workflow do demonstracji. Kazda rekomendacja jest tez
+          wyjasnialna: ma jawne cechy, stale wagi, bramke kwalifikacji i czytelny evidence trail.
         </p>
 
         <div class="hero__capabilities">
@@ -998,6 +1281,10 @@
           <div>
             <span>Lead play</span>
             <strong>{playbooks[0]?.title ?? 'n/a'}</strong>
+          </div>
+          <div>
+            <span>Decision mode</span>
+            <strong>deterministic + auditable</strong>
           </div>
         </div>
 
@@ -1033,7 +1320,7 @@
       <KpiCard
         title="Automation-ready steps"
         value={formatNumber(strongCandidateCount)}
-        subtitle="operational score >= 20"
+        subtitle="direct fit and XAI score >= 35"
       />
       <KpiCard
         title="Dominant workload share"
@@ -1060,14 +1347,15 @@
 
               <div class="metric-pills">
                 <span>{playbook.automationShape}</span>
-                <span>score {playbook.candidate.score.toFixed(1)}</span>
-                <span>{formatHours(playbook.candidate.activeHours)} active</span>
-                <span>{formatNumber(playbook.candidate.clipboardOps)} clipboard</span>
-                <span>{formatNumber(playbook.candidate.userCount)} users</span>
+                <span>XAI {playbook.explainableCandidate.explainableScore.toFixed(1)}</span>
+                <span>source {playbook.explainableCandidate.referenceScore.toFixed(1)}</span>
+                <span>{formatHours(playbook.explainableCandidate.candidate.activeHours)} active</span>
+                <span>{formatNumber(playbook.explainableCandidate.candidate.clipboardOps)} clipboard</span>
+                <span>{formatNumber(playbook.explainableCandidate.candidate.userCount)} users</span>
               </div>
 
               <ul class="reason-list">
-                {#each playbook.candidate.reasoning as reason}
+                {#each playbook.explainableCandidate.explanationSummary as reason}
                   <li>{reason}</li>
                 {/each}
               </ul>
@@ -1096,6 +1384,111 @@
               <p>{item.recommendation}</p>
             </article>
           {/each}
+        </div>
+      </SectionCard>
+    </div>
+
+    <div class="two-col two-col--wide">
+      <SectionCard
+        title="Explainable recommendation engine"
+        description="Sekcja pokazuje lokalne XAI dla pojedynczej rekomendacji: jakie cechy weszly do wzoru, jaka byla ich sila i dlaczego kandydat trafia na shortlist albo watchliste."
+      >
+        <div slot="actions" class="segmented-control">
+          {#each explainableCandidates.slice(0, 6) as candidate}
+            <button
+              class:active={candidate.key === selectedExplainableKey}
+              on:click={() => (selectedExplainableKey = candidate.key)}
+            >
+              {clampText(candidate.candidate.processStep, 18)}
+            </button>
+          {/each}
+        </div>
+
+        {#if selectedExplainableCandidate}
+          <div class="xai-layout">
+            <div class="xai-panel">
+              <div class="xai-score-card">
+                <div class="eyebrow">Local explanation</div>
+                <h3>{selectedExplainableCandidate.candidate.processStep}</h3>
+                <p>
+                  {selectedExplainableCandidate.candidate.application} ·
+                  {selectedExplainableCandidate.eligibility === 'recommended' ? ' shortlist candidate' : ' watchlist only'}
+                </p>
+
+                <div class="metric-pills">
+                  <span>XAI {selectedExplainableCandidate.explainableScore.toFixed(1)}</span>
+                  <span>source {selectedExplainableCandidate.referenceScore.toFixed(1)}</span>
+                  <span>fit x{selectedExplainableCandidate.fitMultiplier.toFixed(2)}</span>
+                  <span>{selectedExplainableCandidate.candidate.classification}</span>
+                </div>
+              </div>
+
+              <div class="xai-evidence-grid">
+                {#each selectedExplainableCandidate.contributions as contribution}
+                  <article class="xai-evidence-card">
+                    <span>{contribution.label}</span>
+                    <strong>{contribution.rawLabel}</strong>
+                    <small>
+                      {contribution.weightedPoints.toFixed(1)} pts · weight {(explainableWeights[contribution.key] * 100).toFixed(0)}%
+                    </small>
+                  </article>
+                {/each}
+              </div>
+
+              <div class="xai-copy-block">
+                <strong>Decision path</strong>
+                <ul class="reason-list">
+                  {#each selectedExplainableCandidate.explanationSummary as point}
+                    <li>{point}</li>
+                  {/each}
+                </ul>
+              </div>
+
+              <div class="xai-copy-block">
+                <strong>Evidence trail</strong>
+                <ul class="reason-list">
+                  {#each selectedExplainableCandidate.evidenceTrace as point}
+                    <li>{point}</li>
+                  {/each}
+                </ul>
+              </div>
+            </div>
+
+            <EChart options={buildExplainableContributionOptions(selectedExplainableCandidate)} height={360} />
+          </div>
+        {/if}
+      </SectionCard>
+
+      <SectionCard
+        title="How AI is used and constrained"
+        description="Zgodnie z trackiem XAI AI nie jest tutaj ukrytym arbitrem. Najpierw liczymy evidence i ranking w sposob audytowalny, a dopiero potem dopuszczamy AI do warstwy copilota."
+      >
+        <div class="method-grid">
+          {#each methodologySteps as step}
+            <article class="method-card">
+              <div class="method-card__step">{step.step}</div>
+              <p>{step.detail}</p>
+            </article>
+          {/each}
+        </div>
+
+        <div class="usage-grid">
+          {#each aiUsageModes as usage}
+            <article class="usage-card">
+              <span>{usage.label}</span>
+              <strong>{usage.mode}</strong>
+              <p>{usage.why}</p>
+            </article>
+          {/each}
+        </div>
+
+        <div class="xai-copy-block">
+          <strong>Evidence inputs used by the copilot</strong>
+          <div class="hero__capabilities">
+            {#each evidenceSources as source}
+              <span class="capability-pill">{source}</span>
+            {/each}
+          </div>
         </div>
       </SectionCard>
     </div>
@@ -1234,15 +1627,15 @@
 
       <SectionCard
         title="Automation portfolio"
-        description="Macierz pokazuje, gdzie jednoczesnie kumuluja sie czas aktywny, reczna praca, zasieg i score automatyzacji."
+        description="Macierz pokazuje, gdzie jednoczesnie kumuluja sie czas aktywny, reczna praca, zasieg i explainable score automatyzacji."
       >
-        <EChart options={buildAutomationPortfolioOptions(data.automationCandidates)} height={420} />
+        <EChart options={buildAutomationPortfolioOptions(explainableCandidates)} height={420} />
       </SectionCard>
     </div>
 
     <SectionCard
       title="Priority backlog"
-      description="Backlog zostawia tylko kroki operacyjne. To jest warstwa, z ktorej najlatwiej przejsc do konkretnego PoC lub demo workflow."
+      description="Backlog jest juz posortowany po lokalnym explainable score. Zostawia tylko kroki operacyjne i pokazuje, jak konkretnie wynik powstal."
     >
       <CandidateTable items={operationalCandidates.slice(0, 12)} />
     </SectionCard>
