@@ -130,6 +130,96 @@ export type PddVariantPreview = {
   rows: string[][];
 };
 
+export type WorkflowSpecTrigger = {
+  mode: 'event_driven';
+  type: string;
+  source: string;
+  condition: string;
+};
+
+export type WorkflowSpecInput = {
+  name: string;
+  source: string;
+  required: boolean;
+  purpose: string;
+};
+
+export type WorkflowSpecStep = {
+  id: string;
+  kind: 'capture' | 'validation' | 'enrichment' | 'decision' | 'writeback' | 'notification' | 'audit';
+  system: string;
+  name: string;
+  description: string;
+};
+
+export type WorkflowSpecEvidence = {
+  activeHours: number;
+  clipboardOps: number;
+  userCount: number;
+  passiveSharePct: number;
+  instances: number;
+  explainableScore: number;
+  sourceScore: number;
+  fitMultiplier: number;
+  sourceReasoning: string[];
+};
+
+export type WorkflowSpec = {
+  version: '1.0.0';
+  candidateKey: string;
+  priorityRank: number;
+  priorityBand: 'P1' | 'P2' | 'P3' | 'Watchlist';
+  eligibility: 'recommended' | 'watchlist';
+  workflowKind: string;
+  title: string;
+  processStep: string;
+  application: string;
+  automationShape: string;
+  objective: string;
+  nextAction: string;
+  trigger: WorkflowSpecTrigger;
+  systems: string[];
+  inputs: WorkflowSpecInput[];
+  steps: WorkflowSpecStep[];
+  validations: string[];
+  exceptions: string[];
+  outputs: string[];
+  humanCheckpoints: string[];
+  implementationNotes: string[];
+  evidenceSources: string[];
+  evidence: WorkflowSpecEvidence;
+};
+
+export type SlmDraftModel = {
+  provider: 'ollama' | 'llama-cpp';
+  name: string;
+  temperature: number;
+  seed: number;
+};
+
+export type SlmDraftStep = {
+  id: string;
+  label: string;
+  purpose: string;
+  successSignal: string;
+};
+
+export type SlmDraft = {
+  version: '1.0.0';
+  promptVersion: '1.0.0';
+  candidateKey: string;
+  specHash: string;
+  model: SlmDraftModel;
+  businessSummary: string;
+  whyNow: string[];
+  explainer: string[];
+  demoNarrative: string[];
+  refinedWorkflowSteps: SlmDraftStep[];
+  rolloutRisks: string[];
+  humanReviewNotes: string[];
+  operatorPitch: string;
+};
+
 export type DashboardData = {
   overview: Overview;
   headcount: HeadcountPoint[];
@@ -145,6 +235,8 @@ export type DashboardData = {
   clipboardHeatmapSteps: ClipboardFlowStep[];
   bpmnTaskMetrics: BpmnTaskMetric[];
   automationCandidates: AutomationCandidate[];
+  workflowSpecs: WorkflowSpec[];
+  slmDrafts: SlmDraft[];
   pddVariantsPreview: PddVariantPreview[];
   bpmnXml: string;
 };

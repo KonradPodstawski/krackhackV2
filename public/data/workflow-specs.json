@@ -1,0 +1,5291 @@
+[
+  {
+    "version": "1.0.0",
+    "candidateKey": "Excel__Working on Excel Sheet",
+    "priorityRank": 1,
+    "priorityBand": "P1",
+    "eligibility": "recommended",
+    "workflowKind": "spreadsheet_sync",
+    "title": "Spreadsheet-to-system synchronization",
+    "processStep": "Working on Excel Sheet",
+    "application": "Excel",
+    "automationShape": "capture -> validate -> enrich -> upsert -> confirm",
+    "objective": "Zastap reczne kopiowanie danych z arkusza powtarzalnym zapisem do systemu docelowego.",
+    "nextAction": "Uzgodnij jeden workbook/table jako punkt wejscia i ustal klucz idempotencji na rekordzie.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "row_change",
+      "source": "Excel",
+      "condition": "Nowy lub zmieniony rekord w monitorowanym arkuszu."
+    },
+    "systems": [
+      "Excel",
+      "System of record",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "record_id",
+        "source": "Excel",
+        "required": true,
+        "purpose": "klucz idempotencji dla rekordu"
+      },
+      {
+        "name": "changed_fields",
+        "source": "Excel",
+        "required": true,
+        "purpose": "lista zmienionych pol"
+      },
+      {
+        "name": "operator_id",
+        "source": "Excel",
+        "required": false,
+        "purpose": "slad operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "capture_change",
+        "kind": "capture",
+        "system": "Excel",
+        "name": "Capture row change",
+        "description": "Odczytaj tylko nowe lub zmienione rekordy."
+      },
+      {
+        "id": "validate_required",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate required fields",
+        "description": "Sprawdz pola obowiazkowe i format danych."
+      },
+      {
+        "id": "enrich_reference",
+        "kind": "enrichment",
+        "system": "Reference data",
+        "name": "Enrich with master data",
+        "description": "Dopelnij rekord danymi slownikowymi lub mapowaniem."
+      },
+      {
+        "id": "upsert_target",
+        "kind": "writeback",
+        "system": "System of record",
+        "name": "Upsert target record",
+        "description": "Zapisz rekord deterministycznie z kluczem idempotencji."
+      },
+      {
+        "id": "notify_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify only on exception",
+        "description": "Powiadom wlasciciela tylko gdy rekord wymaga decyzji."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit trail",
+        "description": "Zapisz wynik, decyzje i identyfikator zapisu."
+      }
+    ],
+    "validations": [
+      "Pola obowiazkowe nie moga byc puste.",
+      "Nie wolno duplikowac rekordu z tym samym record_id.",
+      "Mapowanie do systemu docelowego musi byc jednoznaczne."
+    ],
+    "exceptions": [
+      "Brak wymaganych danych wejsciowych.",
+      "Konflikt duplikatow.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany rekord w systemie docelowym.",
+      "Status synchronizacji zapisany przy rekordzie zrodlowym.",
+      "Wpis audytowy z wynikiem wykonania."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko rekordy oznaczone jako exception.",
+      "Wlasciciel procesu zatwierdza mapowanie pol przed rolloutem."
+    ],
+    "implementationNotes": [
+      "Trigger pozostaje event-driven, bez batchowego pollingu czasowego.",
+      "Write-back musi byc idempotentny po record_id.",
+      "Arkusz nie powinien byc jedynym source of truth."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 63.714,
+      "clipboardOps": 4214,
+      "userCount": 34,
+      "passiveSharePct": 29.54,
+      "instances": 11209,
+      "explainableScore": 64.3,
+      "sourceScore": 41.53,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "dużo operacji clipboard",
+        "szerokie pokrycie zespołu",
+        "duży łączny czas aktywny",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Youtrack__Update working progress",
+    "priorityRank": 2,
+    "priorityBand": "P1",
+    "eligibility": "recommended",
+    "workflowKind": "ticket_status_enrichment",
+    "title": "Ticket status and progress copilot",
+    "processStep": "Update working progress",
+    "application": "Youtrack",
+    "automationShape": "detect -> collect context -> validate -> write back",
+    "objective": "Zautomatyzuj techniczne aktualizacje statusu i uzupelnianie ticketow bez automatyzowania decyzji merytorycznych.",
+    "nextAction": "Zdefiniuj liste dozwolonych transition rules i minimalny evidence pack dla update ticketu.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "status_event",
+      "source": "Youtrack",
+      "condition": "Zmiana statusu, milestone lub sygnal delivery dla ticketu."
+    },
+    "systems": [
+      "Youtrack",
+      "Build / SCM context",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "issue_id",
+        "source": "Youtrack",
+        "required": true,
+        "purpose": "identyfikator sprawy"
+      },
+      {
+        "name": "status_signal",
+        "source": "Delivery context",
+        "required": true,
+        "purpose": "sygnal zmiany etapu prac"
+      },
+      {
+        "name": "supporting_evidence",
+        "source": "Comments / builds / commits",
+        "required": false,
+        "purpose": "kontekst do update statusu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "detect_change",
+        "kind": "capture",
+        "system": "Youtrack",
+        "name": "Detect issue change",
+        "description": "Wykryj ticket wymagajacy technicznego updateu."
+      },
+      {
+        "id": "collect_context",
+        "kind": "enrichment",
+        "system": "Delivery context",
+        "name": "Collect execution context",
+        "description": "Pobierz relewantne komentarze, buildy i milestone."
+      },
+      {
+        "id": "validate_transition",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate transition rules",
+        "description": "Sprawdz, czy przejscie statusu jest dozwolone."
+      },
+      {
+        "id": "write_update",
+        "kind": "writeback",
+        "system": "Youtrack",
+        "name": "Write structured update",
+        "description": "Zapisz ustrukturyzowany update ticketu."
+      },
+      {
+        "id": "escalate_low_confidence",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Escalate low confidence cases",
+        "description": "Przekaz sprawy niejednoznaczne do czlowieka."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit record",
+        "description": "Zapisz kto, kiedy i dlaczego zainicjowal update."
+      }
+    ],
+    "validations": [
+      "Issue musi istniec i byc aktywne.",
+      "Przejscie statusu musi byc zgodne z matryca workflow.",
+      "Automatyczny update nie moze nadpisywac otwartych blockerow."
+    ],
+    "exceptions": [
+      "Niejednoznaczny evidence pack.",
+      "Przejscie statusu poza dozwolona sciezka.",
+      "Blad zapisu do systemu ticketowego."
+    ],
+    "outputs": [
+      "Zaktualizowany ticket.",
+      "Dopisany komentarz lub changelog.",
+      "Audit trail dla wykonanej akcji."
+    ],
+    "humanCheckpoints": [
+      "Wlasciciel sprawy zatwierdza przypadki z niska pewnoscia.",
+      "Statusy typu blocked / cancelled pozostaja reczne."
+    ],
+    "implementationNotes": [
+      "Automatyzujemy statusy i wpisy, nie decyzje produktowe.",
+      "Idempotencja powinna byc oparta o issue_id + event_id.",
+      "Write-back tylko po przejsciu walidacji transition rules."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 63.774,
+      "clipboardOps": 802,
+      "userCount": 43,
+      "passiveSharePct": 31.11,
+      "instances": 18069,
+      "explainableScore": 50.6,
+      "sourceScore": 33.64,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "dużo operacji clipboard",
+        "wysoki udział czasu pasywnego",
+        "szerokie pokrycie zespołu",
+        "duży łączny czas aktywny"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Sharepoint__Working on shared files",
+    "priorityRank": 3,
+    "priorityBand": "P2",
+    "eligibility": "recommended",
+    "workflowKind": "document_routing",
+    "title": "Document routing and metadata sync",
+    "processStep": "Working on shared files",
+    "application": "Sharepoint",
+    "automationShape": "watch -> classify -> route -> sync -> audit",
+    "objective": "Ogranicz reczne przekladanie dokumentow i dopinanie statusow miedzy folderami oraz systemami.",
+    "nextAction": "Uzgodnij minimalny standard metadanych i docelowe kolejki odbioru dokumentow.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "file_change",
+      "source": "Sharepoint",
+      "condition": "Nowy lub zmieniony dokument w monitorowanej bibliotece."
+    },
+    "systems": [
+      "Sharepoint",
+      "Task system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "document_id",
+        "source": "Sharepoint",
+        "required": true,
+        "purpose": "identyfikator dokumentu"
+      },
+      {
+        "name": "metadata",
+        "source": "Sharepoint",
+        "required": true,
+        "purpose": "zestaw metadanych do klasyfikacji"
+      },
+      {
+        "name": "routing_target",
+        "source": "Routing rules",
+        "required": false,
+        "purpose": "docelowa kolejka lub folder"
+      }
+    ],
+    "steps": [
+      {
+        "id": "watch_library",
+        "kind": "capture",
+        "system": "Sharepoint",
+        "name": "Watch library change",
+        "description": "Wykryj dodanie lub modyfikacje dokumentu."
+      },
+      {
+        "id": "classify_document",
+        "kind": "decision",
+        "system": "Routing rules",
+        "name": "Classify document",
+        "description": "Wyznacz typ dokumentu i docelowa sciezke obiegu."
+      },
+      {
+        "id": "validate_metadata",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate metadata",
+        "description": "Sprawdz komplet wymaganych metadanych."
+      },
+      {
+        "id": "route_document",
+        "kind": "writeback",
+        "system": "Sharepoint",
+        "name": "Route document",
+        "description": "Przenies lub przypisz dokument do odpowiedniej kolejki."
+      },
+      {
+        "id": "sync_status",
+        "kind": "writeback",
+        "system": "Task system",
+        "name": "Sync downstream status",
+        "description": "Zaktualizuj status powiazanej sprawy lub zadania."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit trail",
+        "description": "Zapisz trase dokumentu i wynik klasyfikacji."
+      }
+    ],
+    "validations": [
+      "Dokument musi miec jednoznacznego wlasciciela albo kolejke.",
+      "Minimalny zestaw metadanych musi byc uzupelniony.",
+      "Nie wolno przekierowac pliku do wielu kolejek bez jawnej reguly."
+    ],
+    "exceptions": [
+      "Brak metadanych.",
+      "Nieznany typ dokumentu.",
+      "Konflikt routingu."
+    ],
+    "outputs": [
+      "Dokument w docelowej kolejce.",
+      "Zaktualizowany status obiegu.",
+      "Audit trail klasyfikacji i routingu."
+    ],
+    "humanCheckpoints": [
+      "Czlowiek decyduje tylko przy nieznanym typie dokumentu.",
+      "Zmiana reguly routingu wymaga kontroli biznesowej."
+    ],
+    "implementationNotes": [
+      "Najpierw ustal slownik typow dokumentow.",
+      "Routing powinien byc w pelni event-driven po zmianie pliku.",
+      "Metadane musza miec wlasciwosci wymagane przed write-back."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 31.65,
+      "clipboardOps": 2406,
+      "userCount": 37,
+      "passiveSharePct": 14.45,
+      "instances": 6172,
+      "explainableScore": 42.2,
+      "sourceScore": 29.46,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "dużo operacji clipboard",
+        "szerokie pokrycie zespołu",
+        "duży łączny czas aktywny",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "PowerPoint__Work on Presentation",
+    "priorityRank": 4,
+    "priorityBand": "P2",
+    "eligibility": "recommended",
+    "workflowKind": "template_output_assembly",
+    "title": "Template-based content assembly",
+    "processStep": "Work on Presentation",
+    "application": "PowerPoint",
+    "automationShape": "collect -> assemble -> review -> publish",
+    "objective": "Przyspiesz skladanie artefaktow powtarzalnych bez automatyzowania finalnej odpowiedzialnosci autora.",
+    "nextAction": "Wybierz jeden szablon docelowy i zdefiniuj stabilne zrodla danych do uzupelniania.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "artifact_request",
+      "source": "PowerPoint",
+      "condition": "Pojawia sie nowy request na standardowy dokument lub prezentacje."
+    },
+    "systems": [
+      "PowerPoint",
+      "Source systems",
+      "Review queue"
+    ],
+    "inputs": [
+      {
+        "name": "template_id",
+        "source": "PowerPoint",
+        "required": true,
+        "purpose": "wybrany szablon wyjsciowy"
+      },
+      {
+        "name": "business_inputs",
+        "source": "Source systems",
+        "required": true,
+        "purpose": "ustrukturyzowane dane do wypelnienia tresci"
+      },
+      {
+        "name": "request_id",
+        "source": "Request queue",
+        "required": true,
+        "purpose": "identyfikator zlecenia i audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "collect_inputs",
+        "kind": "capture",
+        "system": "Source systems",
+        "name": "Collect structured inputs",
+        "description": "Pobierz tylko pola wymagane przez szablon."
+      },
+      {
+        "id": "validate_template_data",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate template inputs",
+        "description": "Sprawdz komplet i zgodnosc danych z szablonem."
+      },
+      {
+        "id": "assemble_draft",
+        "kind": "writeback",
+        "system": "PowerPoint",
+        "name": "Assemble draft artifact",
+        "description": "Wygeneruj szkic artefaktu z gotowego szablonu."
+      },
+      {
+        "id": "route_for_review",
+        "kind": "notification",
+        "system": "Review queue",
+        "name": "Route for focused review",
+        "description": "Przekaz szkic tylko do recenzji roznic i wyjatkow."
+      },
+      {
+        "id": "publish_output",
+        "kind": "writeback",
+        "system": "PowerPoint",
+        "name": "Publish approved output",
+        "description": "Opublikuj finalny artefakt po review."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store generation audit",
+        "description": "Zapisz wersje, zrodla i wynik recenzji."
+      }
+    ],
+    "validations": [
+      "Szablon musi byc wersjonowany.",
+      "Wszystkie pola wymagane przez szablon musza byc uzupelnione.",
+      "Brak danych blokuje publikacje i kieruje sprawę do review."
+    ],
+    "exceptions": [
+      "Niezgodnosc danych z szablonem.",
+      "Brak jednego z wymaganych wejsc.",
+      "Odrzucenie szkicu podczas review."
+    ],
+    "outputs": [
+      "Wypelniony draft artefaktu.",
+      "Finalny dokument lub prezentacja po review.",
+      "Historia wersji i audyt danych wejsciowych."
+    ],
+    "humanCheckpoints": [
+      "Czlowiek zatwierdza finalna publikacje.",
+      "Zmiany tresci merytorycznej pozostaja po stronie autora."
+    ],
+    "implementationNotes": [
+      "Wejscia musza byc stabilne i wersjonowane.",
+      "Automatyzujemy skladanie, nie finalna odpowiedzialnosc za tresc.",
+      "Identyfikator request_id powinien spinac caly audit trail."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 51.658,
+      "clipboardOps": 2793,
+      "userCount": 19,
+      "passiveSharePct": 14.34,
+      "instances": 6444,
+      "explainableScore": 40.8,
+      "sourceScore": 25.12,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "dużo operacji clipboard",
+        "szerokie pokrycie zespołu",
+        "duży łączny czas aktywny",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "WindowsTerminal__Shell scripting",
+    "priorityRank": 5,
+    "priorityBand": "P2",
+    "eligibility": "recommended",
+    "workflowKind": "developer_enablement",
+    "title": "Developer enablement workflow",
+    "processStep": "Shell scripting",
+    "application": "WindowsTerminal",
+    "automationShape": "request -> provision -> verify -> hand over",
+    "objective": "Zautomatyzuj bootstrap i walidacje srodowiska zamiast recznego powtarzania setupu.",
+    "nextAction": "Spisz minimalny profil setupu i liste weryfikacji, ktore mozna uruchomic bez udzialu operatora.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "setup_request",
+      "source": "WindowsTerminal",
+      "condition": "Pojawia sie nowy request na przygotowanie lub odtworzenie srodowiska."
+    },
+    "systems": [
+      "WindowsTerminal",
+      "Package manager",
+      "Verification checks"
+    ],
+    "inputs": [
+      {
+        "name": "profile_id",
+        "source": "Request form",
+        "required": true,
+        "purpose": "profil srodowiska do przygotowania"
+      },
+      {
+        "name": "target_machine",
+        "source": "Request form",
+        "required": true,
+        "purpose": "host docelowy lub workspace"
+      },
+      {
+        "name": "requested_tools",
+        "source": "Catalog",
+        "required": false,
+        "purpose": "opcjonalne dodatki do profilu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "capture_request",
+        "kind": "capture",
+        "system": "Request form",
+        "name": "Capture setup request",
+        "description": "Zarejestruj profil i zakres setupu."
+      },
+      {
+        "id": "provision_dependencies",
+        "kind": "writeback",
+        "system": "Package manager",
+        "name": "Provision dependencies",
+        "description": "Zainstaluj zaleznosci w stalej kolejnosci."
+      },
+      {
+        "id": "run_checks",
+        "kind": "validation",
+        "system": "Verification checks",
+        "name": "Run verification checks",
+        "description": "Zweryfikuj wersje, PATH i dzialanie narzedzi."
+      },
+      {
+        "id": "generate_remediation",
+        "kind": "decision",
+        "system": "Rule engine",
+        "name": "Generate remediation guidance",
+        "description": "Przygotuj instrukcje naprawcze dla failujacych krokow."
+      },
+      {
+        "id": "hand_over_environment",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Hand over ready environment",
+        "description": "Przekaz wynik przygotowania do uzytkownika."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store setup audit",
+        "description": "Zapisz wykonane akcje i wynik weryfikacji."
+      }
+    ],
+    "validations": [
+      "Kazda zaleznosc musi miec przypieta wersje lub kanał.",
+      "Checklista walidacyjna musi przejsc przed handoffem.",
+      "Setup nie moze nadpisywac lokalnych danych bez potwierdzenia."
+    ],
+    "exceptions": [
+      "Brak uprawnien do instalacji.",
+      "Konflikt wersji zaleznosci.",
+      "Niezgodnosc konfiguracji hosta."
+    ],
+    "outputs": [
+      "Gotowe srodowisko pracy.",
+      "Raport weryfikacji i ewentualna remediacja.",
+      "Audit trail instalacji."
+    ],
+    "humanCheckpoints": [
+      "Uzytkownik zatwierdza destrukcyjne zmiany lokalne.",
+      "Wyjatki infrastrukturalne sa eskalowane poza workflow."
+    ],
+    "implementationNotes": [
+      "Bootstrap i checki sa lepszym targetem niz sama praca developerska.",
+      "Stan srodowiska powinien byc weryfikowany po faktach, nie na timerach.",
+      "Kazdy krok powinien byc restartowalny i idempotentny."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 44.268,
+      "clipboardOps": 2967,
+      "userCount": 18,
+      "passiveSharePct": 15.47,
+      "instances": 5612,
+      "explainableScore": 39.6,
+      "sourceScore": 25.11,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "dużo operacji clipboard",
+        "szerokie pokrycie zespołu",
+        "duży łączny czas aktywny",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "IntelliJ__Working on kyp-backend",
+    "priorityRank": 6,
+    "priorityBand": "Watchlist",
+    "eligibility": "watchlist",
+    "workflowKind": "adjacent_automation_only",
+    "title": "Adjacent automation around knowledge work",
+    "processStep": "Working on kyp-backend",
+    "application": "IntelliJ",
+    "automationShape": "observe -> collect metadata -> update side systems",
+    "objective": "Nie automatyzuj samej pracy wiedzy. Automatyzuj tylko statusy, metadane i artefakty wokol niej.",
+    "nextAction": "Wydziel konkretne sygnaly uboczne, ktore mozna zapisac bez ingerencji w prace ekspercką.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "adjacent_signal",
+      "source": "IntelliJ",
+      "condition": "Pojawia sie sygnal uboczny z pracy eksperckiej, np. zmiana statusu, build, komentarz lub artefakt."
+    },
+    "systems": [
+      "IntelliJ",
+      "Task system",
+      "Notification channel"
+    ],
+    "inputs": [
+      {
+        "name": "work_item_id",
+        "source": "IntelliJ",
+        "required": true,
+        "purpose": "identyfikator obiektu roboczego"
+      },
+      {
+        "name": "adjacent_signal",
+        "source": "IntelliJ",
+        "required": true,
+        "purpose": "sygnal uboczny do zapisania w systemach satelitarnych"
+      }
+    ],
+    "steps": [
+      {
+        "id": "capture_signal",
+        "kind": "capture",
+        "system": "IntelliJ",
+        "name": "Capture adjacent signal",
+        "description": "Pobierz tylko sygnaly uboczne bez ingerencji w glowna prace."
+      },
+      {
+        "id": "validate_scope",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate automation scope",
+        "description": "Sprawdz, czy sygnal nie dotyczy decyzji merytorycznej."
+      },
+      {
+        "id": "update_side_systems",
+        "kind": "writeback",
+        "system": "Task system",
+        "name": "Update side systems",
+        "description": "Zapisz status, metadane lub linki do artefaktow."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit trail",
+        "description": "Zapisz wykonane aktualizacje i powod automatyzacji."
+      }
+    ],
+    "validations": [
+      "Workflow nie moze podejmowac decyzji eksperckich.",
+      "Automatyzowany sygnal musi byc jednoznaczny i obserwowalny.",
+      "Zakres write-back musi byc ograniczony do systemow satelitarnych."
+    ],
+    "exceptions": [
+      "Sygnał wymaga decyzji merytorycznej.",
+      "Brak jednoznacznego identyfikatora obiektu roboczego."
+    ],
+    "outputs": [
+      "Zaktualizowane systemy satelitarne.",
+      "Audit trail zmian ubocznych."
+    ],
+    "humanCheckpoints": [
+      "Kazdy przypadek poza zdefiniowanym zakresem pozostaje reczny."
+    ],
+    "implementationNotes": [
+      "To jest swiadomie workflow watchlist, nie target do pelnej automatyzacji.",
+      "Najpierw trzeba wyizolowac stabilne sygnaly uboczne."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 151.059,
+      "clipboardOps": 3975,
+      "userCount": 8,
+      "passiveSharePct": 13.63,
+      "instances": 12870,
+      "explainableScore": 39.4,
+      "sourceScore": 32.16,
+      "fitMultiplier": 0.58,
+      "sourceReasoning": [
+        "dużo operacji clipboard",
+        "duży łączny czas aktywny",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Notepad__Create notes",
+    "priorityRank": 7,
+    "priorityBand": "P2",
+    "eligibility": "recommended",
+    "workflowKind": "template_output_assembly",
+    "title": "Template-based content assembly",
+    "processStep": "Create notes",
+    "application": "Notepad",
+    "automationShape": "collect -> assemble -> review -> publish",
+    "objective": "Przyspiesz skladanie artefaktow powtarzalnych bez automatyzowania finalnej odpowiedzialnosci autora.",
+    "nextAction": "Wybierz jeden szablon docelowy i zdefiniuj stabilne zrodla danych do uzupelniania.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "artifact_request",
+      "source": "Notepad",
+      "condition": "Pojawia sie nowy request na standardowy dokument lub prezentacje."
+    },
+    "systems": [
+      "Notepad",
+      "Source systems",
+      "Review queue"
+    ],
+    "inputs": [
+      {
+        "name": "template_id",
+        "source": "Notepad",
+        "required": true,
+        "purpose": "wybrany szablon wyjsciowy"
+      },
+      {
+        "name": "business_inputs",
+        "source": "Source systems",
+        "required": true,
+        "purpose": "ustrukturyzowane dane do wypelnienia tresci"
+      },
+      {
+        "name": "request_id",
+        "source": "Request queue",
+        "required": true,
+        "purpose": "identyfikator zlecenia i audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "collect_inputs",
+        "kind": "capture",
+        "system": "Source systems",
+        "name": "Collect structured inputs",
+        "description": "Pobierz tylko pola wymagane przez szablon."
+      },
+      {
+        "id": "validate_template_data",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate template inputs",
+        "description": "Sprawdz komplet i zgodnosc danych z szablonem."
+      },
+      {
+        "id": "assemble_draft",
+        "kind": "writeback",
+        "system": "Notepad",
+        "name": "Assemble draft artifact",
+        "description": "Wygeneruj szkic artefaktu z gotowego szablonu."
+      },
+      {
+        "id": "route_for_review",
+        "kind": "notification",
+        "system": "Review queue",
+        "name": "Route for focused review",
+        "description": "Przekaz szkic tylko do recenzji roznic i wyjatkow."
+      },
+      {
+        "id": "publish_output",
+        "kind": "writeback",
+        "system": "Notepad",
+        "name": "Publish approved output",
+        "description": "Opublikuj finalny artefakt po review."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store generation audit",
+        "description": "Zapisz wersje, zrodla i wynik recenzji."
+      }
+    ],
+    "validations": [
+      "Szablon musi byc wersjonowany.",
+      "Wszystkie pola wymagane przez szablon musza byc uzupelnione.",
+      "Brak danych blokuje publikacje i kieruje sprawę do review."
+    ],
+    "exceptions": [
+      "Niezgodnosc danych z szablonem.",
+      "Brak jednego z wymaganych wejsc.",
+      "Odrzucenie szkicu podczas review."
+    ],
+    "outputs": [
+      "Wypelniony draft artefaktu.",
+      "Finalny dokument lub prezentacja po review.",
+      "Historia wersji i audyt danych wejsciowych."
+    ],
+    "humanCheckpoints": [
+      "Czlowiek zatwierdza finalna publikacje.",
+      "Zmiany tresci merytorycznej pozostaja po stronie autora."
+    ],
+    "implementationNotes": [
+      "Wejscia musza byc stabilne i wersjonowane.",
+      "Automatyzujemy skladanie, nie finalna odpowiedzialnosc za tresc.",
+      "Identyfikator request_id powinien spinac caly audit trail."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 22.564,
+      "clipboardOps": 2605,
+      "userCount": 34,
+      "passiveSharePct": 5.21,
+      "instances": 5631,
+      "explainableScore": 38.5,
+      "sourceScore": 25.52,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "dużo operacji clipboard",
+        "szerokie pokrycie zespołu",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Notepad++__Create notes",
+    "priorityRank": 8,
+    "priorityBand": "P2",
+    "eligibility": "recommended",
+    "workflowKind": "template_output_assembly",
+    "title": "Template-based content assembly",
+    "processStep": "Create notes",
+    "application": "Notepad++",
+    "automationShape": "collect -> assemble -> review -> publish",
+    "objective": "Przyspiesz skladanie artefaktow powtarzalnych bez automatyzowania finalnej odpowiedzialnosci autora.",
+    "nextAction": "Wybierz jeden szablon docelowy i zdefiniuj stabilne zrodla danych do uzupelniania.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "artifact_request",
+      "source": "Notepad++",
+      "condition": "Pojawia sie nowy request na standardowy dokument lub prezentacje."
+    },
+    "systems": [
+      "Notepad++",
+      "Source systems",
+      "Review queue"
+    ],
+    "inputs": [
+      {
+        "name": "template_id",
+        "source": "Notepad++",
+        "required": true,
+        "purpose": "wybrany szablon wyjsciowy"
+      },
+      {
+        "name": "business_inputs",
+        "source": "Source systems",
+        "required": true,
+        "purpose": "ustrukturyzowane dane do wypelnienia tresci"
+      },
+      {
+        "name": "request_id",
+        "source": "Request queue",
+        "required": true,
+        "purpose": "identyfikator zlecenia i audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "collect_inputs",
+        "kind": "capture",
+        "system": "Source systems",
+        "name": "Collect structured inputs",
+        "description": "Pobierz tylko pola wymagane przez szablon."
+      },
+      {
+        "id": "validate_template_data",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate template inputs",
+        "description": "Sprawdz komplet i zgodnosc danych z szablonem."
+      },
+      {
+        "id": "assemble_draft",
+        "kind": "writeback",
+        "system": "Notepad++",
+        "name": "Assemble draft artifact",
+        "description": "Wygeneruj szkic artefaktu z gotowego szablonu."
+      },
+      {
+        "id": "route_for_review",
+        "kind": "notification",
+        "system": "Review queue",
+        "name": "Route for focused review",
+        "description": "Przekaz szkic tylko do recenzji roznic i wyjatkow."
+      },
+      {
+        "id": "publish_output",
+        "kind": "writeback",
+        "system": "Notepad++",
+        "name": "Publish approved output",
+        "description": "Opublikuj finalny artefakt po review."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store generation audit",
+        "description": "Zapisz wersje, zrodla i wynik recenzji."
+      }
+    ],
+    "validations": [
+      "Szablon musi byc wersjonowany.",
+      "Wszystkie pola wymagane przez szablon musza byc uzupelnione.",
+      "Brak danych blokuje publikacje i kieruje sprawę do review."
+    ],
+    "exceptions": [
+      "Niezgodnosc danych z szablonem.",
+      "Brak jednego z wymaganych wejsc.",
+      "Odrzucenie szkicu podczas review."
+    ],
+    "outputs": [
+      "Wypelniony draft artefaktu.",
+      "Finalny dokument lub prezentacja po review.",
+      "Historia wersji i audyt danych wejsciowych."
+    ],
+    "humanCheckpoints": [
+      "Czlowiek zatwierdza finalna publikacje.",
+      "Zmiany tresci merytorycznej pozostaja po stronie autora."
+    ],
+    "implementationNotes": [
+      "Wejscia musza byc stabilne i wersjonowane.",
+      "Automatyzujemy skladanie, nie finalna odpowiedzialnosc za tresc.",
+      "Identyfikator request_id powinien spinac caly audit trail."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 22.564,
+      "clipboardOps": 2605,
+      "userCount": 34,
+      "passiveSharePct": 5.21,
+      "instances": 5631,
+      "explainableScore": 38.5,
+      "sourceScore": 25.52,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "dużo operacji clipboard",
+        "szerokie pokrycie zespołu",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Discovery__Working with Discovery Environment",
+    "priorityRank": 9,
+    "priorityBand": "P2",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "Working with Discovery Environment",
+    "application": "Discovery",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "Discovery",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "Discovery",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "Discovery",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "Discovery",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "Discovery",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "Discovery",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 40.311,
+      "clipboardOps": 406,
+      "userCount": 40,
+      "passiveSharePct": 25.67,
+      "instances": 7824,
+      "explainableScore": 35.2,
+      "sourceScore": 27.66,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "szerokie pokrycie zespołu",
+        "duży łączny czas aktywny",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Code__Develop kyp-frontend application",
+    "priorityRank": 10,
+    "priorityBand": "Watchlist",
+    "eligibility": "watchlist",
+    "workflowKind": "adjacent_automation_only",
+    "title": "Adjacent automation around knowledge work",
+    "processStep": "Develop kyp-frontend application",
+    "application": "Code",
+    "automationShape": "observe -> collect metadata -> update side systems",
+    "objective": "Nie automatyzuj samej pracy wiedzy. Automatyzuj tylko statusy, metadane i artefakty wokol niej.",
+    "nextAction": "Wydziel konkretne sygnaly uboczne, ktore mozna zapisac bez ingerencji w prace ekspercką.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "adjacent_signal",
+      "source": "Code",
+      "condition": "Pojawia sie sygnal uboczny z pracy eksperckiej, np. zmiana statusu, build, komentarz lub artefakt."
+    },
+    "systems": [
+      "Code",
+      "Task system",
+      "Notification channel"
+    ],
+    "inputs": [
+      {
+        "name": "work_item_id",
+        "source": "Code",
+        "required": true,
+        "purpose": "identyfikator obiektu roboczego"
+      },
+      {
+        "name": "adjacent_signal",
+        "source": "Code",
+        "required": true,
+        "purpose": "sygnal uboczny do zapisania w systemach satelitarnych"
+      }
+    ],
+    "steps": [
+      {
+        "id": "capture_signal",
+        "kind": "capture",
+        "system": "Code",
+        "name": "Capture adjacent signal",
+        "description": "Pobierz tylko sygnaly uboczne bez ingerencji w glowna prace."
+      },
+      {
+        "id": "validate_scope",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate automation scope",
+        "description": "Sprawdz, czy sygnal nie dotyczy decyzji merytorycznej."
+      },
+      {
+        "id": "update_side_systems",
+        "kind": "writeback",
+        "system": "Task system",
+        "name": "Update side systems",
+        "description": "Zapisz status, metadane lub linki do artefaktow."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit trail",
+        "description": "Zapisz wykonane aktualizacje i powod automatyzacji."
+      }
+    ],
+    "validations": [
+      "Workflow nie moze podejmowac decyzji eksperckich.",
+      "Automatyzowany sygnal musi byc jednoznaczny i obserwowalny.",
+      "Zakres write-back musi byc ograniczony do systemow satelitarnych."
+    ],
+    "exceptions": [
+      "Sygnał wymaga decyzji merytorycznej.",
+      "Brak jednoznacznego identyfikatora obiektu roboczego."
+    ],
+    "outputs": [
+      "Zaktualizowane systemy satelitarne.",
+      "Audit trail zmian ubocznych."
+    ],
+    "humanCheckpoints": [
+      "Kazdy przypadek poza zdefiniowanym zakresem pozostaje reczny."
+    ],
+    "implementationNotes": [
+      "To jest swiadomie workflow watchlist, nie target do pelnej automatyzacji.",
+      "Najpierw trzeba wyizolowac stabilne sygnaly uboczne."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 95.54,
+      "clipboardOps": 3549,
+      "userCount": 16,
+      "passiveSharePct": 19.9,
+      "instances": 8983,
+      "explainableScore": 32.4,
+      "sourceScore": 31.54,
+      "fitMultiplier": 0.58,
+      "sourceReasoning": [
+        "dużo operacji clipboard",
+        "szerokie pokrycie zespołu",
+        "duży łączny czas aktywny",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "ChatGPT__AI Searching",
+    "priorityRank": 11,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "AI Searching",
+    "application": "ChatGPT",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "ChatGPT",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "ChatGPT",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "ChatGPT",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "ChatGPT",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "ChatGPT",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "ChatGPT",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 34.685,
+      "clipboardOps": 1470,
+      "userCount": 27,
+      "passiveSharePct": 13.2,
+      "instances": 5173,
+      "explainableScore": 31.5,
+      "sourceScore": 17.64,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "dużo operacji clipboard",
+        "szerokie pokrycie zespołu",
+        "duży łączny czas aktywny"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Bob__bob",
+    "priorityRank": 12,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "bob",
+    "application": "Bob",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "Bob",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "Bob",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "Bob",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "Bob",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "Bob",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "Bob",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 19.462,
+      "clipboardOps": 109,
+      "userCount": 41,
+      "passiveSharePct": 22.77,
+      "instances": 3270,
+      "explainableScore": 26.4,
+      "sourceScore": 19.66,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "szerokie pokrycie zespołu"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Develop__Working with KYP on Develop",
+    "priorityRank": 13,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "Working with KYP on Develop",
+    "application": "Develop",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "Develop",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "Develop",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "Develop",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "Develop",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "Develop",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "Develop",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 26.487,
+      "clipboardOps": 333,
+      "userCount": 21,
+      "passiveSharePct": 33.42,
+      "instances": 5217,
+      "explainableScore": 22.7,
+      "sourceScore": 21.09,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "wysoki udział czasu pasywnego",
+        "szerokie pokrycie zespołu",
+        "duży łączny czas aktywny",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "SnippingTool__Create screenshot",
+    "priorityRank": 14,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "Create screenshot",
+    "application": "SnippingTool",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "SnippingTool",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "SnippingTool",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "SnippingTool",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "SnippingTool",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "SnippingTool",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "SnippingTool",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 7.271,
+      "clipboardOps": 212,
+      "userCount": 37,
+      "passiveSharePct": 6.42,
+      "instances": 6088,
+      "explainableScore": 21.7,
+      "sourceScore": 17.53,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "szerokie pokrycie zespołu",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Code__ImageResolved",
+    "priorityRank": 15,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "ImageResolved",
+    "application": "Code",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "Code",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "Code",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "Code",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "Code",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "Code",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "Code",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 21.241,
+      "clipboardOps": 1917,
+      "userCount": 5,
+      "passiveSharePct": 8.92,
+      "instances": 5418,
+      "explainableScore": 20.9,
+      "sourceScore": 10.04,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "dużo operacji clipboard"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Team City__Build team City Projects",
+    "priorityRank": 16,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "Build team City Projects",
+    "application": "Team City",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "Team City",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "Team City",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "Team City",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "Team City",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "Team City",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "Team City",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 26.293,
+      "clipboardOps": 273,
+      "userCount": 20,
+      "passiveSharePct": 23.59,
+      "instances": 6193,
+      "explainableScore": 20.9,
+      "sourceScore": 17.53,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "szerokie pokrycie zespołu",
+        "duży łączny czas aktywny",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Windows Explorer__Windows Explorer",
+    "priorityRank": 17,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "Windows Explorer",
+    "application": "Windows Explorer",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "Windows Explorer",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "Windows Explorer",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "Windows Explorer",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "Windows Explorer",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "Windows Explorer",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "Windows Explorer",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 4.41,
+      "clipboardOps": 2,
+      "userCount": 36,
+      "passiveSharePct": 29.02,
+      "instances": 2003,
+      "explainableScore": 20.4,
+      "sourceScore": 18.35,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "szerokie pokrycie zespołu"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Application Frame Host__Settings",
+    "priorityRank": 18,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "Settings",
+    "application": "Application Frame Host",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "Application Frame Host",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "Application Frame Host",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "Application Frame Host",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "Application Frame Host",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "Application Frame Host",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "Application Frame Host",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 1.84,
+      "clipboardOps": 0,
+      "userCount": 33,
+      "passiveSharePct": 47.94,
+      "instances": 344,
+      "explainableScore": 20.3,
+      "sourceScore": 21.75,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "wysoki udział czasu pasywnego",
+        "szerokie pokrycie zespołu"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Freshdesk__Working on support tickets",
+    "priorityRank": 19,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "Working on support tickets",
+    "application": "Freshdesk",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "Freshdesk",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "Freshdesk",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "Freshdesk",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "Freshdesk",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "Freshdesk",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "Freshdesk",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 40.046,
+      "clipboardOps": 432,
+      "userCount": 5,
+      "passiveSharePct": 13.46,
+      "instances": 7869,
+      "explainableScore": 17.4,
+      "sourceScore": 10.11,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "duży łączny czas aktywny",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Application Frame Host__Calculator",
+    "priorityRank": 20,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "Calculator",
+    "application": "Application Frame Host",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "Application Frame Host",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "Application Frame Host",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "Application Frame Host",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "Application Frame Host",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "Application Frame Host",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "Application Frame Host",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 1.278,
+      "clipboardOps": 9,
+      "userCount": 21,
+      "passiveSharePct": 64.88,
+      "instances": 235,
+      "explainableScore": 17.1,
+      "sourceScore": 21.96,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "wysoki udział czasu pasywnego",
+        "szerokie pokrycie zespołu"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Youtrack__Dashboard review",
+    "priorityRank": 21,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "ticket_status_enrichment",
+    "title": "Ticket status and progress copilot",
+    "processStep": "Dashboard review",
+    "application": "Youtrack",
+    "automationShape": "detect -> collect context -> validate -> write back",
+    "objective": "Zautomatyzuj techniczne aktualizacje statusu i uzupelnianie ticketow bez automatyzowania decyzji merytorycznych.",
+    "nextAction": "Zdefiniuj liste dozwolonych transition rules i minimalny evidence pack dla update ticketu.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "status_event",
+      "source": "Youtrack",
+      "condition": "Zmiana statusu, milestone lub sygnal delivery dla ticketu."
+    },
+    "systems": [
+      "Youtrack",
+      "Build / SCM context",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "issue_id",
+        "source": "Youtrack",
+        "required": true,
+        "purpose": "identyfikator sprawy"
+      },
+      {
+        "name": "status_signal",
+        "source": "Delivery context",
+        "required": true,
+        "purpose": "sygnal zmiany etapu prac"
+      },
+      {
+        "name": "supporting_evidence",
+        "source": "Comments / builds / commits",
+        "required": false,
+        "purpose": "kontekst do update statusu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "detect_change",
+        "kind": "capture",
+        "system": "Youtrack",
+        "name": "Detect issue change",
+        "description": "Wykryj ticket wymagajacy technicznego updateu."
+      },
+      {
+        "id": "collect_context",
+        "kind": "enrichment",
+        "system": "Delivery context",
+        "name": "Collect execution context",
+        "description": "Pobierz relewantne komentarze, buildy i milestone."
+      },
+      {
+        "id": "validate_transition",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate transition rules",
+        "description": "Sprawdz, czy przejscie statusu jest dozwolone."
+      },
+      {
+        "id": "write_update",
+        "kind": "writeback",
+        "system": "Youtrack",
+        "name": "Write structured update",
+        "description": "Zapisz ustrukturyzowany update ticketu."
+      },
+      {
+        "id": "escalate_low_confidence",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Escalate low confidence cases",
+        "description": "Przekaz sprawy niejednoznaczne do czlowieka."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit record",
+        "description": "Zapisz kto, kiedy i dlaczego zainicjowal update."
+      }
+    ],
+    "validations": [
+      "Issue musi istniec i byc aktywne.",
+      "Przejscie statusu musi byc zgodne z matryca workflow.",
+      "Automatyczny update nie moze nadpisywac otwartych blockerow."
+    ],
+    "exceptions": [
+      "Niejednoznaczny evidence pack.",
+      "Przejscie statusu poza dozwolona sciezka.",
+      "Blad zapisu do systemu ticketowego."
+    ],
+    "outputs": [
+      "Zaktualizowany ticket.",
+      "Dopisany komentarz lub changelog.",
+      "Audit trail dla wykonanej akcji."
+    ],
+    "humanCheckpoints": [
+      "Wlasciciel sprawy zatwierdza przypadki z niska pewnoscia.",
+      "Statusy typu blocked / cancelled pozostaja reczne."
+    ],
+    "implementationNotes": [
+      "Automatyzujemy statusy i wpisy, nie decyzje produktowe.",
+      "Idempotencja powinna byc oparta o issue_id + event_id.",
+      "Write-back tylko po przejsciu walidacji transition rules."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 4.776,
+      "clipboardOps": 4,
+      "userCount": 27,
+      "passiveSharePct": 33.84,
+      "instances": 1452,
+      "explainableScore": 16.7,
+      "sourceScore": 16.66,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "wysoki udział czasu pasywnego",
+        "szerokie pokrycie zespołu"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Localhost__Build and develop local environment",
+    "priorityRank": 22,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "developer_enablement",
+    "title": "Developer enablement workflow",
+    "processStep": "Build and develop local environment",
+    "application": "Localhost",
+    "automationShape": "request -> provision -> verify -> hand over",
+    "objective": "Zautomatyzuj bootstrap i walidacje srodowiska zamiast recznego powtarzania setupu.",
+    "nextAction": "Spisz minimalny profil setupu i liste weryfikacji, ktore mozna uruchomic bez udzialu operatora.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "setup_request",
+      "source": "Localhost",
+      "condition": "Pojawia sie nowy request na przygotowanie lub odtworzenie srodowiska."
+    },
+    "systems": [
+      "Localhost",
+      "Package manager",
+      "Verification checks"
+    ],
+    "inputs": [
+      {
+        "name": "profile_id",
+        "source": "Request form",
+        "required": true,
+        "purpose": "profil srodowiska do przygotowania"
+      },
+      {
+        "name": "target_machine",
+        "source": "Request form",
+        "required": true,
+        "purpose": "host docelowy lub workspace"
+      },
+      {
+        "name": "requested_tools",
+        "source": "Catalog",
+        "required": false,
+        "purpose": "opcjonalne dodatki do profilu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "capture_request",
+        "kind": "capture",
+        "system": "Request form",
+        "name": "Capture setup request",
+        "description": "Zarejestruj profil i zakres setupu."
+      },
+      {
+        "id": "provision_dependencies",
+        "kind": "writeback",
+        "system": "Package manager",
+        "name": "Provision dependencies",
+        "description": "Zainstaluj zaleznosci w stalej kolejnosci."
+      },
+      {
+        "id": "run_checks",
+        "kind": "validation",
+        "system": "Verification checks",
+        "name": "Run verification checks",
+        "description": "Zweryfikuj wersje, PATH i dzialanie narzedzi."
+      },
+      {
+        "id": "generate_remediation",
+        "kind": "decision",
+        "system": "Rule engine",
+        "name": "Generate remediation guidance",
+        "description": "Przygotuj instrukcje naprawcze dla failujacych krokow."
+      },
+      {
+        "id": "hand_over_environment",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Hand over ready environment",
+        "description": "Przekaz wynik przygotowania do uzytkownika."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store setup audit",
+        "description": "Zapisz wykonane akcje i wynik weryfikacji."
+      }
+    ],
+    "validations": [
+      "Kazda zaleznosc musi miec przypieta wersje lub kanał.",
+      "Checklista walidacyjna musi przejsc przed handoffem.",
+      "Setup nie moze nadpisywac lokalnych danych bez potwierdzenia."
+    ],
+    "exceptions": [
+      "Brak uprawnien do instalacji.",
+      "Konflikt wersji zaleznosci.",
+      "Niezgodnosc konfiguracji hosta."
+    ],
+    "outputs": [
+      "Gotowe srodowisko pracy.",
+      "Raport weryfikacji i ewentualna remediacja.",
+      "Audit trail instalacji."
+    ],
+    "humanCheckpoints": [
+      "Uzytkownik zatwierdza destrukcyjne zmiany lokalne.",
+      "Wyjatki infrastrukturalne sa eskalowane poza workflow."
+    ],
+    "implementationNotes": [
+      "Bootstrap i checki sa lepszym targetem niz sama praca developerska.",
+      "Stan srodowiska powinien byc weryfikowany po faktach, nie na timerach.",
+      "Kazdy krok powinien byc restartowalny i idempotentny."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 31.929,
+      "clipboardOps": 312,
+      "userCount": 12,
+      "passiveSharePct": 8.76,
+      "instances": 6140,
+      "explainableScore": 16.5,
+      "sourceScore": 10.47,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "duży łączny czas aktywny",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Word__Working on text document",
+    "priorityRank": 23,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "document_routing",
+    "title": "Document routing and metadata sync",
+    "processStep": "Working on text document",
+    "application": "Word",
+    "automationShape": "watch -> classify -> route -> sync -> audit",
+    "objective": "Ogranicz reczne przekladanie dokumentow i dopinanie statusow miedzy folderami oraz systemami.",
+    "nextAction": "Uzgodnij minimalny standard metadanych i docelowe kolejki odbioru dokumentow.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "file_change",
+      "source": "Word",
+      "condition": "Nowy lub zmieniony dokument w monitorowanej bibliotece."
+    },
+    "systems": [
+      "Word",
+      "Task system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "document_id",
+        "source": "Word",
+        "required": true,
+        "purpose": "identyfikator dokumentu"
+      },
+      {
+        "name": "metadata",
+        "source": "Word",
+        "required": true,
+        "purpose": "zestaw metadanych do klasyfikacji"
+      },
+      {
+        "name": "routing_target",
+        "source": "Routing rules",
+        "required": false,
+        "purpose": "docelowa kolejka lub folder"
+      }
+    ],
+    "steps": [
+      {
+        "id": "watch_library",
+        "kind": "capture",
+        "system": "Word",
+        "name": "Watch library change",
+        "description": "Wykryj dodanie lub modyfikacje dokumentu."
+      },
+      {
+        "id": "classify_document",
+        "kind": "decision",
+        "system": "Routing rules",
+        "name": "Classify document",
+        "description": "Wyznacz typ dokumentu i docelowa sciezke obiegu."
+      },
+      {
+        "id": "validate_metadata",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate metadata",
+        "description": "Sprawdz komplet wymaganych metadanych."
+      },
+      {
+        "id": "route_document",
+        "kind": "writeback",
+        "system": "Word",
+        "name": "Route document",
+        "description": "Przenies lub przypisz dokument do odpowiedniej kolejki."
+      },
+      {
+        "id": "sync_status",
+        "kind": "writeback",
+        "system": "Task system",
+        "name": "Sync downstream status",
+        "description": "Zaktualizuj status powiazanej sprawy lub zadania."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit trail",
+        "description": "Zapisz trase dokumentu i wynik klasyfikacji."
+      }
+    ],
+    "validations": [
+      "Dokument musi miec jednoznacznego wlasciciela albo kolejke.",
+      "Minimalny zestaw metadanych musi byc uzupelniony.",
+      "Nie wolno przekierowac pliku do wielu kolejek bez jawnej reguly."
+    ],
+    "exceptions": [
+      "Brak metadanych.",
+      "Nieznany typ dokumentu.",
+      "Konflikt routingu."
+    ],
+    "outputs": [
+      "Dokument w docelowej kolejce.",
+      "Zaktualizowany status obiegu.",
+      "Audit trail klasyfikacji i routingu."
+    ],
+    "humanCheckpoints": [
+      "Czlowiek decyduje tylko przy nieznanym typie dokumentu.",
+      "Zmiana reguly routingu wymaga kontroli biznesowej."
+    ],
+    "implementationNotes": [
+      "Najpierw ustal slownik typow dokumentow.",
+      "Routing powinien byc w pelni event-driven po zmianie pliku.",
+      "Metadane musza miec wlasciwosci wymagane przed write-back."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 13.572,
+      "clipboardOps": 442,
+      "userCount": 24,
+      "passiveSharePct": 3.7,
+      "instances": 2000,
+      "explainableScore": 15.9,
+      "sourceScore": 12.82,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "szerokie pokrycie zespołu",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "kyp.ai__Admin Space",
+    "priorityRank": 24,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "Admin Space",
+    "application": "kyp.ai",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "kyp.ai",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "kyp.ai",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "kyp.ai",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "kyp.ai",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "kyp.ai",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "kyp.ai",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 7.229,
+      "clipboardOps": 108,
+      "userCount": 25,
+      "passiveSharePct": 24.65,
+      "instances": 1840,
+      "explainableScore": 15.8,
+      "sourceScore": 17.83,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "szerokie pokrycie zespołu",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Confluence__ConfluOcr",
+    "priorityRank": 25,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "ConfluOcr",
+    "application": "Confluence",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "Confluence",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "Confluence",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "Confluence",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "Confluence",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "Confluence",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "Confluence",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 4.029,
+      "clipboardOps": 25,
+      "userCount": 22,
+      "passiveSharePct": 38.16,
+      "instances": 2084,
+      "explainableScore": 15.4,
+      "sourceScore": 16.11,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "wysoki udział czasu pasywnego",
+        "szerokie pokrycie zespołu"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "IntelliJ__IntelliJOcr",
+    "priorityRank": 26,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "IntelliJOcr",
+    "application": "IntelliJ",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "IntelliJ",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "IntelliJ",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "IntelliJ",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "IntelliJ",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "IntelliJ",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "IntelliJ",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 16.499,
+      "clipboardOps": 98,
+      "userCount": 12,
+      "passiveSharePct": 21.41,
+      "instances": 7837,
+      "explainableScore": 14.6,
+      "sourceScore": 9.87,
+      "fitMultiplier": 1,
+      "sourceReasoning": []
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "kyp.ai__Discovery Space",
+    "priorityRank": 27,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "Discovery Space",
+    "application": "kyp.ai",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "kyp.ai",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "kyp.ai",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "kyp.ai",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "kyp.ai",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "kyp.ai",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "kyp.ai",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 17.6,
+      "clipboardOps": 101,
+      "userCount": 20,
+      "passiveSharePct": 10.97,
+      "instances": 2931,
+      "explainableScore": 14.3,
+      "sourceScore": 10,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "szerokie pokrycie zespołu"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Youtrack__Working On Support Ticket",
+    "priorityRank": 28,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "ticket_status_enrichment",
+    "title": "Ticket status and progress copilot",
+    "processStep": "Working On Support Ticket",
+    "application": "Youtrack",
+    "automationShape": "detect -> collect context -> validate -> write back",
+    "objective": "Zautomatyzuj techniczne aktualizacje statusu i uzupelnianie ticketow bez automatyzowania decyzji merytorycznych.",
+    "nextAction": "Zdefiniuj liste dozwolonych transition rules i minimalny evidence pack dla update ticketu.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "status_event",
+      "source": "Youtrack",
+      "condition": "Zmiana statusu, milestone lub sygnal delivery dla ticketu."
+    },
+    "systems": [
+      "Youtrack",
+      "Build / SCM context",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "issue_id",
+        "source": "Youtrack",
+        "required": true,
+        "purpose": "identyfikator sprawy"
+      },
+      {
+        "name": "status_signal",
+        "source": "Delivery context",
+        "required": true,
+        "purpose": "sygnal zmiany etapu prac"
+      },
+      {
+        "name": "supporting_evidence",
+        "source": "Comments / builds / commits",
+        "required": false,
+        "purpose": "kontekst do update statusu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "detect_change",
+        "kind": "capture",
+        "system": "Youtrack",
+        "name": "Detect issue change",
+        "description": "Wykryj ticket wymagajacy technicznego updateu."
+      },
+      {
+        "id": "collect_context",
+        "kind": "enrichment",
+        "system": "Delivery context",
+        "name": "Collect execution context",
+        "description": "Pobierz relewantne komentarze, buildy i milestone."
+      },
+      {
+        "id": "validate_transition",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate transition rules",
+        "description": "Sprawdz, czy przejscie statusu jest dozwolone."
+      },
+      {
+        "id": "write_update",
+        "kind": "writeback",
+        "system": "Youtrack",
+        "name": "Write structured update",
+        "description": "Zapisz ustrukturyzowany update ticketu."
+      },
+      {
+        "id": "escalate_low_confidence",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Escalate low confidence cases",
+        "description": "Przekaz sprawy niejednoznaczne do czlowieka."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit record",
+        "description": "Zapisz kto, kiedy i dlaczego zainicjowal update."
+      }
+    ],
+    "validations": [
+      "Issue musi istniec i byc aktywne.",
+      "Przejscie statusu musi byc zgodne z matryca workflow.",
+      "Automatyczny update nie moze nadpisywac otwartych blockerow."
+    ],
+    "exceptions": [
+      "Niejednoznaczny evidence pack.",
+      "Przejscie statusu poza dozwolona sciezka.",
+      "Blad zapisu do systemu ticketowego."
+    ],
+    "outputs": [
+      "Zaktualizowany ticket.",
+      "Dopisany komentarz lub changelog.",
+      "Audit trail dla wykonanej akcji."
+    ],
+    "humanCheckpoints": [
+      "Wlasciciel sprawy zatwierdza przypadki z niska pewnoscia.",
+      "Statusy typu blocked / cancelled pozostaja reczne."
+    ],
+    "implementationNotes": [
+      "Automatyzujemy statusy i wpisy, nie decyzje produktowe.",
+      "Idempotencja powinna byc oparta o issue_id + event_id.",
+      "Write-back tylko po przejsciu walidacji transition rules."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 10.513,
+      "clipboardOps": 150,
+      "userCount": 22,
+      "passiveSharePct": 12.1,
+      "instances": 2905,
+      "explainableScore": 14.2,
+      "sourceScore": 13.27,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "szerokie pokrycie zespołu",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "kyp.ai__Connect App Installers",
+    "priorityRank": 29,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "developer_enablement",
+    "title": "Developer enablement workflow",
+    "processStep": "Connect App Installers",
+    "application": "kyp.ai",
+    "automationShape": "request -> provision -> verify -> hand over",
+    "objective": "Zautomatyzuj bootstrap i walidacje srodowiska zamiast recznego powtarzania setupu.",
+    "nextAction": "Spisz minimalny profil setupu i liste weryfikacji, ktore mozna uruchomic bez udzialu operatora.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "setup_request",
+      "source": "kyp.ai",
+      "condition": "Pojawia sie nowy request na przygotowanie lub odtworzenie srodowiska."
+    },
+    "systems": [
+      "kyp.ai",
+      "Package manager",
+      "Verification checks"
+    ],
+    "inputs": [
+      {
+        "name": "profile_id",
+        "source": "Request form",
+        "required": true,
+        "purpose": "profil srodowiska do przygotowania"
+      },
+      {
+        "name": "target_machine",
+        "source": "Request form",
+        "required": true,
+        "purpose": "host docelowy lub workspace"
+      },
+      {
+        "name": "requested_tools",
+        "source": "Catalog",
+        "required": false,
+        "purpose": "opcjonalne dodatki do profilu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "capture_request",
+        "kind": "capture",
+        "system": "Request form",
+        "name": "Capture setup request",
+        "description": "Zarejestruj profil i zakres setupu."
+      },
+      {
+        "id": "provision_dependencies",
+        "kind": "writeback",
+        "system": "Package manager",
+        "name": "Provision dependencies",
+        "description": "Zainstaluj zaleznosci w stalej kolejnosci."
+      },
+      {
+        "id": "run_checks",
+        "kind": "validation",
+        "system": "Verification checks",
+        "name": "Run verification checks",
+        "description": "Zweryfikuj wersje, PATH i dzialanie narzedzi."
+      },
+      {
+        "id": "generate_remediation",
+        "kind": "decision",
+        "system": "Rule engine",
+        "name": "Generate remediation guidance",
+        "description": "Przygotuj instrukcje naprawcze dla failujacych krokow."
+      },
+      {
+        "id": "hand_over_environment",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Hand over ready environment",
+        "description": "Przekaz wynik przygotowania do uzytkownika."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store setup audit",
+        "description": "Zapisz wykonane akcje i wynik weryfikacji."
+      }
+    ],
+    "validations": [
+      "Kazda zaleznosc musi miec przypieta wersje lub kanał.",
+      "Checklista walidacyjna musi przejsc przed handoffem.",
+      "Setup nie moze nadpisywac lokalnych danych bez potwierdzenia."
+    ],
+    "exceptions": [
+      "Brak uprawnien do instalacji.",
+      "Konflikt wersji zaleznosci.",
+      "Niezgodnosc konfiguracji hosta."
+    ],
+    "outputs": [
+      "Gotowe srodowisko pracy.",
+      "Raport weryfikacji i ewentualna remediacja.",
+      "Audit trail instalacji."
+    ],
+    "humanCheckpoints": [
+      "Uzytkownik zatwierdza destrukcyjne zmiany lokalne.",
+      "Wyjatki infrastrukturalne sa eskalowane poza workflow."
+    ],
+    "implementationNotes": [
+      "Bootstrap i checki sa lepszym targetem niz sama praca developerska.",
+      "Stan srodowiska powinien byc weryfikowany po faktach, nie na timerach.",
+      "Kazdy krok powinien byc restartowalny i idempotentny."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 0.504,
+      "clipboardOps": 0,
+      "userCount": 5,
+      "passiveSharePct": 92.03,
+      "instances": 148,
+      "explainableScore": 13.5,
+      "sourceScore": 23.28,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "wysoki udział czasu pasywnego"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Youtrack__SukcesOcr",
+    "priorityRank": 30,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "ticket_status_enrichment",
+    "title": "Ticket status and progress copilot",
+    "processStep": "SukcesOcr",
+    "application": "Youtrack",
+    "automationShape": "detect -> collect context -> validate -> write back",
+    "objective": "Zautomatyzuj techniczne aktualizacje statusu i uzupelnianie ticketow bez automatyzowania decyzji merytorycznych.",
+    "nextAction": "Zdefiniuj liste dozwolonych transition rules i minimalny evidence pack dla update ticketu.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "status_event",
+      "source": "Youtrack",
+      "condition": "Zmiana statusu, milestone lub sygnal delivery dla ticketu."
+    },
+    "systems": [
+      "Youtrack",
+      "Build / SCM context",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "issue_id",
+        "source": "Youtrack",
+        "required": true,
+        "purpose": "identyfikator sprawy"
+      },
+      {
+        "name": "status_signal",
+        "source": "Delivery context",
+        "required": true,
+        "purpose": "sygnal zmiany etapu prac"
+      },
+      {
+        "name": "supporting_evidence",
+        "source": "Comments / builds / commits",
+        "required": false,
+        "purpose": "kontekst do update statusu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "detect_change",
+        "kind": "capture",
+        "system": "Youtrack",
+        "name": "Detect issue change",
+        "description": "Wykryj ticket wymagajacy technicznego updateu."
+      },
+      {
+        "id": "collect_context",
+        "kind": "enrichment",
+        "system": "Delivery context",
+        "name": "Collect execution context",
+        "description": "Pobierz relewantne komentarze, buildy i milestone."
+      },
+      {
+        "id": "validate_transition",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate transition rules",
+        "description": "Sprawdz, czy przejscie statusu jest dozwolone."
+      },
+      {
+        "id": "write_update",
+        "kind": "writeback",
+        "system": "Youtrack",
+        "name": "Write structured update",
+        "description": "Zapisz ustrukturyzowany update ticketu."
+      },
+      {
+        "id": "escalate_low_confidence",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Escalate low confidence cases",
+        "description": "Przekaz sprawy niejednoznaczne do czlowieka."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit record",
+        "description": "Zapisz kto, kiedy i dlaczego zainicjowal update."
+      }
+    ],
+    "validations": [
+      "Issue musi istniec i byc aktywne.",
+      "Przejscie statusu musi byc zgodne z matryca workflow.",
+      "Automatyczny update nie moze nadpisywac otwartych blockerow."
+    ],
+    "exceptions": [
+      "Niejednoznaczny evidence pack.",
+      "Przejscie statusu poza dozwolona sciezka.",
+      "Blad zapisu do systemu ticketowego."
+    ],
+    "outputs": [
+      "Zaktualizowany ticket.",
+      "Dopisany komentarz lub changelog.",
+      "Audit trail dla wykonanej akcji."
+    ],
+    "humanCheckpoints": [
+      "Wlasciciel sprawy zatwierdza przypadki z niska pewnoscia.",
+      "Statusy typu blocked / cancelled pozostaja reczne."
+    ],
+    "implementationNotes": [
+      "Automatyzujemy statusy i wpisy, nie decyzje produktowe.",
+      "Idempotencja powinna byc oparta o issue_id + event_id.",
+      "Write-back tylko po przejsciu walidacji transition rules."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 2.786,
+      "clipboardOps": 0,
+      "userCount": 20,
+      "passiveSharePct": 19.9,
+      "instances": 1527,
+      "explainableScore": 11,
+      "sourceScore": 10.96,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "szerokie pokrycie zespołu"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "kyp.ai__pgAdmin",
+    "priorityRank": 31,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "pgAdmin",
+    "application": "kyp.ai",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "kyp.ai",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "kyp.ai",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "kyp.ai",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "kyp.ai",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "kyp.ai",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "kyp.ai",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 2.058,
+      "clipboardOps": 57,
+      "userCount": 10,
+      "passiveSharePct": 47.93,
+      "instances": 258,
+      "explainableScore": 10,
+      "sourceScore": 14.58,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "wysoki udział czasu pasywnego"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Github__Working with repository",
+    "priorityRank": 32,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "Working with repository",
+    "application": "Github",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "Github",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "Github",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "Github",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "Github",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "Github",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "Github",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 5.965,
+      "clipboardOps": 81,
+      "userCount": 19,
+      "passiveSharePct": 6.93,
+      "instances": 1549,
+      "explainableScore": 9.9,
+      "sourceScore": 9.95,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "szerokie pokrycie zespołu",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "IntelliJ__Working on qa-backend",
+    "priorityRank": 33,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "Working on qa-backend",
+    "application": "IntelliJ",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "IntelliJ",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "IntelliJ",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "IntelliJ",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "IntelliJ",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "IntelliJ",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "IntelliJ",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 16.209,
+      "clipboardOps": 259,
+      "userCount": 6,
+      "passiveSharePct": 23.04,
+      "instances": 1539,
+      "explainableScore": 9.5,
+      "sourceScore": 10.97,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "IntelliJ__Backend development",
+    "priorityRank": 34,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "Backend development",
+    "application": "IntelliJ",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "IntelliJ",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "IntelliJ",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "IntelliJ",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "IntelliJ",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "IntelliJ",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "IntelliJ",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 3.464,
+      "clipboardOps": 147,
+      "userCount": 13,
+      "passiveSharePct": 26.21,
+      "instances": 620,
+      "explainableScore": 9.3,
+      "sourceScore": 10.69,
+      "fitMultiplier": 1,
+      "sourceReasoning": []
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Putty__Remote Host Access",
+    "priorityRank": 35,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "Remote Host Access",
+    "application": "Putty",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "Putty",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "Putty",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "Putty",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "Putty",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "Putty",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "Putty",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 13.968,
+      "clipboardOps": 311,
+      "userCount": 4,
+      "passiveSharePct": 22.33,
+      "instances": 2702,
+      "explainableScore": 9,
+      "sourceScore": 7.98,
+      "fitMultiplier": 1,
+      "sourceReasoning": []
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Team City__Overview Projects",
+    "priorityRank": 36,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "Overview Projects",
+    "application": "Team City",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "Team City",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "Team City",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "Team City",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "Team City",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "Team City",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "Team City",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 4.027,
+      "clipboardOps": 8,
+      "userCount": 15,
+      "passiveSharePct": 19.19,
+      "instances": 952,
+      "explainableScore": 8.6,
+      "sourceScore": 9.29,
+      "fitMultiplier": 1,
+      "sourceReasoning": []
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Staging__Working with KYP on Staging",
+    "priorityRank": 37,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "Working with KYP on Staging",
+    "application": "Staging",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "Staging",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "Staging",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "Staging",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "Staging",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "Staging",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "Staging",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 3.501,
+      "clipboardOps": 62,
+      "userCount": 16,
+      "passiveSharePct": 10.36,
+      "instances": 885,
+      "explainableScore": 8,
+      "sourceScore": 9.52,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "szerokie pokrycie zespołu",
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Dbeaver__Database Query",
+    "priorityRank": 38,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "generic_operational_step",
+    "title": "Operational step copilot",
+    "processStep": "Database Query",
+    "application": "Dbeaver",
+    "automationShape": "observe -> validate -> write back -> audit",
+    "objective": "Zautomatyzuj powtarzalny krok operacyjny w oparciu o jawny trigger i kontrolowany write-back.",
+    "nextAction": "Potwierdz trigger, minimalne wejscia i docelowy system zapisu przed budowa PoC.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "state_change",
+      "source": "Dbeaver",
+      "condition": "Obserwowany krok wchodzi w stan gotowy do obslugi automatycznej."
+    },
+    "systems": [
+      "Dbeaver",
+      "Target system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "case_id",
+        "source": "Dbeaver",
+        "required": true,
+        "purpose": "identyfikator instancji procesu"
+      },
+      {
+        "name": "payload",
+        "source": "Dbeaver",
+        "required": true,
+        "purpose": "dane potrzebne do wykonania kroku"
+      },
+      {
+        "name": "operator_context",
+        "source": "Dbeaver",
+        "required": false,
+        "purpose": "kontekst operatora dla audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "observe_ready_state",
+        "kind": "capture",
+        "system": "Dbeaver",
+        "name": "Observe ready state",
+        "description": "Wykryj moment, w ktorym krok jest gotowy do obslugi."
+      },
+      {
+        "id": "validate_business_rules",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate business rules",
+        "description": "Sprawdz warunki wejscia i dopuszczalnosc operacji."
+      },
+      {
+        "id": "write_result",
+        "kind": "writeback",
+        "system": "Target system",
+        "name": "Write result",
+        "description": "Zapisz wynik operacji w systemie docelowym."
+      },
+      {
+        "id": "notify_on_exception",
+        "kind": "notification",
+        "system": "Notification channel",
+        "name": "Notify on exception",
+        "description": "Powiadom operatora tylko przy wyjatku."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit",
+        "description": "Zapisz kto, kiedy i jaki wynik zostal osiagniety."
+      }
+    ],
+    "validations": [
+      "Trigger musi byc jednoznaczny i oparty na stanie, nie na czasie.",
+      "Write-back musi byc idempotentny po case_id lub record_id.",
+      "Brak wymaganych danych blokuje wykonanie kroku."
+    ],
+    "exceptions": [
+      "Brak danych wejsciowych.",
+      "Konflikt stanu docelowego.",
+      "Blad zapisu do systemu docelowego."
+    ],
+    "outputs": [
+      "Zaktualizowany stan sprawy.",
+      "Audit trail operacji."
+    ],
+    "humanCheckpoints": [
+      "Operator zatwierdza tylko przypadki wyjatkowe."
+    ],
+    "implementationNotes": [
+      "Preferowany jest trigger event-driven.",
+      "Najpierw ustal minimalny zakres write-back i zasady rollbacku.",
+      "Workflow powinien byc restartowalny bez duplikacji skutkow."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 7.4,
+      "clipboardOps": 199,
+      "userCount": 10,
+      "passiveSharePct": 11,
+      "instances": 1124,
+      "explainableScore": 7.1,
+      "sourceScore": 8.1,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "OneNote__Creating notes",
+    "priorityRank": 39,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "template_output_assembly",
+    "title": "Template-based content assembly",
+    "processStep": "Creating notes",
+    "application": "OneNote",
+    "automationShape": "collect -> assemble -> review -> publish",
+    "objective": "Przyspiesz skladanie artefaktow powtarzalnych bez automatyzowania finalnej odpowiedzialnosci autora.",
+    "nextAction": "Wybierz jeden szablon docelowy i zdefiniuj stabilne zrodla danych do uzupelniania.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "artifact_request",
+      "source": "OneNote",
+      "condition": "Pojawia sie nowy request na standardowy dokument lub prezentacje."
+    },
+    "systems": [
+      "OneNote",
+      "Source systems",
+      "Review queue"
+    ],
+    "inputs": [
+      {
+        "name": "template_id",
+        "source": "OneNote",
+        "required": true,
+        "purpose": "wybrany szablon wyjsciowy"
+      },
+      {
+        "name": "business_inputs",
+        "source": "Source systems",
+        "required": true,
+        "purpose": "ustrukturyzowane dane do wypelnienia tresci"
+      },
+      {
+        "name": "request_id",
+        "source": "Request queue",
+        "required": true,
+        "purpose": "identyfikator zlecenia i audytu"
+      }
+    ],
+    "steps": [
+      {
+        "id": "collect_inputs",
+        "kind": "capture",
+        "system": "Source systems",
+        "name": "Collect structured inputs",
+        "description": "Pobierz tylko pola wymagane przez szablon."
+      },
+      {
+        "id": "validate_template_data",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate template inputs",
+        "description": "Sprawdz komplet i zgodnosc danych z szablonem."
+      },
+      {
+        "id": "assemble_draft",
+        "kind": "writeback",
+        "system": "OneNote",
+        "name": "Assemble draft artifact",
+        "description": "Wygeneruj szkic artefaktu z gotowego szablonu."
+      },
+      {
+        "id": "route_for_review",
+        "kind": "notification",
+        "system": "Review queue",
+        "name": "Route for focused review",
+        "description": "Przekaz szkic tylko do recenzji roznic i wyjatkow."
+      },
+      {
+        "id": "publish_output",
+        "kind": "writeback",
+        "system": "OneNote",
+        "name": "Publish approved output",
+        "description": "Opublikuj finalny artefakt po review."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store generation audit",
+        "description": "Zapisz wersje, zrodla i wynik recenzji."
+      }
+    ],
+    "validations": [
+      "Szablon musi byc wersjonowany.",
+      "Wszystkie pola wymagane przez szablon musza byc uzupelnione.",
+      "Brak danych blokuje publikacje i kieruje sprawę do review."
+    ],
+    "exceptions": [
+      "Niezgodnosc danych z szablonem.",
+      "Brak jednego z wymaganych wejsc.",
+      "Odrzucenie szkicu podczas review."
+    ],
+    "outputs": [
+      "Wypelniony draft artefaktu.",
+      "Finalny dokument lub prezentacja po review.",
+      "Historia wersji i audyt danych wejsciowych."
+    ],
+    "humanCheckpoints": [
+      "Czlowiek zatwierdza finalna publikacje.",
+      "Zmiany tresci merytorycznej pozostaja po stronie autora."
+    ],
+    "implementationNotes": [
+      "Wejscia musza byc stabilne i wersjonowane.",
+      "Automatyzujemy skladanie, nie finalna odpowiedzialnosc za tresc.",
+      "Identyfikator request_id powinien spinac caly audit trail."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 2.021,
+      "clipboardOps": 75,
+      "userCount": 8,
+      "passiveSharePct": 29.99,
+      "instances": 466,
+      "explainableScore": 6.7,
+      "sourceScore": 9.71,
+      "fitMultiplier": 1,
+      "sourceReasoning": []
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "IntelliJ__Java Development",
+    "priorityRank": 40,
+    "priorityBand": "Watchlist",
+    "eligibility": "watchlist",
+    "workflowKind": "adjacent_automation_only",
+    "title": "Adjacent automation around knowledge work",
+    "processStep": "Java Development",
+    "application": "IntelliJ",
+    "automationShape": "observe -> collect metadata -> update side systems",
+    "objective": "Nie automatyzuj samej pracy wiedzy. Automatyzuj tylko statusy, metadane i artefakty wokol niej.",
+    "nextAction": "Wydziel konkretne sygnaly uboczne, ktore mozna zapisac bez ingerencji w prace ekspercką.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "adjacent_signal",
+      "source": "IntelliJ",
+      "condition": "Pojawia sie sygnal uboczny z pracy eksperckiej, np. zmiana statusu, build, komentarz lub artefakt."
+    },
+    "systems": [
+      "IntelliJ",
+      "Task system",
+      "Notification channel"
+    ],
+    "inputs": [
+      {
+        "name": "work_item_id",
+        "source": "IntelliJ",
+        "required": true,
+        "purpose": "identyfikator obiektu roboczego"
+      },
+      {
+        "name": "adjacent_signal",
+        "source": "IntelliJ",
+        "required": true,
+        "purpose": "sygnal uboczny do zapisania w systemach satelitarnych"
+      }
+    ],
+    "steps": [
+      {
+        "id": "capture_signal",
+        "kind": "capture",
+        "system": "IntelliJ",
+        "name": "Capture adjacent signal",
+        "description": "Pobierz tylko sygnaly uboczne bez ingerencji w glowna prace."
+      },
+      {
+        "id": "validate_scope",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate automation scope",
+        "description": "Sprawdz, czy sygnal nie dotyczy decyzji merytorycznej."
+      },
+      {
+        "id": "update_side_systems",
+        "kind": "writeback",
+        "system": "Task system",
+        "name": "Update side systems",
+        "description": "Zapisz status, metadane lub linki do artefaktow."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit trail",
+        "description": "Zapisz wykonane aktualizacje i powod automatyzacji."
+      }
+    ],
+    "validations": [
+      "Workflow nie moze podejmowac decyzji eksperckich.",
+      "Automatyzowany sygnal musi byc jednoznaczny i obserwowalny.",
+      "Zakres write-back musi byc ograniczony do systemow satelitarnych."
+    ],
+    "exceptions": [
+      "Sygnał wymaga decyzji merytorycznej.",
+      "Brak jednoznacznego identyfikatora obiektu roboczego."
+    ],
+    "outputs": [
+      "Zaktualizowane systemy satelitarne.",
+      "Audit trail zmian ubocznych."
+    ],
+    "humanCheckpoints": [
+      "Kazdy przypadek poza zdefiniowanym zakresem pozostaje reczny."
+    ],
+    "implementationNotes": [
+      "To jest swiadomie workflow watchlist, nie target do pelnej automatyzacji.",
+      "Najpierw trzeba wyizolowac stabilne sygnaly uboczne."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 12.511,
+      "clipboardOps": 477,
+      "userCount": 10,
+      "passiveSharePct": 12.2,
+      "instances": 1399,
+      "explainableScore": 6,
+      "sourceScore": 7.85,
+      "fitMultiplier": 0.58,
+      "sourceReasoning": []
+    }
+  },
+  {
+    "version": "1.0.0",
+    "candidateKey": "Document360 - Private__document",
+    "priorityRank": 41,
+    "priorityBand": "P3",
+    "eligibility": "recommended",
+    "workflowKind": "document_routing",
+    "title": "Document routing and metadata sync",
+    "processStep": "document",
+    "application": "Document360 - Private",
+    "automationShape": "watch -> classify -> route -> sync -> audit",
+    "objective": "Ogranicz reczne przekladanie dokumentow i dopinanie statusow miedzy folderami oraz systemami.",
+    "nextAction": "Uzgodnij minimalny standard metadanych i docelowe kolejki odbioru dokumentow.",
+    "trigger": {
+      "mode": "event_driven",
+      "type": "file_change",
+      "source": "Document360 - Private",
+      "condition": "Nowy lub zmieniony dokument w monitorowanej bibliotece."
+    },
+    "systems": [
+      "Document360 - Private",
+      "Task system",
+      "Audit log"
+    ],
+    "inputs": [
+      {
+        "name": "document_id",
+        "source": "Document360 - Private",
+        "required": true,
+        "purpose": "identyfikator dokumentu"
+      },
+      {
+        "name": "metadata",
+        "source": "Document360 - Private",
+        "required": true,
+        "purpose": "zestaw metadanych do klasyfikacji"
+      },
+      {
+        "name": "routing_target",
+        "source": "Routing rules",
+        "required": false,
+        "purpose": "docelowa kolejka lub folder"
+      }
+    ],
+    "steps": [
+      {
+        "id": "watch_library",
+        "kind": "capture",
+        "system": "Document360 - Private",
+        "name": "Watch library change",
+        "description": "Wykryj dodanie lub modyfikacje dokumentu."
+      },
+      {
+        "id": "classify_document",
+        "kind": "decision",
+        "system": "Routing rules",
+        "name": "Classify document",
+        "description": "Wyznacz typ dokumentu i docelowa sciezke obiegu."
+      },
+      {
+        "id": "validate_metadata",
+        "kind": "validation",
+        "system": "Rule engine",
+        "name": "Validate metadata",
+        "description": "Sprawdz komplet wymaganych metadanych."
+      },
+      {
+        "id": "route_document",
+        "kind": "writeback",
+        "system": "Document360 - Private",
+        "name": "Route document",
+        "description": "Przenies lub przypisz dokument do odpowiedniej kolejki."
+      },
+      {
+        "id": "sync_status",
+        "kind": "writeback",
+        "system": "Task system",
+        "name": "Sync downstream status",
+        "description": "Zaktualizuj status powiazanej sprawy lub zadania."
+      },
+      {
+        "id": "store_audit",
+        "kind": "audit",
+        "system": "Audit log",
+        "name": "Store audit trail",
+        "description": "Zapisz trase dokumentu i wynik klasyfikacji."
+      }
+    ],
+    "validations": [
+      "Dokument musi miec jednoznacznego wlasciciela albo kolejke.",
+      "Minimalny zestaw metadanych musi byc uzupelniony.",
+      "Nie wolno przekierowac pliku do wielu kolejek bez jawnej reguly."
+    ],
+    "exceptions": [
+      "Brak metadanych.",
+      "Nieznany typ dokumentu.",
+      "Konflikt routingu."
+    ],
+    "outputs": [
+      "Dokument w docelowej kolejce.",
+      "Zaktualizowany status obiegu.",
+      "Audit trail klasyfikacji i routingu."
+    ],
+    "humanCheckpoints": [
+      "Czlowiek decyduje tylko przy nieznanym typie dokumentu.",
+      "Zmiana reguly routingu wymaga kontroli biznesowej."
+    ],
+    "implementationNotes": [
+      "Najpierw ustal slownik typow dokumentow.",
+      "Routing powinien byc w pelni event-driven po zmianie pliku.",
+      "Metadane musza miec wlasciwosci wymagane przed write-back."
+    ],
+    "evidenceSources": [
+      "Activity Sequence Export",
+      "Activity Heatmap Export",
+      "PRM Export",
+      "Process Distribution Export",
+      "Tool Use Export",
+      "BPMN model",
+      "PDD variant preview"
+    ],
+    "evidence": {
+      "activeHours": 3.232,
+      "clipboardOps": 177,
+      "userCount": 7,
+      "passiveSharePct": 13.48,
+      "instances": 466,
+      "explainableScore": 4.7,
+      "sourceScore": 7.25,
+      "fitMultiplier": 1,
+      "sourceReasoning": [
+        "nazwa kroku sugeruje pracę operacyjną"
+      ]
+    }
+  }
+]

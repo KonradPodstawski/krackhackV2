@@ -16,7 +16,9 @@
     HeadcountPoint,
     PddVariantPreview,
     ProcessDistributionPoint,
-    Transition
+    SlmDraft,
+    Transition,
+    WorkflowSpec
   } from './lib/types';
 
   type OpportunityPlaybook = {
@@ -204,6 +206,8 @@
     clipboardHeatmapSteps: '/data/clipboard-heatmap-steps.json',
     bpmnTaskMetrics: '/data/bpmn-task-metrics.json',
     automationCandidates: '/data/automation-candidates.json',
+    workflowSpecs: '/data/workflow-specs.json',
+    slmDrafts: '/data/slm-drafts.json',
     pddVariantsPreview: '/data/pdd-variants-preview.json',
     bpmnXml: '/data/process-model.bpmn'
   };
@@ -228,6 +232,20 @@
     return response.text();
   }
 
+  async function fetchOptionalJson<T>(url: string, fallback: T): Promise<T> {
+    const response = await fetch(url);
+
+    if (response.status === 404) {
+      return fallback;
+    }
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch ${url}`);
+    }
+
+    return response.json() as Promise<T>;
+  }
+
   onMount(async () => {
     try {
       const [
@@ -245,6 +263,8 @@
         clipboardHeatmapSteps,
         bpmnTaskMetrics,
         automationCandidates,
+        workflowSpecs,
+        slmDrafts,
         pddVariantsPreview,
         bpmnXml
       ] = await Promise.all([
@@ -262,6 +282,8 @@
         fetchJson<DashboardData['clipboardHeatmapSteps']>(endpoints.clipboardHeatmapSteps),
         fetchJson<DashboardData['bpmnTaskMetrics']>(endpoints.bpmnTaskMetrics),
         fetchJson<DashboardData['automationCandidates']>(endpoints.automationCandidates),
+        fetchJson<DashboardData['workflowSpecs']>(endpoints.workflowSpecs),
+        fetchOptionalJson<DashboardData['slmDrafts']>(endpoints.slmDrafts, []),
         fetchJson<DashboardData['pddVariantsPreview']>(endpoints.pddVariantsPreview),
         fetchText(endpoints.bpmnXml)
       ]);
@@ -281,6 +303,8 @@
         clipboardHeatmapSteps,
         bpmnTaskMetrics,
         automationCandidates,
+        workflowSpecs,
+        slmDrafts,
         pddVariantsPreview,
         bpmnXml
       };
@@ -1171,6 +1195,14 @@
     };
   }
 
+  function buildWorkflowSpecDownloadHref(spec: WorkflowSpec): string {
+    return `data:application/json;charset=utf-8,${encodeURIComponent(JSON.stringify(spec, null, 2))}`;
+  }
+
+  function buildSlmDraftDownloadHref(draft: SlmDraft): string {
+    return `data:application/json;charset=utf-8,${encodeURIComponent(JSON.stringify(draft, null, 2))}`;
+  }
+
   $: leadProcesses = data
     ? data.overview.dominantProcesses
         .slice(0, 2)
@@ -1196,6 +1228,12 @@
     explanationSummary: item.explanationSummary,
     directFit: item.directFit
   }));
+  $: workflowSpecsByKey = new Map((data?.workflowSpecs ?? []).map((spec) => [spec.candidateKey, spec]));
+  $: selectedWorkflowSpec = selectedExplainableCandidate
+    ? workflowSpecsByKey.get(selectedExplainableCandidate.key)
+    : undefined;
+  $: slmDraftsByKey = new Map((data?.slmDrafts ?? []).map((draft) => [draft.candidateKey, draft]));
+  $: selectedSlmDraft = selectedExplainableCandidate ? slmDraftsByKey.get(selectedExplainableCandidate.key) : undefined;
 
   $: playbooks = data
     ? recommendedCandidates.slice(0, 3).map((candidate) => buildAutomationPlaybook(candidate))
@@ -1638,6 +1676,264 @@
       description="Backlog jest juz posortowany po lokalnym explainable score. Zostawia tylko kroki operacyjne i pokazuje, jak konkretnie wynik powstal."
     >
       <CandidateTable items={operationalCandidates.slice(0, 12)} />
+    </SectionCard>
+
+    <SectionCard
+      title="Deployment-ready workflow spec"
+      description="To jest brakujacy artefakt produktu: uporzadkowana specyfikacja procesu dla wybranego kandydata, gotowa do przekazania dalej do implementacji, CLI albo warstwy SLM."
+    >
+      {#if selectedWorkflowSpec}
+        <div class="spec-shell">
+          <div class="spec-summary">
+            <div class="eyebrow">Structured export</div>
+            <h3>{selectedWorkflowSpec.title}</h3>
+            <p>
+              {selectedWorkflowSpec.application} / {selectedWorkflowSpec.processStep}
+            </p>
+
+            <div class="metric-pills">
+              <span>{selectedWorkflowSpec.priorityBand}</span>
+              <span>{selectedWorkflowSpec.eligibility}</span>
+              <span>XAI {selectedWorkflowSpec.evidence.explainableScore.toFixed(1)}</span>
+              <span>{selectedWorkflowSpec.trigger.mode}</span>
+            </div>
+
+            <p class="spec-summary__objective">{selectedWorkflowSpec.objective}</p>
+
+            <div class="spec-actions">
+              <a
+                class="spec-download"
+                href={buildWorkflowSpecDownloadHref(selectedWorkflowSpec)}
+                download={`${selectedWorkflowSpec.candidateKey}.json`}
+              >
+                Export JSON
+              </a>
+              <span class="table-sub">next action: {selectedWorkflowSpec.nextAction}</span>
+            </div>
+          </div>
+
+          <div class="spec-grid">
+            <article class="spec-panel">
+              <div class="mini-list__title">Trigger</div>
+              <strong>{selectedWorkflowSpec.trigger.type}</strong>
+              <p>{selectedWorkflowSpec.trigger.source}</p>
+              <p>{selectedWorkflowSpec.trigger.condition}</p>
+            </article>
+
+            <article class="spec-panel">
+              <div class="mini-list__title">Systems</div>
+              <div class="metric-pills">
+                {#each selectedWorkflowSpec.systems as system}
+                  <span>{system}</span>
+                {/each}
+              </div>
+            </article>
+
+            <article class="spec-panel">
+              <div class="mini-list__title">Validations</div>
+              <ul class="reason-list">
+                {#each selectedWorkflowSpec.validations as validation}
+                  <li>{validation}</li>
+                {/each}
+              </ul>
+            </article>
+
+            <article class="spec-panel">
+              <div class="mini-list__title">Exceptions</div>
+              <ul class="reason-list">
+                {#each selectedWorkflowSpec.exceptions as exception}
+                  <li>{exception}</li>
+                {/each}
+              </ul>
+            </article>
+          </div>
+
+          <div class="spec-grid">
+            <article class="spec-panel">
+              <div class="mini-list__title">Inputs</div>
+              <ul class="reason-list">
+                {#each selectedWorkflowSpec.inputs as input}
+                  <li>
+                    <strong>{input.name}</strong>: {input.source} ·
+                    {input.required ? ' required' : ' optional'} · {input.purpose}
+                  </li>
+                {/each}
+              </ul>
+            </article>
+
+            <article class="spec-panel">
+              <div class="mini-list__title">Outputs</div>
+              <ul class="reason-list">
+                {#each selectedWorkflowSpec.outputs as output}
+                  <li>{output}</li>
+                {/each}
+              </ul>
+            </article>
+
+            <article class="spec-panel">
+              <div class="mini-list__title">Human checkpoints</div>
+              <ul class="reason-list">
+                {#each selectedWorkflowSpec.humanCheckpoints as checkpoint}
+                  <li>{checkpoint}</li>
+                {/each}
+              </ul>
+            </article>
+
+            <article class="spec-panel">
+              <div class="mini-list__title">Implementation notes</div>
+              <ul class="reason-list">
+                {#each selectedWorkflowSpec.implementationNotes as note}
+                  <li>{note}</li>
+                {/each}
+              </ul>
+            </article>
+          </div>
+
+          <div class="table-wrap table-wrap--compact">
+            <table>
+              <thead>
+                <tr>
+                  <th>Step</th>
+                  <th>Kind</th>
+                  <th>System</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                {#each selectedWorkflowSpec.steps as step}
+                  <tr>
+                    <td>{step.name}</td>
+                    <td>{step.kind}</td>
+                    <td>{step.system}</td>
+                    <td>{step.description}</td>
+                  </tr>
+                {/each}
+              </tbody>
+            </table>
+          </div>
+
+          <details class="spec-json">
+            <summary>Machine-readable JSON</summary>
+            <pre>{JSON.stringify(selectedWorkflowSpec, null, 2)}</pre>
+          </details>
+        </div>
+      {:else}
+        <div class="empty-state">Brak workflow spec dla wybranego kandydata.</div>
+      {/if}
+    </SectionCard>
+
+    <SectionCard
+      title="Local SLM refinement"
+      description="Ta warstwa jest opcjonalna i siedzi nad gotowym workflow-spec. Lokalny model nie dotyka rankingu ani triggerow, tylko dopracowuje narracje biznesowa i demo draft."
+    >
+      {#if selectedSlmDraft}
+        <div class="slm-shell">
+          <div class="slm-header">
+            <div>
+              <div class="eyebrow">SLM assist</div>
+              <h3>{selectedSlmDraft.model.name}</h3>
+              <p>{selectedSlmDraft.businessSummary}</p>
+            </div>
+
+            <div class="spec-actions">
+              <span class="table-sub">spec hash: {selectedSlmDraft.specHash}</span>
+              <a
+                class="spec-download"
+                href={buildSlmDraftDownloadHref(selectedSlmDraft)}
+                download={`${selectedSlmDraft.candidateKey}.slm.json`}
+              >
+                Export SLM JSON
+              </a>
+            </div>
+          </div>
+
+          <div class="spec-grid">
+            <article class="spec-panel">
+              <div class="mini-list__title">Why now</div>
+              <ul class="reason-list">
+                {#each selectedSlmDraft.whyNow as item}
+                  <li>{item}</li>
+                {/each}
+              </ul>
+            </article>
+
+            <article class="spec-panel">
+              <div class="mini-list__title">Explainer</div>
+              <ul class="reason-list">
+                {#each selectedSlmDraft.explainer as item}
+                  <li>{item}</li>
+                {/each}
+              </ul>
+            </article>
+
+            <article class="spec-panel">
+              <div class="mini-list__title">Demo narrative</div>
+              <ul class="reason-list">
+                {#each selectedSlmDraft.demoNarrative as item}
+                  <li>{item}</li>
+                {/each}
+              </ul>
+            </article>
+
+            <article class="spec-panel">
+              <div class="mini-list__title">Operator pitch</div>
+              <p>{selectedSlmDraft.operatorPitch}</p>
+            </article>
+          </div>
+
+          <div class="spec-grid">
+            <article class="spec-panel">
+              <div class="mini-list__title">Rollout risks</div>
+              <ul class="reason-list">
+                {#each selectedSlmDraft.rolloutRisks as item}
+                  <li>{item}</li>
+                {/each}
+              </ul>
+            </article>
+
+            <article class="spec-panel">
+              <div class="mini-list__title">Human review notes</div>
+              <ul class="reason-list">
+                {#each selectedSlmDraft.humanReviewNotes as item}
+                  <li>{item}</li>
+                {/each}
+              </ul>
+            </article>
+          </div>
+
+          <div class="table-wrap table-wrap--compact">
+            <table>
+              <thead>
+                <tr>
+                  <th>Step ID</th>
+                  <th>Label</th>
+                  <th>Purpose</th>
+                  <th>Success signal</th>
+                </tr>
+              </thead>
+              <tbody>
+                {#each selectedSlmDraft.refinedWorkflowSteps as step}
+                  <tr>
+                    <td>{step.id}</td>
+                    <td>{step.label}</td>
+                    <td>{step.purpose}</td>
+                    <td>{step.successSignal}</td>
+                  </tr>
+                {/each}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      {:else}
+        <div class="slm-empty">
+          <p>
+            Brak wygenerowanego draftu SLM. Dashboard pozostaje w pelni funkcjonalny, ale ta sekcja
+            aktywuje sie dopiero po uruchomieniu lokalnego modelu nad `workflow-specs.json`.
+          </p>
+          <pre>npm run generate:slm-drafts -- --model qwen3:4b</pre>
+          <pre>npm run generate:slm-drafts -- --provider llama-cpp --base-url http://127.0.0.1:8080</pre>
+        </div>
+      {/if}
     </SectionCard>
 
     <div class="two-col two-col--wide">
