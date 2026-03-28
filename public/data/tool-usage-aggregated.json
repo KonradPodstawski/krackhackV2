@@ -1,0 +1,1269 @@
+[
+  {
+    "application": "Teams",
+    "totalHours": 1186.487,
+    "activeHours": 852.101,
+    "passiveHours": 334.386,
+    "passiveSharePct": 28.18
+  },
+  {
+    "application": "IntelliJ",
+    "totalHours": 382.04,
+    "activeHours": 305.08,
+    "passiveHours": 76.959,
+    "passiveSharePct": 20.14
+  },
+  {
+    "application": "Chrome",
+    "totalHours": 239.28,
+    "activeHours": 176.989,
+    "passiveHours": 62.291,
+    "passiveSharePct": 26.03
+  },
+  {
+    "application": "Youtrack",
+    "totalHours": 196.153,
+    "activeHours": 139.38,
+    "passiveHours": 56.773,
+    "passiveSharePct": 28.94
+  },
+  {
+    "application": "New Outlook",
+    "totalHours": 157.867,
+    "activeHours": 130.082,
+    "passiveHours": 27.785,
+    "passiveSharePct": 17.6
+  },
+  {
+    "application": "Code",
+    "totalHours": 149.4,
+    "activeHours": 122.395,
+    "passiveHours": 27.005,
+    "passiveSharePct": 18.08
+  },
+  {
+    "application": "kyp.ai",
+    "totalHours": 111.623,
+    "activeHours": 88.804,
+    "passiveHours": 22.819,
+    "passiveSharePct": 20.44
+  },
+  {
+    "application": "Outlook",
+    "totalHours": 106.177,
+    "activeHours": 72.55,
+    "passiveHours": 33.627,
+    "passiveSharePct": 31.67
+  },
+  {
+    "application": "Excel",
+    "totalHours": 113.203,
+    "activeHours": 71.429,
+    "passiveHours": 41.774,
+    "passiveSharePct": 36.9
+  },
+  {
+    "application": "Teams iOS",
+    "totalHours": 109.399,
+    "activeHours": 68.081,
+    "passiveHours": 41.318,
+    "passiveSharePct": 37.77
+  },
+  {
+    "application": "Google Chrome",
+    "totalHours": 152.949,
+    "activeHours": 57.382,
+    "passiveHours": 95.567,
+    "passiveSharePct": 62.48
+  },
+  {
+    "application": "Microsoft Edge",
+    "totalHours": 137.77,
+    "activeHours": 56.903,
+    "passiveHours": 80.867,
+    "passiveSharePct": 58.7
+  },
+  {
+    "application": "PowerPoint",
+    "totalHours": 60.591,
+    "activeHours": 51.94,
+    "passiveHours": 8.651,
+    "passiveSharePct": 14.28
+  },
+  {
+    "application": "Localhost",
+    "totalHours": 56.196,
+    "activeHours": 48.061,
+    "passiveHours": 8.135,
+    "passiveSharePct": 14.48
+  },
+  {
+    "application": "Windows Explorer",
+    "totalHours": 60.811,
+    "activeHours": 45.3,
+    "passiveHours": 15.51,
+    "passiveSharePct": 25.51
+  },
+  {
+    "application": "WindowsTerminal",
+    "totalHours": 52.747,
+    "activeHours": 44.469,
+    "passiveHours": 8.278,
+    "passiveSharePct": 15.69
+  },
+  {
+    "application": "Gitlab",
+    "totalHours": 53.887,
+    "activeHours": 44.105,
+    "passiveHours": 9.782,
+    "passiveSharePct": 18.15
+  },
+  {
+    "application": "Discovery",
+    "totalHours": 54.783,
+    "activeHours": 40.864,
+    "passiveHours": 13.919,
+    "passiveSharePct": 25.41
+  },
+  {
+    "application": "Freshdesk",
+    "totalHours": 46.318,
+    "activeHours": 40.091,
+    "passiveHours": 6.228,
+    "passiveSharePct": 13.45
+  },
+  {
+    "application": "LinkedIn",
+    "totalHours": 41.94,
+    "activeHours": 38.12,
+    "passiveHours": 3.819,
+    "passiveSharePct": 9.11
+  },
+  {
+    "application": "ChatGPT",
+    "totalHours": 41.202,
+    "activeHours": 35.609,
+    "passiveHours": 5.593,
+    "passiveSharePct": 13.57
+  },
+  {
+    "application": "Sharepoint",
+    "totalHours": 39.504,
+    "activeHours": 33.339,
+    "passiveHours": 6.164,
+    "passiveSharePct": 15.6
+  },
+  {
+    "application": "Figma",
+    "totalHours": 113.298,
+    "activeHours": 32.034,
+    "passiveHours": 81.265,
+    "passiveSharePct": 71.73
+  },
+  {
+    "application": "Team City",
+    "totalHours": 42.045,
+    "activeHours": 31.974,
+    "passiveHours": 10.071,
+    "passiveSharePct": 23.95
+  },
+  {
+    "application": "Google",
+    "totalHours": 36.218,
+    "activeHours": 31.721,
+    "passiveHours": 4.497,
+    "passiveSharePct": 12.42
+  },
+  {
+    "application": "MobaXterm",
+    "totalHours": 31.923,
+    "activeHours": 27.956,
+    "passiveHours": 3.967,
+    "passiveSharePct": 12.43
+  },
+  {
+    "application": "Develop",
+    "totalHours": 75.971,
+    "activeHours": 27.425,
+    "passiveHours": 48.546,
+    "passiveSharePct": 63.9
+  },
+  {
+    "application": "Claude",
+    "totalHours": 27.076,
+    "activeHours": 25.658,
+    "passiveHours": 1.417,
+    "passiveSharePct": 5.24
+  },
+  {
+    "application": "Confluence",
+    "totalHours": 35.623,
+    "activeHours": 24.898,
+    "passiveHours": 10.725,
+    "passiveSharePct": 30.11
+  },
+  {
+    "application": "Bob",
+    "totalHours": 28.428,
+    "activeHours": 21.895,
+    "passiveHours": 6.533,
+    "passiveSharePct": 22.98
+  },
+  {
+    "application": "Termius",
+    "totalHours": 20.511,
+    "activeHours": 19.913,
+    "passiveHours": 0.598,
+    "passiveSharePct": 2.91
+  },
+  {
+    "application": "Grafana",
+    "totalHours": 21.192,
+    "activeHours": 17.109,
+    "passiveHours": 4.083,
+    "passiveSharePct": 19.27
+  },
+  {
+    "application": "Notepad++",
+    "totalHours": 17.834,
+    "activeHours": 16.899,
+    "passiveHours": 0.936,
+    "passiveSharePct": 5.25
+  },
+  {
+    "application": "Electron",
+    "totalHours": 15.956,
+    "activeHours": 15.401,
+    "passiveHours": 0.554,
+    "passiveSharePct": 3.47
+  },
+  {
+    "application": "Putty",
+    "totalHours": 18.518,
+    "activeHours": 14.297,
+    "passiveHours": 4.221,
+    "passiveSharePct": 22.79
+  },
+  {
+    "application": "Outlook Online STD",
+    "totalHours": 19.074,
+    "activeHours": 14.288,
+    "passiveHours": 4.786,
+    "passiveSharePct": 25.09
+  },
+  {
+    "application": "Word",
+    "totalHours": 14.103,
+    "activeHours": 13.582,
+    "passiveHours": 0.521,
+    "passiveSharePct": 3.7
+  },
+  {
+    "application": "MySharepoint",
+    "totalHours": 17.337,
+    "activeHours": 12.796,
+    "passiveHours": 4.541,
+    "passiveSharePct": 26.19
+  },
+  {
+    "application": "klogg_BA",
+    "totalHours": 14.195,
+    "activeHours": 12.055,
+    "passiveHours": 2.14,
+    "passiveSharePct": 15.08
+  },
+  {
+    "application": "Monitoring KYP.ai",
+    "totalHours": 13.373,
+    "activeHours": 11.211,
+    "passiveHours": 2.162,
+    "passiveSharePct": 16.17
+  },
+  {
+    "application": "Rider",
+    "totalHours": 14.603,
+    "activeHours": 10.886,
+    "passiveHours": 3.716,
+    "passiveSharePct": 25.45
+  },
+  {
+    "application": "PBIDesktop",
+    "totalHours": 12.019,
+    "activeHours": 10.798,
+    "passiveHours": 1.222,
+    "passiveSharePct": 10.16
+  },
+  {
+    "application": "Xpcproxy",
+    "totalHours": 21.464,
+    "activeHours": 10.1,
+    "passiveHours": 11.364,
+    "passiveSharePct": 52.94
+  },
+  {
+    "application": "Dbeaver",
+    "totalHours": 10.843,
+    "activeHours": 9.422,
+    "passiveHours": 1.421,
+    "passiveSharePct": 13.11
+  },
+  {
+    "application": "SnippingTool",
+    "totalHours": 8.324,
+    "activeHours": 7.825,
+    "passiveHours": 0.499,
+    "passiveSharePct": 5.99
+  },
+  {
+    "application": "Document 360 - Public",
+    "totalHours": 8.877,
+    "activeHours": 7.799,
+    "passiveHours": 1.078,
+    "passiveSharePct": 12.14
+  },
+  {
+    "application": "Hubspot",
+    "totalHours": 8.004,
+    "activeHours": 7.399,
+    "passiveHours": 0.605,
+    "passiveSharePct": 7.56
+  },
+  {
+    "application": "Application Frame Host",
+    "totalHours": 12.48,
+    "activeHours": 7.1,
+    "passiveHours": 5.381,
+    "passiveSharePct": 43.11
+  },
+  {
+    "application": "Remote Desktop Connection",
+    "totalHours": 7.166,
+    "activeHours": 6.766,
+    "passiveHours": 0.4,
+    "passiveSharePct": 5.58
+  },
+  {
+    "application": "Windows App",
+    "totalHours": 6.262,
+    "activeHours": 5.836,
+    "passiveHours": 0.426,
+    "passiveSharePct": 6.8
+  },
+  {
+    "application": "Perplexity Web",
+    "totalHours": 6.117,
+    "activeHours": 5.547,
+    "passiveHours": 0.57,
+    "passiveSharePct": 9.31
+  },
+  {
+    "application": "Adobe Illustrator",
+    "totalHours": 5.763,
+    "activeHours": 5.482,
+    "passiveHours": 0.281,
+    "passiveSharePct": 4.88
+  },
+  {
+    "application": "System Start",
+    "totalHours": 5.327,
+    "activeHours": 5.327,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "PgAdmin",
+    "totalHours": 5.757,
+    "activeHours": 5.277,
+    "passiveHours": 0.48,
+    "passiveSharePct": 8.34
+  },
+  {
+    "application": "Vitally",
+    "totalHours": 6.396,
+    "activeHours": 5.176,
+    "passiveHours": 1.221,
+    "passiveSharePct": 19.09
+  },
+  {
+    "application": "Perplexity Desktop",
+    "totalHours": 5.854,
+    "activeHours": 5.046,
+    "passiveHours": 0.807,
+    "passiveSharePct": 13.79
+  },
+  {
+    "application": "Finder",
+    "totalHours": 6.931,
+    "activeHours": 5.035,
+    "passiveHours": 1.896,
+    "passiveSharePct": 27.35
+  },
+  {
+    "application": "Notepad",
+    "totalHours": 5.44,
+    "activeHours": 4.914,
+    "passiveHours": 0.526,
+    "passiveSharePct": 9.66
+  },
+  {
+    "application": "ShellExperienceHost",
+    "totalHours": 6.841,
+    "activeHours": 4.66,
+    "passiveHours": 2.182,
+    "passiveSharePct": 31.89
+  },
+  {
+    "application": "Document360 - Private",
+    "totalHours": 5.302,
+    "activeHours": 4.565,
+    "passiveHours": 0.736,
+    "passiveSharePct": 13.88
+  },
+  {
+    "application": "Glogg",
+    "totalHours": 4.69,
+    "activeHours": 4.467,
+    "passiveHours": 0.222,
+    "passiveSharePct": 4.74
+  },
+  {
+    "application": "Zoom",
+    "totalHours": 6.404,
+    "activeHours": 4.266,
+    "passiveHours": 2.138,
+    "passiveSharePct": 33.39
+  },
+  {
+    "application": "Adobe Acrobat Reader",
+    "totalHours": 4.145,
+    "activeHours": 4.059,
+    "passiveHours": 0.086,
+    "passiveSharePct": 2.08
+  },
+  {
+    "application": "Outlook iOS",
+    "totalHours": 4.564,
+    "activeHours": 4.014,
+    "passiveHours": 0.55,
+    "passiveSharePct": 12.05
+  },
+  {
+    "application": "Github",
+    "totalHours": 4.327,
+    "activeHours": 3.976,
+    "passiveHours": 0.351,
+    "passiveSharePct": 8.11
+  },
+  {
+    "application": "ZoomIt64",
+    "totalHours": 3.809,
+    "activeHours": 3.726,
+    "passiveHours": 0.083,
+    "passiveSharePct": 2.17
+  },
+  {
+    "application": "Kyp repository",
+    "totalHours": 5.14,
+    "activeHours": 3.668,
+    "passiveHours": 1.472,
+    "passiveSharePct": 28.64
+  },
+  {
+    "application": "Staging",
+    "totalHours": 3.913,
+    "activeHours": 3.508,
+    "passiveHours": 0.404,
+    "passiveSharePct": 10.34
+  },
+  {
+    "application": "Traffit",
+    "totalHours": 3.263,
+    "activeHours": 3.263,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "SearchHost",
+    "totalHours": 4.206,
+    "activeHours": 3.171,
+    "passiveHours": 1.034,
+    "passiveSharePct": 24.6
+  },
+  {
+    "application": "Bing",
+    "totalHours": 3.35,
+    "activeHours": 3.082,
+    "passiveHours": 0.268,
+    "passiveSharePct": 7.99
+  },
+  {
+    "application": "Whats App Online",
+    "totalHours": 2.914,
+    "activeHours": 2.914,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "MsedgeWebView",
+    "totalHours": 3.744,
+    "activeHours": 2.722,
+    "passiveHours": 1.022,
+    "passiveSharePct": 27.3
+  },
+  {
+    "application": "Finway",
+    "totalHours": 2.501,
+    "activeHours": 2.394,
+    "passiveHours": 0.107,
+    "passiveSharePct": 4.28
+  },
+  {
+    "application": "Microsoft PowerPoint",
+    "totalHours": 3.086,
+    "activeHours": 2.364,
+    "passiveHours": 0.722,
+    "passiveSharePct": 23.39
+  },
+  {
+    "application": "TotalCmd64",
+    "totalHours": 2.505,
+    "activeHours": 2.337,
+    "passiveHours": 0.168,
+    "passiveSharePct": 6.71
+  },
+  {
+    "application": "Docker Desktop",
+    "totalHours": 3.549,
+    "activeHours": 2.219,
+    "passiveHours": 1.33,
+    "passiveSharePct": 37.48
+  },
+  {
+    "application": "Ondemand3",
+    "totalHours": 2.404,
+    "activeHours": 2.188,
+    "passiveHours": 0.216,
+    "passiveSharePct": 9.0
+  },
+  {
+    "application": "Channeltivity",
+    "totalHours": 2.336,
+    "activeHours": 2.188,
+    "passiveHours": 0.148,
+    "passiveSharePct": 6.35
+  },
+  {
+    "application": "Office Online",
+    "totalHours": 2.232,
+    "activeHours": 2.134,
+    "passiveHours": 0.099,
+    "passiveSharePct": 4.43
+  },
+  {
+    "application": "Source Tree",
+    "totalHours": 2.156,
+    "activeHours": 2.063,
+    "passiveHours": 0.093,
+    "passiveSharePct": 4.32
+  },
+  {
+    "application": "OneNote",
+    "totalHours": 12.616,
+    "activeHours": 2.022,
+    "passiveHours": 10.594,
+    "passiveSharePct": 83.98
+  },
+  {
+    "application": "Crazyshop",
+    "totalHours": 2.133,
+    "activeHours": 1.964,
+    "passiveHours": 0.169,
+    "passiveSharePct": 7.92
+  },
+  {
+    "application": "Widgets",
+    "totalHours": 6.228,
+    "activeHours": 1.962,
+    "passiveHours": 4.266,
+    "passiveSharePct": 68.49
+  },
+  {
+    "application": "Advanced Installer",
+    "totalHours": 2.244,
+    "activeHours": 1.889,
+    "passiveHours": 0.354,
+    "passiveSharePct": 15.77
+  },
+  {
+    "application": "Postman",
+    "totalHours": 2.557,
+    "activeHours": 1.674,
+    "passiveHours": 0.883,
+    "passiveSharePct": 34.54
+  },
+  {
+    "application": "Paint",
+    "totalHours": 1.619,
+    "activeHours": 1.619,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Mtputty",
+    "totalHours": 1.696,
+    "activeHours": 1.605,
+    "passiveHours": 0.091,
+    "passiveSharePct": 5.36
+  },
+  {
+    "application": "Powershell_ise",
+    "totalHours": 1.454,
+    "activeHours": 1.454,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "app.powerbi.com",
+    "totalHours": 1.335,
+    "activeHours": 1.335,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Webstorm64",
+    "totalHours": 1.478,
+    "activeHours": 1.31,
+    "passiveHours": 0.168,
+    "passiveSharePct": 11.39
+  },
+  {
+    "application": "Adobe InDesign",
+    "totalHours": 1.822,
+    "activeHours": 1.269,
+    "passiveHours": 0.553,
+    "passiveSharePct": 30.34
+  },
+  {
+    "application": "Draw.io",
+    "totalHours": 1.323,
+    "activeHours": 1.224,
+    "passiveHours": 0.1,
+    "passiveSharePct": 7.54
+  },
+  {
+    "application": "SonarQube",
+    "totalHours": 1.391,
+    "activeHours": 1.183,
+    "passiveHours": 0.209,
+    "passiveSharePct": 15.0
+  },
+  {
+    "application": "Portal Azure",
+    "totalHours": 1.172,
+    "activeHours": 1.172,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Allegro",
+    "totalHours": 1.072,
+    "activeHours": 1.072,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "JetBrains",
+    "totalHours": 1.073,
+    "activeHours": 1.067,
+    "passiveHours": 0.006,
+    "passiveSharePct": 0.54
+  },
+  {
+    "application": "Nexus",
+    "totalHours": 1.393,
+    "activeHours": 1.056,
+    "passiveHours": 0.337,
+    "passiveSharePct": 24.17
+  },
+  {
+    "application": "PrimeNg",
+    "totalHours": 1.257,
+    "activeHours": 1.048,
+    "passiveHours": 0.209,
+    "passiveSharePct": 16.64
+  },
+  {
+    "application": "Amazon",
+    "totalHours": 0.968,
+    "activeHours": 0.968,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Onedrive",
+    "totalHours": 2.006,
+    "activeHours": 0.963,
+    "passiveHours": 1.043,
+    "passiveSharePct": 51.99
+  },
+  {
+    "application": "zoom.us",
+    "totalHours": 0.82,
+    "activeHours": 0.82,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Mintty",
+    "totalHours": 0.816,
+    "activeHours": 0.816,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "shop.lufthansa.com",
+    "totalHours": 0.735,
+    "activeHours": 0.735,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Onet",
+    "totalHours": 0.907,
+    "activeHours": 0.713,
+    "passiveHours": 0.194,
+    "passiveSharePct": 21.4
+  },
+  {
+    "application": "Stackoverflow",
+    "totalHours": 0.866,
+    "activeHours": 0.664,
+    "passiveHours": 0.202,
+    "passiveSharePct": 23.34
+  },
+  {
+    "application": "WinSCP",
+    "totalHours": 0.932,
+    "activeHours": 0.659,
+    "passiveHours": 0.273,
+    "passiveSharePct": 29.29
+  },
+  {
+    "application": "Deel",
+    "totalHours": 0.629,
+    "activeHours": 0.629,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "booking.com",
+    "totalHours": 0.563,
+    "activeHours": 0.563,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Idea",
+    "totalHours": 0.849,
+    "activeHours": 0.562,
+    "passiveHours": 0.287,
+    "passiveSharePct": 33.81
+  },
+  {
+    "application": "Grammarly.Desktop",
+    "totalHours": 0.558,
+    "activeHours": 0.558,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "MS Copilot",
+    "totalHours": 0.563,
+    "activeHours": 0.519,
+    "passiveHours": 0.044,
+    "passiveSharePct": 7.75
+  },
+  {
+    "application": "Ondemand-qa",
+    "totalHours": 0.851,
+    "activeHours": 0.51,
+    "passiveHours": 0.341,
+    "passiveSharePct": 40.04
+  },
+  {
+    "application": "Adp",
+    "totalHours": 0.499,
+    "activeHours": 0.499,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Edge Browser",
+    "totalHours": 0.707,
+    "activeHours": 0.469,
+    "passiveHours": 0.238,
+    "passiveSharePct": 33.66
+  },
+  {
+    "application": "Ondemand2",
+    "totalHours": 0.458,
+    "activeHours": 0.458,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Wazuh",
+    "totalHours": 0.458,
+    "activeHours": 0.458,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Develop-pt",
+    "totalHours": 0.581,
+    "activeHours": 0.452,
+    "passiveHours": 0.129,
+    "passiveSharePct": 22.2
+  },
+  {
+    "application": "Doublecmd",
+    "totalHours": 0.448,
+    "activeHours": 0.448,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Evernote",
+    "totalHours": 0.448,
+    "activeHours": 0.448,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "TechSmith Capture",
+    "totalHours": 0.386,
+    "activeHours": 0.386,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Teams Online",
+    "totalHours": 1.364,
+    "activeHours": 0.343,
+    "passiveHours": 1.021,
+    "passiveSharePct": 74.85
+  },
+  {
+    "application": "Zoom Web",
+    "totalHours": 0.943,
+    "activeHours": 0.293,
+    "passiveHours": 0.65,
+    "passiveSharePct": 68.92
+  },
+  {
+    "application": "PerformanceTest",
+    "totalHours": 0.278,
+    "activeHours": 0.278,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "AgentServer",
+    "totalHours": 0.275,
+    "activeHours": 0.275,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "NotificationCenter",
+    "totalHours": 0.263,
+    "activeHours": 0.263,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Primefaces",
+    "totalHours": 0.325,
+    "activeHours": 0.241,
+    "passiveHours": 0.084,
+    "passiveSharePct": 25.75
+  },
+  {
+    "application": "KypLandingPage",
+    "totalHours": 0.234,
+    "activeHours": 0.234,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Charles",
+    "totalHours": 0.227,
+    "activeHours": 0.227,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "VM Ware horizon",
+    "totalHours": 0.21,
+    "activeHours": 0.21,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Develop-qa",
+    "totalHours": 0.203,
+    "activeHours": 0.203,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "ITerm2",
+    "totalHours": 0.199,
+    "activeHours": 0.199,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "SuperPutty",
+    "totalHours": 0.561,
+    "activeHours": 0.195,
+    "passiveHours": 0.366,
+    "passiveSharePct": 65.18
+  },
+  {
+    "application": "AWS Console",
+    "totalHours": 0.176,
+    "activeHours": 0.176,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Qatar Airways remote access",
+    "totalHours": 0.175,
+    "activeHours": 0.175,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Notes",
+    "totalHours": 0.169,
+    "activeHours": 0.169,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Apollo",
+    "totalHours": 0.167,
+    "activeHours": 0.167,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "ShareX",
+    "totalHours": 0.166,
+    "activeHours": 0.166,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Cypress",
+    "totalHours": 0.155,
+    "activeHours": 0.155,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "StartMenuExperienceHost",
+    "totalHours": 0.341,
+    "activeHours": 0.141,
+    "passiveHours": 0.2,
+    "passiveSharePct": 58.63
+  },
+  {
+    "application": "InDesign",
+    "totalHours": 0.309,
+    "activeHours": 0.141,
+    "passiveHours": 0.168,
+    "passiveSharePct": 54.45
+  },
+  {
+    "application": "SearchApp",
+    "totalHours": 0.134,
+    "activeHours": 0.134,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "ChromeGoogleCom",
+    "totalHours": 0.126,
+    "activeHours": 0.126,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Obsidian",
+    "totalHours": 0.257,
+    "activeHours": 0.09,
+    "passiveHours": 0.167,
+    "passiveSharePct": 65.04
+  },
+  {
+    "application": "DeepL",
+    "totalHours": 0.09,
+    "activeHours": 0.09,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "E-member Medicover",
+    "totalHours": 0.089,
+    "activeHours": 0.089,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "IrfanView",
+    "totalHours": 0.072,
+    "activeHours": 0.072,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "PasswordManagerBrowserExtension",
+    "totalHours": 0.071,
+    "activeHours": 0.071,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "PaintDotNet",
+    "totalHours": 0.062,
+    "activeHours": 0.062,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "OVH",
+    "totalHours": 0.055,
+    "activeHours": 0.055,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Elementor",
+    "totalHours": 0.053,
+    "activeHours": 0.053,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "AdobeAcrobat",
+    "totalHours": 0.05,
+    "activeHours": 0.05,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Diki",
+    "totalHours": 0.043,
+    "activeHours": 0.043,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Pracuj.pl",
+    "totalHours": 0.042,
+    "activeHours": 0.042,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Outlook Online",
+    "totalHours": 0.037,
+    "activeHours": 0.037,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Calculator",
+    "totalHours": 0.036,
+    "activeHours": 0.036,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Accredible",
+    "totalHours": 0.031,
+    "activeHours": 0.031,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Justjoin.it",
+    "totalHours": 0.027,
+    "activeHours": 0.027,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Reverso",
+    "totalHours": 0.026,
+    "activeHours": 0.026,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "EMultisport",
+    "totalHours": 0.025,
+    "activeHours": 0.025,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Staging-pt",
+    "totalHours": 0.021,
+    "activeHours": 0.021,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "VB",
+    "totalHours": 0.017,
+    "activeHours": 0.017,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "hilton.com",
+    "totalHours": 0.01,
+    "activeHours": 0.01,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Storage",
+    "totalHours": 0.009,
+    "activeHours": 0.009,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Terminal",
+    "totalHours": 0.007,
+    "activeHours": 0.007,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Ondemand1",
+    "totalHours": 0.005,
+    "activeHours": 0.005,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "VirtualBox",
+    "totalHours": 0.003,
+    "activeHours": 0.003,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Find Everything",
+    "totalHours": 0.002,
+    "activeHours": 0.002,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Amazon Documentation",
+    "totalHours": 0.001,
+    "activeHours": 0.001,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Windows Command Processor",
+    "totalHours": 0.001,
+    "activeHours": 0.001,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "KypClient",
+    "totalHours": 0.001,
+    "activeHours": 0.001,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "DeveloperChromeCom",
+    "totalHours": 0.001,
+    "activeHours": 0.001,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "Vmconnect",
+    "totalHours": 0.001,
+    "activeHours": 0.001,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "PowerShell",
+    "totalHours": 0.083,
+    "activeHours": 0.0,
+    "passiveHours": 0.083,
+    "passiveSharePct": 100.0
+  },
+  {
+    "application": "Saldeo",
+    "totalHours": 0.0,
+    "activeHours": 0.0,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0
+  },
+  {
+    "application": "Applied filters:",
+    "totalHours": 0.0,
+    "activeHours": 0.0,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0
+  },
+  {
+    "application": "Time interval: 2026-03-01 00:00 to 2026-03-20 23:59",
+    "totalHours": 0.0,
+    "activeHours": 0.0,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0
+  },
+  {
+    "application": "Organization selection : KYP",
+    "totalHours": 0.0,
+    "activeHours": 0.0,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0
+  },
+  {
+    "application": "Unit : TIME",
+    "totalHours": 0.0,
+    "activeHours": 0.0,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0
+  },
+  {
+    "application": "Data level : Applications",
+    "totalHours": 0.0,
+    "activeHours": 0.0,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0
+  },
+  {
+    "application": "Time zone: Europe/Warsaw",
+    "totalHours": 0.0,
+    "activeHours": 0.0,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0
+  }
+]

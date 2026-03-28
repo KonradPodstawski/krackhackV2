@@ -1,0 +1,45 @@
+{
+  "datasetLabel": "Process-to-Automation Copilot Challenge",
+  "timeRange": {
+    "start": "2026-03-01T09:09:54.535",
+    "end": "2026-03-20T10:08:06.357"
+  },
+  "rawSequenceRows": 2261737,
+  "uniqueUsers": 50,
+  "uniqueProcessSteps": 1630,
+  "uniqueApplications": 173,
+  "uniqueStepInstances": 561434,
+  "totalTrackedHours": 4426.15,
+  "totalActiveHours": 3178.58,
+  "totalPassiveHours": 1247.57,
+  "latestMeasuredUsers": 38,
+  "latestExpectedUsers": 97,
+  "latestCoveragePct": 39.18,
+  "dominantProcesses": [
+    {
+      "name": "Collector",
+      "hours": 1094.76
+    },
+    {
+      "name": "Communication",
+      "hours": 1005.4
+    },
+    {
+      "name": "Youtrack Production Process",
+      "hours": 205.24
+    },
+    {
+      "name": "Coding Activities",
+      "hours": 174.15
+    },
+    {
+      "name": "Youtrack Support Process",
+      "hours": 5.48
+    }
+  ],
+  "notes": [
+    "Process Step durations in the raw event log are repeated across multiple event rows; step-instance deduplication was applied before ranking process steps.",
+    "Raw OCR/content fields were intentionally excluded from the front-end seed to avoid leaking sensitive screen contents.",
+    "BPMN and PDD are included as reference layers for formal process structure and business-friendly variants."
+  ]
+}

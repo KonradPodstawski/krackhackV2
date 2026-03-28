@@ -1,0 +1,760 @@
+[
+  {
+    "application": "Excel",
+    "processStep": "Working on Excel Sheet",
+    "score": 41.53,
+    "activeHours": 63.714,
+    "passiveSharePct": 29.54,
+    "clipboardOps": 4214,
+    "userCount": 34,
+    "instances": 11209,
+    "classification": "operational",
+    "reasoning": [
+      "dużo operacji clipboard",
+      "szerokie pokrycie zespołu",
+      "duży łączny czas aktywny",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "Youtrack",
+    "processStep": "Update working progress",
+    "score": 33.64,
+    "activeHours": 63.774,
+    "passiveSharePct": 31.11,
+    "clipboardOps": 802,
+    "userCount": 43,
+    "instances": 18069,
+    "classification": "operational",
+    "reasoning": [
+      "dużo operacji clipboard",
+      "wysoki udział czasu pasywnego",
+      "szerokie pokrycie zespołu",
+      "duży łączny czas aktywny"
+    ]
+  },
+  {
+    "application": "IntelliJ",
+    "processStep": "Working on kyp-backend",
+    "score": 32.16,
+    "activeHours": 151.059,
+    "passiveSharePct": 13.63,
+    "clipboardOps": 3975,
+    "userCount": 8,
+    "instances": 12870,
+    "classification": "operational",
+    "reasoning": [
+      "dużo operacji clipboard",
+      "duży łączny czas aktywny",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "Code",
+    "processStep": "Develop kyp-frontend application",
+    "score": 31.54,
+    "activeHours": 95.54,
+    "passiveSharePct": 19.9,
+    "clipboardOps": 3549,
+    "userCount": 16,
+    "instances": 8983,
+    "classification": "operational",
+    "reasoning": [
+      "dużo operacji clipboard",
+      "szerokie pokrycie zespołu",
+      "duży łączny czas aktywny",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "Teams iOS",
+    "processStep": "Use Teams Application",
+    "score": 29.46,
+    "activeHours": 630.177,
+    "passiveSharePct": 25.85,
+    "clipboardOps": 8915,
+    "userCount": 48,
+    "instances": 97979,
+    "classification": "communication_or_navigation",
+    "reasoning": [
+      "dużo operacji clipboard",
+      "szerokie pokrycie zespołu",
+      "duży łączny czas aktywny",
+      "nazwa sugeruje raczej komunikację / przeglądanie"
+    ]
+  },
+  {
+    "application": "Sharepoint",
+    "processStep": "Working on shared files",
+    "score": 29.46,
+    "activeHours": 31.65,
+    "passiveSharePct": 14.45,
+    "clipboardOps": 2406,
+    "userCount": 37,
+    "instances": 6172,
+    "classification": "operational",
+    "reasoning": [
+      "dużo operacji clipboard",
+      "szerokie pokrycie zespołu",
+      "duży łączny czas aktywny",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "Discovery",
+    "processStep": "Working with Discovery Environment",
+    "score": 27.66,
+    "activeHours": 40.311,
+    "passiveSharePct": 25.67,
+    "clipboardOps": 406,
+    "userCount": 40,
+    "instances": 7824,
+    "classification": "operational",
+    "reasoning": [
+      "szerokie pokrycie zespołu",
+      "duży łączny czas aktywny",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "Notepad++",
+    "processStep": "Create notes",
+    "score": 25.52,
+    "activeHours": 22.564,
+    "passiveSharePct": 5.21,
+    "clipboardOps": 2605,
+    "userCount": 34,
+    "instances": 5631,
+    "classification": "operational",
+    "reasoning": [
+      "dużo operacji clipboard",
+      "szerokie pokrycie zespołu",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "Notepad",
+    "processStep": "Create notes",
+    "score": 25.52,
+    "activeHours": 22.564,
+    "passiveSharePct": 5.21,
+    "clipboardOps": 2605,
+    "userCount": 34,
+    "instances": 5631,
+    "classification": "operational",
+    "reasoning": [
+      "dużo operacji clipboard",
+      "szerokie pokrycie zespołu",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "PowerPoint",
+    "processStep": "Work on Presentation",
+    "score": 25.12,
+    "activeHours": 51.658,
+    "passiveSharePct": 14.34,
+    "clipboardOps": 2793,
+    "userCount": 19,
+    "instances": 6444,
+    "classification": "operational",
+    "reasoning": [
+      "dużo operacji clipboard",
+      "szerokie pokrycie zespołu",
+      "duży łączny czas aktywny",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "WindowsTerminal",
+    "processStep": "Shell scripting",
+    "score": 25.11,
+    "activeHours": 44.268,
+    "passiveSharePct": 15.47,
+    "clipboardOps": 2967,
+    "userCount": 18,
+    "instances": 5612,
+    "classification": "operational",
+    "reasoning": [
+      "dużo operacji clipboard",
+      "szerokie pokrycie zespołu",
+      "duży łączny czas aktywny",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "kyp.ai",
+    "processStep": "Connect App Installers",
+    "score": 23.28,
+    "activeHours": 0.504,
+    "passiveSharePct": 92.03,
+    "clipboardOps": 0,
+    "userCount": 5,
+    "instances": 148,
+    "classification": "operational",
+    "reasoning": [
+      "wysoki udział czasu pasywnego"
+    ]
+  },
+  {
+    "application": "Application Frame Host",
+    "processStep": "Calculator",
+    "score": 21.96,
+    "activeHours": 1.278,
+    "passiveSharePct": 64.88,
+    "clipboardOps": 9,
+    "userCount": 21,
+    "instances": 235,
+    "classification": "operational",
+    "reasoning": [
+      "wysoki udział czasu pasywnego",
+      "szerokie pokrycie zespołu"
+    ]
+  },
+  {
+    "application": "Application Frame Host",
+    "processStep": "Settings",
+    "score": 21.75,
+    "activeHours": 1.84,
+    "passiveSharePct": 47.94,
+    "clipboardOps": 0,
+    "userCount": 33,
+    "instances": 344,
+    "classification": "operational",
+    "reasoning": [
+      "wysoki udział czasu pasywnego",
+      "szerokie pokrycie zespołu"
+    ]
+  },
+  {
+    "application": "Develop",
+    "processStep": "Working with KYP on Develop",
+    "score": 21.09,
+    "activeHours": 26.487,
+    "passiveSharePct": 33.42,
+    "clipboardOps": 333,
+    "userCount": 21,
+    "instances": 5217,
+    "classification": "operational",
+    "reasoning": [
+      "wysoki udział czasu pasywnego",
+      "szerokie pokrycie zespołu",
+      "duży łączny czas aktywny",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "Bob",
+    "processStep": "bob",
+    "score": 19.66,
+    "activeHours": 19.462,
+    "passiveSharePct": 22.77,
+    "clipboardOps": 109,
+    "userCount": 41,
+    "instances": 3270,
+    "classification": "operational",
+    "reasoning": [
+      "szerokie pokrycie zespołu"
+    ]
+  },
+  {
+    "application": "Windows Explorer",
+    "processStep": "Windows Explorer",
+    "score": 18.35,
+    "activeHours": 4.41,
+    "passiveSharePct": 29.02,
+    "clipboardOps": 2,
+    "userCount": 36,
+    "instances": 2003,
+    "classification": "operational",
+    "reasoning": [
+      "szerokie pokrycie zespołu"
+    ]
+  },
+  {
+    "application": "kyp.ai",
+    "processStep": "Admin Space",
+    "score": 17.83,
+    "activeHours": 7.229,
+    "passiveSharePct": 24.65,
+    "clipboardOps": 108,
+    "userCount": 25,
+    "instances": 1840,
+    "classification": "operational",
+    "reasoning": [
+      "szerokie pokrycie zespołu",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "ChatGPT",
+    "processStep": "AI Searching",
+    "score": 17.64,
+    "activeHours": 34.685,
+    "passiveSharePct": 13.2,
+    "clipboardOps": 1470,
+    "userCount": 27,
+    "instances": 5173,
+    "classification": "operational",
+    "reasoning": [
+      "dużo operacji clipboard",
+      "szerokie pokrycie zespołu",
+      "duży łączny czas aktywny"
+    ]
+  },
+  {
+    "application": "Team City",
+    "processStep": "Build team City Projects",
+    "score": 17.53,
+    "activeHours": 26.293,
+    "passiveSharePct": 23.59,
+    "clipboardOps": 273,
+    "userCount": 20,
+    "instances": 6193,
+    "classification": "operational",
+    "reasoning": [
+      "szerokie pokrycie zespołu",
+      "duży łączny czas aktywny",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "SnippingTool",
+    "processStep": "Create screenshot",
+    "score": 17.53,
+    "activeHours": 7.271,
+    "passiveSharePct": 6.42,
+    "clipboardOps": 212,
+    "userCount": 37,
+    "instances": 6088,
+    "classification": "operational",
+    "reasoning": [
+      "szerokie pokrycie zespołu",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "Youtrack",
+    "processStep": "Dashboard review",
+    "score": 16.66,
+    "activeHours": 4.776,
+    "passiveSharePct": 33.84,
+    "clipboardOps": 4,
+    "userCount": 27,
+    "instances": 1452,
+    "classification": "operational",
+    "reasoning": [
+      "wysoki udział czasu pasywnego",
+      "szerokie pokrycie zespołu"
+    ]
+  },
+  {
+    "application": "Teams",
+    "processStep": "Use Teams Application",
+    "score": 16.2,
+    "activeHours": 630.177,
+    "passiveSharePct": 25.85,
+    "clipboardOps": 8915,
+    "userCount": 48,
+    "instances": 97979,
+    "classification": "communication_or_navigation",
+    "reasoning": [
+      "dużo operacji clipboard",
+      "szerokie pokrycie zespołu",
+      "duży łączny czas aktywny",
+      "nazwa sugeruje raczej komunikację / przeglądanie"
+    ]
+  },
+  {
+    "application": "Confluence",
+    "processStep": "ConfluOcr",
+    "score": 16.11,
+    "activeHours": 4.029,
+    "passiveSharePct": 38.16,
+    "clipboardOps": 25,
+    "userCount": 22,
+    "instances": 2084,
+    "classification": "operational",
+    "reasoning": [
+      "wysoki udział czasu pasywnego",
+      "szerokie pokrycie zespołu"
+    ]
+  },
+  {
+    "application": "kyp.ai",
+    "processStep": "pgAdmin",
+    "score": 14.58,
+    "activeHours": 2.058,
+    "passiveSharePct": 47.93,
+    "clipboardOps": 57,
+    "userCount": 10,
+    "instances": 258,
+    "classification": "operational",
+    "reasoning": [
+      "wysoki udział czasu pasywnego"
+    ]
+  },
+  {
+    "application": "Youtrack",
+    "processStep": "Working On Support Ticket",
+    "score": 13.27,
+    "activeHours": 10.513,
+    "passiveSharePct": 12.1,
+    "clipboardOps": 150,
+    "userCount": 22,
+    "instances": 2905,
+    "classification": "operational",
+    "reasoning": [
+      "szerokie pokrycie zespołu",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "Word",
+    "processStep": "Working on text document",
+    "score": 12.82,
+    "activeHours": 13.572,
+    "passiveSharePct": 3.7,
+    "clipboardOps": 442,
+    "userCount": 24,
+    "instances": 2000,
+    "classification": "operational",
+    "reasoning": [
+      "szerokie pokrycie zespołu",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "Outlook iOS",
+    "processStep": "Use Outlook Application",
+    "score": 11.92,
+    "activeHours": 187.508,
+    "passiveSharePct": 19.95,
+    "clipboardOps": 1871,
+    "userCount": 41,
+    "instances": 43164,
+    "classification": "communication_or_navigation",
+    "reasoning": [
+      "dużo operacji clipboard",
+      "szerokie pokrycie zespołu",
+      "duży łączny czas aktywny",
+      "nazwa sugeruje raczej komunikację / przeglądanie"
+    ]
+  },
+  {
+    "application": "IntelliJ",
+    "processStep": "Working on qa-backend",
+    "score": 10.97,
+    "activeHours": 16.209,
+    "passiveSharePct": 23.04,
+    "clipboardOps": 259,
+    "userCount": 6,
+    "instances": 1539,
+    "classification": "operational",
+    "reasoning": [
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "Youtrack",
+    "processStep": "SukcesOcr",
+    "score": 10.96,
+    "activeHours": 2.786,
+    "passiveSharePct": 19.9,
+    "clipboardOps": 0,
+    "userCount": 20,
+    "instances": 1527,
+    "classification": "operational",
+    "reasoning": [
+      "szerokie pokrycie zespołu"
+    ]
+  },
+  {
+    "application": "IntelliJ",
+    "processStep": "Backend development",
+    "score": 10.69,
+    "activeHours": 3.464,
+    "passiveSharePct": 26.21,
+    "clipboardOps": 147,
+    "userCount": 13,
+    "instances": 620,
+    "classification": "operational",
+    "reasoning": []
+  },
+  {
+    "application": "Localhost",
+    "processStep": "Build and develop local environment",
+    "score": 10.47,
+    "activeHours": 31.929,
+    "passiveSharePct": 8.76,
+    "clipboardOps": 312,
+    "userCount": 12,
+    "instances": 6140,
+    "classification": "operational",
+    "reasoning": [
+      "duży łączny czas aktywny",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "Freshdesk",
+    "processStep": "Working on support tickets",
+    "score": 10.11,
+    "activeHours": 40.046,
+    "passiveSharePct": 13.46,
+    "clipboardOps": 432,
+    "userCount": 5,
+    "instances": 7869,
+    "classification": "operational",
+    "reasoning": [
+      "duży łączny czas aktywny",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "Code",
+    "processStep": "ImageResolved",
+    "score": 10.04,
+    "activeHours": 21.241,
+    "passiveSharePct": 8.92,
+    "clipboardOps": 1917,
+    "userCount": 5,
+    "instances": 5418,
+    "classification": "operational",
+    "reasoning": [
+      "dużo operacji clipboard"
+    ]
+  },
+  {
+    "application": "kyp.ai",
+    "processStep": "Discovery Space",
+    "score": 10.0,
+    "activeHours": 17.6,
+    "passiveSharePct": 10.97,
+    "clipboardOps": 101,
+    "userCount": 20,
+    "instances": 2931,
+    "classification": "operational",
+    "reasoning": [
+      "szerokie pokrycie zespołu"
+    ]
+  },
+  {
+    "application": "Github",
+    "processStep": "Working with repository",
+    "score": 9.95,
+    "activeHours": 5.965,
+    "passiveSharePct": 6.93,
+    "clipboardOps": 81,
+    "userCount": 19,
+    "instances": 1549,
+    "classification": "operational",
+    "reasoning": [
+      "szerokie pokrycie zespołu",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "IntelliJ",
+    "processStep": "IntelliJOcr",
+    "score": 9.87,
+    "activeHours": 16.499,
+    "passiveSharePct": 21.41,
+    "clipboardOps": 98,
+    "userCount": 12,
+    "instances": 7837,
+    "classification": "operational",
+    "reasoning": []
+  },
+  {
+    "application": "OneNote",
+    "processStep": "Creating notes",
+    "score": 9.71,
+    "activeHours": 2.021,
+    "passiveSharePct": 29.99,
+    "clipboardOps": 75,
+    "userCount": 8,
+    "instances": 466,
+    "classification": "operational",
+    "reasoning": []
+  },
+  {
+    "application": "Staging",
+    "processStep": "Working with KYP on Staging",
+    "score": 9.52,
+    "activeHours": 3.501,
+    "passiveSharePct": 10.36,
+    "clipboardOps": 62,
+    "userCount": 16,
+    "instances": 885,
+    "classification": "operational",
+    "reasoning": [
+      "szerokie pokrycie zespołu",
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "Team City",
+    "processStep": "Overview Projects",
+    "score": 9.29,
+    "activeHours": 4.027,
+    "passiveSharePct": 19.19,
+    "clipboardOps": 8,
+    "userCount": 15,
+    "instances": 952,
+    "classification": "operational",
+    "reasoning": []
+  },
+  {
+    "application": "Dbeaver",
+    "processStep": "Database Query",
+    "score": 8.1,
+    "activeHours": 7.4,
+    "passiveSharePct": 11.0,
+    "clipboardOps": 199,
+    "userCount": 10,
+    "instances": 1124,
+    "classification": "operational",
+    "reasoning": [
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "Windows Explorer",
+    "processStep": "View Files",
+    "score": 7.99,
+    "activeHours": 30.093,
+    "passiveSharePct": 26.13,
+    "clipboardOps": 383,
+    "userCount": 44,
+    "instances": 22407,
+    "classification": "communication_or_navigation",
+    "reasoning": [
+      "szerokie pokrycie zespołu",
+      "duży łączny czas aktywny",
+      "nazwa sugeruje raczej komunikację / przeglądanie"
+    ]
+  },
+  {
+    "application": "Putty",
+    "processStep": "Remote Host Access",
+    "score": 7.98,
+    "activeHours": 13.968,
+    "passiveSharePct": 22.33,
+    "clipboardOps": 311,
+    "userCount": 4,
+    "instances": 2702,
+    "classification": "operational",
+    "reasoning": []
+  },
+  {
+    "application": "kyp.ai",
+    "processStep": "Use kyp.ai",
+    "score": 7.88,
+    "activeHours": 49.86,
+    "passiveSharePct": 15.63,
+    "clipboardOps": 739,
+    "userCount": 44,
+    "instances": 11695,
+    "classification": "communication_or_navigation",
+    "reasoning": [
+      "dużo operacji clipboard",
+      "szerokie pokrycie zespołu",
+      "duży łączny czas aktywny",
+      "nazwa sugeruje raczej komunikację / przeglądanie"
+    ]
+  },
+  {
+    "application": "IntelliJ",
+    "processStep": "Java Development",
+    "score": 7.85,
+    "activeHours": 12.511,
+    "passiveSharePct": 12.2,
+    "clipboardOps": 477,
+    "userCount": 10,
+    "instances": 1399,
+    "classification": "operational",
+    "reasoning": []
+  },
+  {
+    "application": "Teams iOS",
+    "processStep": "Activity - Microsoft Teams",
+    "score": 7.84,
+    "activeHours": 17.244,
+    "passiveSharePct": 33.82,
+    "clipboardOps": 78,
+    "userCount": 42,
+    "instances": 4212,
+    "classification": "communication_or_navigation",
+    "reasoning": [
+      "wysoki udział czasu pasywnego",
+      "szerokie pokrycie zespołu",
+      "nazwa sugeruje raczej komunikację / przeglądanie"
+    ]
+  },
+  {
+    "application": "Figma",
+    "processStep": "Check and use interface design",
+    "score": 7.67,
+    "activeHours": 31.838,
+    "passiveSharePct": 48.34,
+    "clipboardOps": 1313,
+    "userCount": 16,
+    "instances": 2980,
+    "classification": "communication_or_navigation",
+    "reasoning": [
+      "dużo operacji clipboard",
+      "wysoki udział czasu pasywnego",
+      "szerokie pokrycie zespołu",
+      "duży łączny czas aktywny"
+    ]
+  },
+  {
+    "application": "Document360 - Private",
+    "processStep": "document",
+    "score": 7.25,
+    "activeHours": 3.232,
+    "passiveSharePct": 13.48,
+    "clipboardOps": 177,
+    "userCount": 7,
+    "instances": 466,
+    "classification": "operational",
+    "reasoning": [
+      "nazwa kroku sugeruje pracę operacyjną"
+    ]
+  },
+  {
+    "application": "Chrome",
+    "processStep": "Browsing in Chrome",
+    "score": 7.2,
+    "activeHours": 173.434,
+    "passiveSharePct": 25.97,
+    "clipboardOps": 2967,
+    "userCount": 40,
+    "instances": 37058,
+    "classification": "communication_or_navigation",
+    "reasoning": [
+      "dużo operacji clipboard",
+      "szerokie pokrycie zespołu",
+      "duży łączny czas aktywny",
+      "nazwa sugeruje raczej komunikację / przeglądanie"
+    ]
+  },
+  {
+    "application": "Google",
+    "processStep": "Searching Google",
+    "score": 6.95,
+    "activeHours": 31.144,
+    "passiveSharePct": 12.62,
+    "clipboardOps": 562,
+    "userCount": 43,
+    "instances": 8005,
+    "classification": "communication_or_navigation",
+    "reasoning": [
+      "dużo operacji clipboard",
+      "szerokie pokrycie zespołu",
+      "duży łączny czas aktywny",
+      "nazwa sugeruje raczej komunikację / przeglądanie"
+    ]
+  }
+]

@@ -1,0 +1,902 @@
+[
+  {
+    "source": "Teams",
+    "target": "Teams",
+    "count": 45958,
+    "userCount": 43
+  },
+  {
+    "source": "Youtrack",
+    "target": "Youtrack",
+    "count": 20427,
+    "userCount": 41
+  },
+  {
+    "source": "IntelliJ",
+    "target": "IntelliJ",
+    "count": 18329,
+    "userCount": 12
+  },
+  {
+    "source": "Chrome",
+    "target": "Chrome",
+    "count": 14652,
+    "userCount": 35
+  },
+  {
+    "source": "New Outlook",
+    "target": "New Outlook",
+    "count": 12605,
+    "userCount": 30
+  },
+  {
+    "source": "Outlook",
+    "target": "Outlook",
+    "count": 10498,
+    "userCount": 16
+  },
+  {
+    "source": "Google Chrome",
+    "target": "Google Chrome",
+    "count": 9214,
+    "userCount": 4
+  },
+  {
+    "source": "Code",
+    "target": "Code",
+    "count": 8303,
+    "userCount": 16
+  },
+  {
+    "source": "kyp.ai",
+    "target": "kyp.ai",
+    "count": 8240,
+    "userCount": 41
+  },
+  {
+    "source": "Windows Explorer",
+    "target": "Windows Explorer",
+    "count": 7505,
+    "userCount": 43
+  },
+  {
+    "source": "Teams iOS",
+    "target": "Teams iOS",
+    "count": 6548,
+    "userCount": 5
+  },
+  {
+    "source": "Excel",
+    "target": "Excel",
+    "count": 5388,
+    "userCount": 34
+  },
+  {
+    "source": "Windows Explorer",
+    "target": "Teams",
+    "count": 5287,
+    "userCount": 42
+  },
+  {
+    "source": "Teams",
+    "target": "Chrome",
+    "count": 5187,
+    "userCount": 35
+  },
+  {
+    "source": "Youtrack",
+    "target": "Teams",
+    "count": 5076,
+    "userCount": 38
+  },
+  {
+    "source": "New Outlook",
+    "target": "Teams",
+    "count": 5018,
+    "userCount": 29
+  },
+  {
+    "source": "Teams",
+    "target": "Youtrack",
+    "count": 4994,
+    "userCount": 36
+  },
+  {
+    "source": "Teams",
+    "target": "New Outlook",
+    "count": 4946,
+    "userCount": 27
+  },
+  {
+    "source": "Chrome",
+    "target": "Teams",
+    "count": 4801,
+    "userCount": 34
+  },
+  {
+    "source": "Teams",
+    "target": "Windows Explorer",
+    "count": 4689,
+    "userCount": 42
+  },
+  {
+    "source": "Teams",
+    "target": "Outlook",
+    "count": 4394,
+    "userCount": 15
+  },
+  {
+    "source": "Outlook",
+    "target": "Teams",
+    "count": 4289,
+    "userCount": 15
+  },
+  {
+    "source": "Freshdesk",
+    "target": "Freshdesk",
+    "count": 3877,
+    "userCount": 4
+  },
+  {
+    "source": "Gitlab",
+    "target": "Gitlab",
+    "count": 3836,
+    "userCount": 25
+  },
+  {
+    "source": "Teams",
+    "target": "IntelliJ",
+    "count": 3659,
+    "userCount": 12
+  },
+  {
+    "source": "Confluence",
+    "target": "Confluence",
+    "count": 3554,
+    "userCount": 30
+  },
+  {
+    "source": "IntelliJ",
+    "target": "Teams",
+    "count": 3391,
+    "userCount": 12
+  },
+  {
+    "source": "Team City",
+    "target": "Team City",
+    "count": 3187,
+    "userCount": 19
+  },
+  {
+    "source": "LinkedIn",
+    "target": "LinkedIn",
+    "count": 3101,
+    "userCount": 27
+  },
+  {
+    "source": "Microsoft Edge",
+    "target": "Microsoft Edge",
+    "count": 2736,
+    "userCount": 23
+  },
+  {
+    "source": "kyp.ai",
+    "target": "Teams",
+    "count": 2489,
+    "userCount": 37
+  },
+  {
+    "source": "Teams",
+    "target": "kyp.ai",
+    "count": 2485,
+    "userCount": 39
+  },
+  {
+    "source": "Teams",
+    "target": "PowerPoint",
+    "count": 2176,
+    "userCount": 17
+  },
+  {
+    "source": "PowerPoint",
+    "target": "Teams",
+    "count": 2153,
+    "userCount": 18
+  },
+  {
+    "source": "Excel",
+    "target": "Teams",
+    "count": 2072,
+    "userCount": 33
+  },
+  {
+    "source": "Teams",
+    "target": "Excel",
+    "count": 2050,
+    "userCount": 33
+  },
+  {
+    "source": "Finder",
+    "target": "Finder",
+    "count": 2047,
+    "userCount": 4
+  },
+  {
+    "source": "Google",
+    "target": "Chrome",
+    "count": 2020,
+    "userCount": 30
+  },
+  {
+    "source": "Chrome",
+    "target": "Google",
+    "count": 1986,
+    "userCount": 30
+  },
+  {
+    "source": "Discovery",
+    "target": "Discovery",
+    "count": 1981,
+    "userCount": 33
+  },
+  {
+    "source": "Google",
+    "target": "Google",
+    "count": 1941,
+    "userCount": 39
+  },
+  {
+    "source": "Notepad++",
+    "target": "Notepad++",
+    "count": 1872,
+    "userCount": 21
+  },
+  {
+    "source": "Windows Explorer",
+    "target": "Code",
+    "count": 1830,
+    "userCount": 13
+  },
+  {
+    "source": "Develop",
+    "target": "Develop",
+    "count": 1826,
+    "userCount": 18
+  },
+  {
+    "source": "PowerPoint",
+    "target": "PowerPoint",
+    "count": 1806,
+    "userCount": 18
+  },
+  {
+    "source": "Sharepoint",
+    "target": "Sharepoint",
+    "count": 1776,
+    "userCount": 31
+  },
+  {
+    "source": "Code",
+    "target": "Windows Explorer",
+    "count": 1700,
+    "userCount": 14
+  },
+  {
+    "source": "Chrome",
+    "target": "kyp.ai",
+    "count": 1625,
+    "userCount": 28
+  },
+  {
+    "source": "Mtputty",
+    "target": "Putty",
+    "count": 1588,
+    "userCount": 1
+  },
+  {
+    "source": "Adobe Illustrator",
+    "target": "Adobe Illustrator",
+    "count": 1576,
+    "userCount": 1
+  },
+  {
+    "source": "Teams",
+    "target": "Microsoft Edge",
+    "count": 1545,
+    "userCount": 20
+  },
+  {
+    "source": "kyp.ai",
+    "target": "Chrome",
+    "count": 1541,
+    "userCount": 28
+  },
+  {
+    "source": "Putty",
+    "target": "Mtputty",
+    "count": 1428,
+    "userCount": 1
+  },
+  {
+    "source": "Windows Explorer",
+    "target": "New Outlook",
+    "count": 1387,
+    "userCount": 25
+  },
+  {
+    "source": "Electron",
+    "target": "Electron",
+    "count": 1386,
+    "userCount": 1
+  },
+  {
+    "source": "Teams iOS",
+    "target": "Google Chrome",
+    "count": 1372,
+    "userCount": 5
+  },
+  {
+    "source": "Code",
+    "target": "Teams",
+    "count": 1361,
+    "userCount": 13
+  },
+  {
+    "source": "Bob",
+    "target": "Bob",
+    "count": 1332,
+    "userCount": 41
+  },
+  {
+    "source": "Discovery",
+    "target": "Teams",
+    "count": 1322,
+    "userCount": 35
+  },
+  {
+    "source": "Teams",
+    "target": "Discovery",
+    "count": 1311,
+    "userCount": 35
+  },
+  {
+    "source": "Grafana",
+    "target": "Grafana",
+    "count": 1308,
+    "userCount": 14
+  },
+  {
+    "source": "Teams",
+    "target": "Code",
+    "count": 1297,
+    "userCount": 13
+  },
+  {
+    "source": "Microsoft Edge",
+    "target": "Teams",
+    "count": 1275,
+    "userCount": 21
+  },
+  {
+    "source": "IntelliJ",
+    "target": "Windows Explorer",
+    "count": 1274,
+    "userCount": 11
+  },
+  {
+    "source": "SnippingTool",
+    "target": "Teams",
+    "count": 1266,
+    "userCount": 36
+  },
+  {
+    "source": "Teams",
+    "target": "LinkedIn",
+    "count": 1264,
+    "userCount": 24
+  },
+  {
+    "source": "LinkedIn",
+    "target": "Teams",
+    "count": 1254,
+    "userCount": 23
+  },
+  {
+    "source": "SearchHost",
+    "target": "Windows Explorer",
+    "count": 1233,
+    "userCount": 39
+  },
+  {
+    "source": "Chrome",
+    "target": "Youtrack",
+    "count": 1219,
+    "userCount": 31
+  },
+  {
+    "source": "WindowsTerminal",
+    "target": "Teams",
+    "count": 1191,
+    "userCount": 13
+  },
+  {
+    "source": "Freshdesk",
+    "target": "Teams",
+    "count": 1159,
+    "userCount": 5
+  },
+  {
+    "source": "Teams",
+    "target": "Gitlab",
+    "count": 1127,
+    "userCount": 20
+  },
+  {
+    "source": "Teams",
+    "target": "WindowsTerminal",
+    "count": 1127,
+    "userCount": 12
+  },
+  {
+    "source": "Gitlab",
+    "target": "Teams",
+    "count": 1107,
+    "userCount": 20
+  },
+  {
+    "source": "Youtrack",
+    "target": "Chrome",
+    "count": 1098,
+    "userCount": 29
+  },
+  {
+    "source": "Google Chrome",
+    "target": "Teams iOS",
+    "count": 1096,
+    "userCount": 4
+  },
+  {
+    "source": "ZoomIt64",
+    "target": "Teams",
+    "count": 1085,
+    "userCount": 1
+  },
+  {
+    "source": "Youtrack",
+    "target": "Windows Explorer",
+    "count": 1083,
+    "userCount": 32
+  },
+  {
+    "source": "Teams",
+    "target": "Freshdesk",
+    "count": 1079,
+    "userCount": 4
+  },
+  {
+    "source": "Teams",
+    "target": "ZoomIt64",
+    "count": 1077,
+    "userCount": 1
+  },
+  {
+    "source": "Figma",
+    "target": "Figma",
+    "count": 1075,
+    "userCount": 15
+  },
+  {
+    "source": "Chrome",
+    "target": "LinkedIn",
+    "count": 1073,
+    "userCount": 18
+  },
+  {
+    "source": "Localhost",
+    "target": "Localhost",
+    "count": 1040,
+    "userCount": 11
+  },
+  {
+    "source": "Localhost",
+    "target": "Windows Explorer",
+    "count": 1029,
+    "userCount": 8
+  },
+  {
+    "source": "LinkedIn",
+    "target": "Chrome",
+    "count": 987,
+    "userCount": 16
+  },
+  {
+    "source": "Chrome",
+    "target": "Windows Explorer",
+    "count": 976,
+    "userCount": 33
+  },
+  {
+    "source": "Teams",
+    "target": "SnippingTool",
+    "count": 975,
+    "userCount": 36
+  },
+  {
+    "source": "New Outlook",
+    "target": "Windows Explorer",
+    "count": 963,
+    "userCount": 26
+  },
+  {
+    "source": "Termius",
+    "target": "Termius",
+    "count": 961,
+    "userCount": 1
+  },
+  {
+    "source": "Sharepoint",
+    "target": "Teams",
+    "count": 942,
+    "userCount": 30
+  },
+  {
+    "source": "Team City",
+    "target": "Teams",
+    "count": 933,
+    "userCount": 18
+  },
+  {
+    "source": "Teams",
+    "target": "Sharepoint",
+    "count": 931,
+    "userCount": 31
+  },
+  {
+    "source": "Windows Explorer",
+    "target": "Localhost",
+    "count": 924,
+    "userCount": 8
+  },
+  {
+    "source": "Teams",
+    "target": "Team City",
+    "count": 884,
+    "userCount": 18
+  },
+  {
+    "source": "PBIDesktop",
+    "target": "PBIDesktop",
+    "count": 880,
+    "userCount": 5
+  },
+  {
+    "source": "SnippingTool",
+    "target": "SnippingTool",
+    "count": 866,
+    "userCount": 24
+  },
+  {
+    "source": "Windows Explorer",
+    "target": "Youtrack",
+    "count": 865,
+    "userCount": 32
+  },
+  {
+    "source": "New Outlook",
+    "target": "Chrome",
+    "count": 853,
+    "userCount": 22
+  },
+  {
+    "source": "Windows Explorer",
+    "target": "Chrome",
+    "count": 820,
+    "userCount": 31
+  },
+  {
+    "source": "Windows Explorer",
+    "target": "IntelliJ",
+    "count": 819,
+    "userCount": 11
+  },
+  {
+    "source": "Develop",
+    "target": "Teams",
+    "count": 803,
+    "userCount": 16
+  },
+  {
+    "source": "Windows Explorer",
+    "target": "Excel",
+    "count": 800,
+    "userCount": 31
+  },
+  {
+    "source": "Teams",
+    "target": "Develop",
+    "count": 798,
+    "userCount": 16
+  },
+  {
+    "source": "ChatGPT",
+    "target": "ChatGPT",
+    "count": 786,
+    "userCount": 23
+  },
+  {
+    "source": "Chrome",
+    "target": "New Outlook",
+    "count": 785,
+    "userCount": 22
+  },
+  {
+    "source": "Google",
+    "target": "Teams",
+    "count": 755,
+    "userCount": 32
+  },
+  {
+    "source": "Localhost",
+    "target": "IntelliJ",
+    "count": 736,
+    "userCount": 7
+  },
+  {
+    "source": "Localhost",
+    "target": "Teams",
+    "count": 725,
+    "userCount": 9
+  },
+  {
+    "source": "Teams",
+    "target": "Google",
+    "count": 715,
+    "userCount": 32
+  },
+  {
+    "source": "kyp.ai",
+    "target": "Windows Explorer",
+    "count": 703,
+    "userCount": 30
+  },
+  {
+    "source": "IntelliJ",
+    "target": "Localhost",
+    "count": 696,
+    "userCount": 7
+  },
+  {
+    "source": "Teams",
+    "target": "ShellExperienceHost",
+    "count": 694,
+    "userCount": 38
+  },
+  {
+    "source": "Chrome",
+    "target": "Discovery",
+    "count": 687,
+    "userCount": 25
+  },
+  {
+    "source": "Windows Explorer",
+    "target": "SearchHost",
+    "count": 686,
+    "userCount": 38
+  },
+  {
+    "source": "Monitoring KYP.ai",
+    "target": "Monitoring KYP.ai",
+    "count": 667,
+    "userCount": 8
+  },
+  {
+    "source": "Teams",
+    "target": "Localhost",
+    "count": 663,
+    "userCount": 9
+  },
+  {
+    "source": "Excel",
+    "target": "Windows Explorer",
+    "count": 645,
+    "userCount": 29
+  },
+  {
+    "source": "Windows Explorer",
+    "target": "Notepad++",
+    "count": 636,
+    "userCount": 20
+  },
+  {
+    "source": "kyp.ai",
+    "target": "Freshdesk",
+    "count": 630,
+    "userCount": 4
+  },
+  {
+    "source": "New Outlook",
+    "target": "Youtrack",
+    "count": 624,
+    "userCount": 22
+  },
+  {
+    "source": "New Outlook",
+    "target": "kyp.ai",
+    "count": 617,
+    "userCount": 20
+  },
+  {
+    "source": "Windows Explorer",
+    "target": "Glogg",
+    "count": 616,
+    "userCount": 6
+  },
+  {
+    "source": "Freshdesk",
+    "target": "kyp.ai",
+    "count": 610,
+    "userCount": 4
+  },
+  {
+    "source": "kyp.ai",
+    "target": "Youtrack",
+    "count": 599,
+    "userCount": 34
+  },
+  {
+    "source": "WindowsTerminal",
+    "target": "WindowsTerminal",
+    "count": 596,
+    "userCount": 15
+  },
+  {
+    "source": "Hubspot",
+    "target": "Hubspot",
+    "count": 586,
+    "userCount": 12
+  },
+  {
+    "source": "Outlook Online STD",
+    "target": "Teams iOS",
+    "count": 569,
+    "userCount": 1
+  },
+  {
+    "source": "Teams iOS",
+    "target": "Outlook Online STD",
+    "count": 568,
+    "userCount": 2
+  },
+  {
+    "source": "ShellExperienceHost",
+    "target": "Teams",
+    "count": 563,
+    "userCount": 36
+  },
+  {
+    "source": "kyp.ai",
+    "target": "New Outlook",
+    "count": 557,
+    "userCount": 22
+  },
+  {
+    "source": "Youtrack",
+    "target": "Sharepoint",
+    "count": 556,
+    "userCount": 25
+  },
+  {
+    "source": "Youtrack",
+    "target": "kyp.ai",
+    "count": 548,
+    "userCount": 32
+  },
+  {
+    "source": "Notepad++",
+    "target": "Teams",
+    "count": 546,
+    "userCount": 21
+  },
+  {
+    "source": "Confluence",
+    "target": "Teams",
+    "count": 546,
+    "userCount": 22
+  },
+  {
+    "source": "Excel",
+    "target": "Microsoft Edge",
+    "count": 543,
+    "userCount": 8
+  },
+  {
+    "source": "Teams",
+    "target": "SearchHost",
+    "count": 541,
+    "userCount": 37
+  },
+  {
+    "source": "MySharepoint",
+    "target": "Teams iOS",
+    "count": 538,
+    "userCount": 2
+  },
+  {
+    "source": "Teams",
+    "target": "Confluence",
+    "count": 536,
+    "userCount": 23
+  },
+  {
+    "source": "MySharepoint",
+    "target": "MySharepoint",
+    "count": 535,
+    "userCount": 28
+  },
+  {
+    "source": "klogg_BA",
+    "target": "klogg_BA",
+    "count": 535,
+    "userCount": 5
+  },
+  {
+    "source": "Windows Explorer",
+    "target": "PowerPoint",
+    "count": 534,
+    "userCount": 18
+  },
+  {
+    "source": "Bob",
+    "target": "Teams",
+    "count": 532,
+    "userCount": 35
+  },
+  {
+    "source": "Youtrack",
+    "target": "New Outlook",
+    "count": 532,
+    "userCount": 22
+  },
+  {
+    "source": "Sharepoint",
+    "target": "Youtrack",
+    "count": 530,
+    "userCount": 25
+  },
+  {
+    "source": "Bing",
+    "target": "Bing",
+    "count": 526,
+    "userCount": 13
+  },
+  {
+    "source": "Youtrack",
+    "target": "Freshdesk",
+    "count": 526,
+    "userCount": 2
+  },
+  {
+    "source": "Teams iOS",
+    "target": "MySharepoint",
+    "count": 521,
+    "userCount": 2
+  },
+  {
+    "source": "Teams",
+    "target": "Bob",
+    "count": 517,
+    "userCount": 36
+  },
+  {
+    "source": "Termius",
+    "target": "Teams iOS",
+    "count": 514,
+    "userCount": 1
+  },
+  {
+    "source": "Teams",
+    "target": "Notepad++",
+    "count": 513,
+    "userCount": 21
+  }
+]

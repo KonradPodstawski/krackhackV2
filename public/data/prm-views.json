@@ -1,0 +1,810 @@
+[
+  {
+    "application": "Teams",
+    "view": "Use Teams Application",
+    "totalHours": 834.17,
+    "activeHours": 599.707,
+    "passiveHours": 234.464,
+    "passiveSharePct": 28.11
+  },
+  {
+    "application": "Teams",
+    "view": "Call - Microsoft Teams",
+    "totalHours": 324.697,
+    "activeHours": 233.159,
+    "passiveHours": 91.538,
+    "passiveSharePct": 28.19
+  },
+  {
+    "application": "IntelliJ",
+    "view": "Working on kyp-backend",
+    "totalHours": 240.184,
+    "activeHours": 199.234,
+    "passiveHours": 40.95,
+    "passiveSharePct": 17.05
+  },
+  {
+    "application": "Chrome",
+    "view": "Browsing in Chrome",
+    "totalHours": 238.914,
+    "activeHours": 176.792,
+    "passiveHours": 62.122,
+    "passiveSharePct": 26.0
+  },
+  {
+    "application": "New Outlook",
+    "view": "Use Outlook Application",
+    "totalHours": 148.212,
+    "activeHours": 120.755,
+    "passiveHours": 27.457,
+    "passiveSharePct": 18.53
+  },
+  {
+    "application": "Other",
+    "view": "Other",
+    "totalHours": 140.175,
+    "activeHours": 119.79,
+    "passiveHours": 20.386,
+    "passiveSharePct": 14.54
+  },
+  {
+    "application": "Code",
+    "view": "Develop kyp-frontend application",
+    "totalHours": 120.911,
+    "activeHours": 96.994,
+    "passiveHours": 23.917,
+    "passiveSharePct": 19.78
+  },
+  {
+    "application": "Teams iOS",
+    "view": "Use Teams Application",
+    "totalHours": 105.429,
+    "activeHours": 67.014,
+    "passiveHours": 38.415,
+    "passiveSharePct": 36.44
+  },
+  {
+    "application": "Outlook",
+    "view": "Use Outlook Application",
+    "totalHours": 95.091,
+    "activeHours": 63.998,
+    "passiveHours": 31.092,
+    "passiveSharePct": 32.7
+  },
+  {
+    "application": "Excel",
+    "view": "Working on Excel Sheet",
+    "totalHours": 104.052,
+    "activeHours": 63.825,
+    "passiveHours": 40.227,
+    "passiveSharePct": 38.66
+  },
+  {
+    "application": "Youtrack",
+    "view": "Update working progress",
+    "totalHours": 91.129,
+    "activeHours": 63.821,
+    "passiveHours": 27.309,
+    "passiveSharePct": 29.97
+  },
+  {
+    "application": "Google Chrome",
+    "view": "Use Google Chrome",
+    "totalHours": 152.892,
+    "activeHours": 57.324,
+    "passiveHours": 95.567,
+    "passiveSharePct": 62.51
+  },
+  {
+    "application": "Microsoft Edge",
+    "view": "Use Microsoft Edge",
+    "totalHours": 137.576,
+    "activeHours": 56.709,
+    "passiveHours": 80.867,
+    "passiveSharePct": 58.78
+  },
+  {
+    "application": "IntelliJ",
+    "view": "IntelliJOcr",
+    "totalHours": 82.306,
+    "activeHours": 55.248,
+    "passiveHours": 27.058,
+    "passiveSharePct": 32.87
+  },
+  {
+    "application": "PowerPoint",
+    "view": "Work on Presentation",
+    "totalHours": 60.418,
+    "activeHours": 51.768,
+    "passiveHours": 8.651,
+    "passiveSharePct": 14.32
+  },
+  {
+    "application": "Localhost",
+    "view": "Build and develop local environment",
+    "totalHours": 56.242,
+    "activeHours": 48.107,
+    "passiveHours": 8.135,
+    "passiveSharePct": 14.46
+  },
+  {
+    "application": "kyp.ai",
+    "view": "Use kyp.ai",
+    "totalHours": 56.376,
+    "activeHours": 47.74,
+    "passiveHours": 8.636,
+    "passiveSharePct": 15.32
+  },
+  {
+    "application": "WindowsTerminal",
+    "view": "Shell scripting",
+    "totalHours": 52.742,
+    "activeHours": 44.464,
+    "passiveHours": 8.278,
+    "passiveSharePct": 15.7
+  },
+  {
+    "application": "Gitlab",
+    "view": "Use GitLab",
+    "totalHours": 52.353,
+    "activeHours": 42.571,
+    "passiveHours": 9.782,
+    "passiveSharePct": 18.68
+  },
+  {
+    "application": "Discovery",
+    "view": "Working with Discovery Environment",
+    "totalHours": 54.598,
+    "activeHours": 40.679,
+    "passiveHours": 13.919,
+    "passiveSharePct": 25.49
+  },
+  {
+    "application": "Freshdesk",
+    "view": "Working on support tickets",
+    "totalHours": 46.313,
+    "activeHours": 40.085,
+    "passiveHours": 6.228,
+    "passiveSharePct": 13.45
+  },
+  {
+    "application": "ChatGPT",
+    "view": "AI Searching",
+    "totalHours": 41.198,
+    "activeHours": 35.605,
+    "passiveHours": 5.593,
+    "passiveSharePct": 13.58
+  },
+  {
+    "application": "Sharepoint",
+    "view": "Working on shared files",
+    "totalHours": 39.496,
+    "activeHours": 33.331,
+    "passiveHours": 6.164,
+    "passiveSharePct": 15.61
+  },
+  {
+    "application": "Youtrack",
+    "view": "View Agile Board",
+    "totalHours": 48.678,
+    "activeHours": 33.109,
+    "passiveHours": 15.569,
+    "passiveSharePct": 31.98
+  },
+  {
+    "application": "Windows Explorer",
+    "view": "View Files",
+    "totalHours": 45.207,
+    "activeHours": 32.566,
+    "passiveHours": 12.641,
+    "passiveSharePct": 27.96
+  },
+  {
+    "application": "Figma",
+    "view": "Check and use interface design",
+    "totalHours": 113.291,
+    "activeHours": 32.026,
+    "passiveHours": 81.265,
+    "passiveSharePct": 71.73
+  },
+  {
+    "application": "Google",
+    "view": "Searching Google",
+    "totalHours": 36.215,
+    "activeHours": 31.718,
+    "passiveHours": 4.497,
+    "passiveSharePct": 12.42
+  },
+  {
+    "application": "MobaXterm",
+    "view": "Remote connection",
+    "totalHours": 31.913,
+    "activeHours": 27.946,
+    "passiveHours": 3.967,
+    "passiveSharePct": 12.43
+  },
+  {
+    "application": "Develop",
+    "view": "Working with KYP on Develop",
+    "totalHours": 75.874,
+    "activeHours": 27.328,
+    "passiveHours": 48.546,
+    "passiveSharePct": 63.98
+  },
+  {
+    "application": "Team City",
+    "view": "Build team City Projects",
+    "totalHours": 36.048,
+    "activeHours": 27.288,
+    "passiveHours": 8.76,
+    "passiveSharePct": 24.3
+  },
+  {
+    "application": "Claude",
+    "view": "Use Claude",
+    "totalHours": 27.074,
+    "activeHours": 25.656,
+    "passiveHours": 1.417,
+    "passiveSharePct": 5.24
+  },
+  {
+    "application": "Code",
+    "view": "ImageResolved",
+    "totalHours": 27.999,
+    "activeHours": 24.91,
+    "passiveHours": 3.088,
+    "passiveSharePct": 11.03
+  },
+  {
+    "application": "LinkedIn",
+    "view": "Use LinkedIn",
+    "totalHours": 25.357,
+    "activeHours": 22.925,
+    "passiveHours": 2.432,
+    "passiveSharePct": 9.59
+  },
+  {
+    "application": "Confluence",
+    "view": "Read Confluence",
+    "totalHours": 28.743,
+    "activeHours": 20.644,
+    "passiveHours": 8.099,
+    "passiveSharePct": 28.18
+  },
+  {
+    "application": "IntelliJ",
+    "view": "Working on qa-backend",
+    "totalHours": 24.988,
+    "activeHours": 19.941,
+    "passiveHours": 5.048,
+    "passiveSharePct": 20.2
+  },
+  {
+    "application": "Termius",
+    "view": "Use Termius",
+    "totalHours": 20.511,
+    "activeHours": 19.913,
+    "passiveHours": 0.598,
+    "passiveSharePct": 2.91
+  },
+  {
+    "application": "Bob",
+    "view": "bob",
+    "totalHours": 25.717,
+    "activeHours": 19.808,
+    "passiveHours": 5.909,
+    "passiveSharePct": 22.98
+  },
+  {
+    "application": "Teams",
+    "view": "Activity - Microsoft Teams",
+    "totalHours": 27.456,
+    "activeHours": 19.072,
+    "passiveHours": 8.384,
+    "passiveSharePct": 30.54
+  },
+  {
+    "application": "kyp.ai",
+    "view": "Discovery Space",
+    "totalHours": 19.723,
+    "activeHours": 17.555,
+    "passiveHours": 2.168,
+    "passiveSharePct": 10.99
+  },
+  {
+    "application": "Grafana",
+    "view": "View Grafana Report",
+    "totalHours": 21.189,
+    "activeHours": 17.106,
+    "passiveHours": 4.083,
+    "passiveSharePct": 19.27
+  },
+  {
+    "application": "Notepad++",
+    "view": "Create notes",
+    "totalHours": 17.578,
+    "activeHours": 16.642,
+    "passiveHours": 0.936,
+    "passiveSharePct": 5.32
+  },
+  {
+    "application": "Electron",
+    "view": "Use Electron",
+    "totalHours": 15.956,
+    "activeHours": 15.401,
+    "passiveHours": 0.554,
+    "passiveSharePct": 3.47
+  },
+  {
+    "application": "LinkedIn",
+    "view": "New Feed read LinkedIn",
+    "totalHours": 16.577,
+    "activeHours": 15.189,
+    "passiveHours": 1.388,
+    "passiveSharePct": 8.37
+  },
+  {
+    "application": "Outlook Online STD",
+    "view": "Use Outlook Online STD",
+    "totalHours": 19.074,
+    "activeHours": 14.288,
+    "passiveHours": 4.786,
+    "passiveSharePct": 25.09
+  },
+  {
+    "application": "Word",
+    "view": "Working on text document",
+    "totalHours": 14.103,
+    "activeHours": 13.582,
+    "passiveHours": 0.521,
+    "passiveSharePct": 3.7
+  },
+  {
+    "application": "IntelliJ",
+    "view": "Java Development",
+    "totalHours": 14.824,
+    "activeHours": 13.086,
+    "passiveHours": 1.738,
+    "passiveSharePct": 11.72
+  },
+  {
+    "application": "Putty",
+    "view": "Remote Host Access",
+    "totalHours": 16.609,
+    "activeHours": 12.958,
+    "passiveHours": 3.651,
+    "passiveSharePct": 21.98
+  },
+  {
+    "application": "klogg_BA",
+    "view": "Use klogg_BA",
+    "totalHours": 14.195,
+    "activeHours": 12.055,
+    "passiveHours": 2.14,
+    "passiveSharePct": 15.08
+  },
+  {
+    "application": "MySharepoint",
+    "view": "Remote files view",
+    "totalHours": 15.594,
+    "activeHours": 11.26,
+    "passiveHours": 4.334,
+    "passiveSharePct": 27.79
+  },
+  {
+    "application": "Monitoring KYP.ai",
+    "view": "Use Monitoring KYP.ai",
+    "totalHours": 13.373,
+    "activeHours": 11.211,
+    "passiveHours": 2.162,
+    "passiveSharePct": 16.17
+  },
+  {
+    "application": "Rider",
+    "view": "Use Rider",
+    "totalHours": 14.603,
+    "activeHours": 10.886,
+    "passiveHours": 3.716,
+    "passiveSharePct": 25.45
+  },
+  {
+    "application": "PBIDesktop",
+    "view": "Use PBIDesktop",
+    "totalHours": 12.019,
+    "activeHours": 10.798,
+    "passiveHours": 1.222,
+    "passiveSharePct": 10.16
+  },
+  {
+    "application": "Xpcproxy",
+    "view": "Use Xpcproxy",
+    "totalHours": 21.453,
+    "activeHours": 10.089,
+    "passiveHours": 11.364,
+    "passiveSharePct": 52.97
+  },
+  {
+    "application": "Youtrack",
+    "view": "Working On Support Ticket",
+    "totalHours": 11.356,
+    "activeHours": 9.842,
+    "passiveHours": 1.514,
+    "passiveSharePct": 13.33
+  },
+  {
+    "application": "Dbeaver",
+    "view": "Database Query",
+    "totalHours": 10.843,
+    "activeHours": 9.422,
+    "passiveHours": 1.421,
+    "passiveSharePct": 13.11
+  },
+  {
+    "application": "Outlook",
+    "view": "Outlook",
+    "totalHours": 11.065,
+    "activeHours": 8.531,
+    "passiveHours": 2.534,
+    "passiveSharePct": 22.9
+  },
+  {
+    "application": "IntelliJ",
+    "view": "Working on qa-admin",
+    "totalHours": 8.734,
+    "activeHours": 7.91,
+    "passiveHours": 0.824,
+    "passiveSharePct": 9.43
+  },
+  {
+    "application": "New Outlook",
+    "view": "New Outlook",
+    "totalHours": 8.229,
+    "activeHours": 7.901,
+    "passiveHours": 0.329,
+    "passiveSharePct": 3.99
+  },
+  {
+    "application": "SnippingTool",
+    "view": "Create screenshot",
+    "totalHours": 8.324,
+    "activeHours": 7.825,
+    "passiveHours": 0.499,
+    "passiveSharePct": 5.99
+  },
+  {
+    "application": "Document 360 - Public",
+    "view": "Read Public Documentation",
+    "totalHours": 8.877,
+    "activeHours": 7.799,
+    "passiveHours": 1.078,
+    "passiveSharePct": 12.14
+  },
+  {
+    "application": "Excel",
+    "view": "Switch to worksheet (Activity)",
+    "totalHours": 9.079,
+    "activeHours": 7.532,
+    "passiveHours": 1.547,
+    "passiveSharePct": 17.04
+  },
+  {
+    "application": "Hubspot",
+    "view": "Use Hubspot",
+    "totalHours": 8.003,
+    "activeHours": 7.398,
+    "passiveHours": 0.605,
+    "passiveSharePct": 7.56
+  },
+  {
+    "application": "kyp.ai",
+    "view": "Admin Space",
+    "totalHours": 9.608,
+    "activeHours": 7.242,
+    "passiveHours": 2.366,
+    "passiveSharePct": 24.62
+  },
+  {
+    "application": "Windows Explorer",
+    "view": "View Downloads  Files",
+    "totalHours": 7.221,
+    "activeHours": 6.756,
+    "passiveHours": 0.465,
+    "passiveSharePct": 6.44
+  },
+  {
+    "application": "Remote Desktop Connection",
+    "view": "Remote Desktop Connection",
+    "totalHours": 6.413,
+    "activeHours": 6.157,
+    "passiveHours": 0.256,
+    "passiveSharePct": 3.99
+  },
+  {
+    "application": "Youtrack",
+    "view": "DevOps Multi Team",
+    "totalHours": 6.701,
+    "activeHours": 5.864,
+    "passiveHours": 0.837,
+    "passiveSharePct": 12.49
+  },
+  {
+    "application": "Windows App",
+    "view": "Use Windows App",
+    "totalHours": 6.261,
+    "activeHours": 5.836,
+    "passiveHours": 0.426,
+    "passiveSharePct": 6.8
+  },
+  {
+    "application": "Perplexity Web",
+    "view": "Use Perplexity Web",
+    "totalHours": 6.116,
+    "activeHours": 5.546,
+    "passiveHours": 0.57,
+    "passiveSharePct": 9.32
+  },
+  {
+    "application": "Adobe Illustrator",
+    "view": "Use Adobe Illustrator",
+    "totalHours": 5.755,
+    "activeHours": 5.474,
+    "passiveHours": 0.281,
+    "passiveSharePct": 4.88
+  },
+  {
+    "application": "System Start",
+    "view": "System Start",
+    "totalHours": 5.327,
+    "activeHours": 5.327,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0
+  },
+  {
+    "application": "PgAdmin",
+    "view": "Querying data",
+    "totalHours": 5.757,
+    "activeHours": 5.277,
+    "passiveHours": 0.48,
+    "passiveSharePct": 8.34
+  },
+  {
+    "application": "Youtrack",
+    "view": "SukcesOcr",
+    "totalHours": 8.376,
+    "activeHours": 5.237,
+    "passiveHours": 3.139,
+    "passiveSharePct": 37.47
+  },
+  {
+    "application": "Perplexity Desktop",
+    "view": "Use Perplexity Desktop",
+    "totalHours": 5.854,
+    "activeHours": 5.046,
+    "passiveHours": 0.807,
+    "passiveSharePct": 13.79
+  },
+  {
+    "application": "Youtrack",
+    "view": "View Issue List",
+    "totalHours": 9.329,
+    "activeHours": 5.042,
+    "passiveHours": 4.288,
+    "passiveSharePct": 45.96
+  },
+  {
+    "application": "Finder",
+    "view": "Use Finder",
+    "totalHours": 6.929,
+    "activeHours": 5.034,
+    "passiveHours": 1.896,
+    "passiveSharePct": 27.36
+  },
+  {
+    "application": "Notepad",
+    "view": "Create notes",
+    "totalHours": 5.44,
+    "activeHours": 4.914,
+    "passiveHours": 0.526,
+    "passiveSharePct": 9.66
+  },
+  {
+    "application": "Windows Explorer",
+    "view": "Windows Explorer",
+    "totalHours": 6.829,
+    "activeHours": 4.683,
+    "passiveHours": 2.146,
+    "passiveSharePct": 31.42
+  },
+  {
+    "application": "Youtrack",
+    "view": "Dashboard review",
+    "totalHours": 7.067,
+    "activeHours": 4.624,
+    "passiveHours": 2.442,
+    "passiveSharePct": 34.56
+  },
+  {
+    "application": "IntelliJ",
+    "view": "Backend development",
+    "totalHours": 5.764,
+    "activeHours": 4.534,
+    "passiveHours": 1.231,
+    "passiveSharePct": 21.35
+  },
+  {
+    "application": "Glogg",
+    "view": "Checking logs",
+    "totalHours": 4.69,
+    "activeHours": 4.467,
+    "passiveHours": 0.222,
+    "passiveSharePct": 4.74
+  },
+  {
+    "application": "Team City",
+    "view": "Overview Projects",
+    "totalHours": 5.477,
+    "activeHours": 4.325,
+    "passiveHours": 1.151,
+    "passiveSharePct": 21.02
+  },
+  {
+    "application": "Zoom",
+    "view": "Use Zoom",
+    "totalHours": 6.404,
+    "activeHours": 4.266,
+    "passiveHours": 2.138,
+    "passiveSharePct": 33.39
+  },
+  {
+    "application": "Confluence",
+    "view": "ConfluOcr",
+    "totalHours": 6.744,
+    "activeHours": 4.118,
+    "passiveHours": 2.626,
+    "passiveSharePct": 38.93
+  },
+  {
+    "application": "Adobe Acrobat Reader",
+    "view": "Use Adobe Acrobat Reader",
+    "totalHours": 4.145,
+    "activeHours": 4.059,
+    "passiveHours": 0.086,
+    "passiveSharePct": 2.08
+  },
+  {
+    "application": "ShellExperienceHost",
+    "view": "Use ShellExperienceHost",
+    "totalHours": 6.239,
+    "activeHours": 4.057,
+    "passiveHours": 2.182,
+    "passiveSharePct": 34.97
+  },
+  {
+    "application": "Outlook iOS",
+    "view": "Use Outlook Application",
+    "totalHours": 4.561,
+    "activeHours": 4.011,
+    "passiveHours": 0.55,
+    "passiveSharePct": 12.06
+  },
+  {
+    "application": "Github",
+    "view": "Working with repository",
+    "totalHours": 4.322,
+    "activeHours": 3.971,
+    "passiveHours": 0.351,
+    "passiveSharePct": 8.12
+  },
+  {
+    "application": "ZoomIt64",
+    "view": "Screen zoom",
+    "totalHours": 3.809,
+    "activeHours": 3.726,
+    "passiveHours": 0.083,
+    "passiveSharePct": 2.17
+  },
+  {
+    "application": "Staging",
+    "view": "Working with KYP on Staging",
+    "totalHours": 3.911,
+    "activeHours": 3.507,
+    "passiveHours": 0.404,
+    "passiveSharePct": 10.34
+  },
+  {
+    "application": "Youtrack",
+    "view": "Clipboard Content View Name",
+    "totalHours": 3.923,
+    "activeHours": 3.296,
+    "passiveHours": 0.627,
+    "passiveSharePct": 15.99
+  },
+  {
+    "application": "Document360 - Private",
+    "view": "document",
+    "totalHours": 3.735,
+    "activeHours": 3.231,
+    "passiveHours": 0.503,
+    "passiveSharePct": 13.48
+  },
+  {
+    "application": "SearchHost",
+    "view": "Use SearchHost",
+    "totalHours": 4.206,
+    "activeHours": 3.171,
+    "passiveHours": 1.034,
+    "passiveSharePct": 24.6
+  },
+  {
+    "application": "Application Frame Host",
+    "view": "Use Application Frame Host",
+    "totalHours": 3.588,
+    "activeHours": 2.772,
+    "passiveHours": 0.816,
+    "passiveSharePct": 22.74
+  },
+  {
+    "application": "MsedgeWebView",
+    "view": "Use MsedgeWebView",
+    "totalHours": 3.744,
+    "activeHours": 2.722,
+    "passiveHours": 1.022,
+    "passiveSharePct": 27.3
+  },
+  {
+    "application": "OneNote",
+    "view": "Creating notes",
+    "totalHours": 12.616,
+    "activeHours": 2.022,
+    "passiveHours": 10.594,
+    "passiveSharePct": 83.98
+  },
+  {
+    "application": "Widgets",
+    "view": "Use Widgets",
+    "totalHours": 6.228,
+    "activeHours": 1.962,
+    "passiveHours": 4.266,
+    "passiveSharePct": 68.49
+  },
+  {
+    "application": "Application Frame Host",
+    "view": "Settings",
+    "totalHours": 3.644,
+    "activeHours": 1.949,
+    "passiveHours": 1.694,
+    "passiveSharePct": 46.5
+  },
+  {
+    "application": "kyp.ai",
+    "view": "pgAdmin",
+    "totalHours": 3.752,
+    "activeHours": 1.857,
+    "passiveHours": 1.895,
+    "passiveSharePct": 50.5
+  },
+  {
+    "application": "Application Frame Host",
+    "view": "Calculator",
+    "totalHours": 3.603,
+    "activeHours": 1.242,
+    "passiveHours": 2.361,
+    "passiveSharePct": 65.52
+  },
+  {
+    "application": "Teams iOS",
+    "view": "Activity - Microsoft Teams",
+    "totalHours": 3.905,
+    "activeHours": 1.001,
+    "passiveHours": 2.903,
+    "passiveSharePct": 74.35
+  },
+  {
+    "application": "kyp.ai",
+    "view": "Connect App Installers",
+    "totalHours": 6.316,
+    "activeHours": 0.5,
+    "passiveHours": 5.816,
+    "passiveSharePct": 92.09
+  }
+]

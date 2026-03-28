@@ -1,0 +1,1502 @@
+[
+  {
+    "source": "Use Teams Application",
+    "target": "Use Teams Application",
+    "count": 36345,
+    "userCount": 48
+  },
+  {
+    "source": "Use Outlook Application",
+    "target": "Use Outlook Application",
+    "count": 21247,
+    "userCount": 41
+  },
+  {
+    "source": "Browsing in Chrome",
+    "target": "Browsing in Chrome",
+    "count": 14520,
+    "userCount": 35
+  },
+  {
+    "source": "Use Google Chrome",
+    "target": "Use Google Chrome",
+    "count": 9084,
+    "userCount": 4
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Use Outlook Application",
+    "count": 6842,
+    "userCount": 41
+  },
+  {
+    "source": "Use Outlook Application",
+    "target": "Use Teams Application",
+    "count": 6766,
+    "userCount": 41
+  },
+  {
+    "source": "Update working progress",
+    "target": "Update working progress",
+    "count": 6203,
+    "userCount": 40
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Call - Microsoft Teams",
+    "count": 6031,
+    "userCount": 42
+  },
+  {
+    "source": "View Files",
+    "target": "View Files",
+    "count": 5644,
+    "userCount": 43
+  },
+  {
+    "source": "Call - Microsoft Teams",
+    "target": "Use Teams Application",
+    "count": 4997,
+    "userCount": 43
+  },
+  {
+    "source": "Use kyp.ai",
+    "target": "Use kyp.ai",
+    "count": 4457,
+    "userCount": 41
+  },
+  {
+    "source": "IntelliJOcr",
+    "target": "Working on kyp-backend",
+    "count": 4362,
+    "userCount": 8
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Browsing in Chrome",
+    "count": 3939,
+    "userCount": 35
+  },
+  {
+    "source": "Working on support tickets",
+    "target": "Working on support tickets",
+    "count": 3870,
+    "userCount": 4
+  },
+  {
+    "source": "Browsing in Chrome",
+    "target": "Use Teams Application",
+    "count": 3658,
+    "userCount": 34
+  },
+  {
+    "source": "Working on Excel Sheet",
+    "target": "Working on Excel Sheet",
+    "count": 3268,
+    "userCount": 33
+  },
+  {
+    "source": "Use GitLab",
+    "target": "Use GitLab",
+    "count": 3249,
+    "userCount": 25
+  },
+  {
+    "source": "View Files",
+    "target": "Use Teams Application",
+    "count": 3233,
+    "userCount": 41
+  },
+  {
+    "source": "Develop kyp-frontend application",
+    "target": "Develop kyp-frontend application",
+    "count": 2855,
+    "userCount": 13
+  },
+  {
+    "source": "Build team City Projects",
+    "target": "Build team City Projects",
+    "count": 2723,
+    "userCount": 19
+  },
+  {
+    "source": "Use Microsoft Edge",
+    "target": "Use Microsoft Edge",
+    "count": 2678,
+    "userCount": 23
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "View Files",
+    "count": 2672,
+    "userCount": 40
+  },
+  {
+    "source": "Working on kyp-backend",
+    "target": "Working on kyp-backend",
+    "count": 2535,
+    "userCount": 8
+  },
+  {
+    "source": "Working on kyp-backend",
+    "target": "IntelliJOcr",
+    "count": 2371,
+    "userCount": 8
+  },
+  {
+    "source": "ImageResolved",
+    "target": "ImageResolved",
+    "count": 2124,
+    "userCount": 3
+  },
+  {
+    "source": "Use Finder",
+    "target": "Use Finder",
+    "count": 2037,
+    "userCount": 4
+  },
+  {
+    "source": "Searching Google",
+    "target": "Browsing in Chrome",
+    "count": 2010,
+    "userCount": 30
+  },
+  {
+    "source": "Browsing in Chrome",
+    "target": "Searching Google",
+    "count": 1983,
+    "userCount": 30
+  },
+  {
+    "source": "Searching Google",
+    "target": "Searching Google",
+    "count": 1933,
+    "userCount": 39
+  },
+  {
+    "source": "Working with Discovery Environment",
+    "target": "Working with Discovery Environment",
+    "count": 1932,
+    "userCount": 33
+  },
+  {
+    "source": "Update working progress",
+    "target": "Use Teams Application",
+    "count": 1878,
+    "userCount": 42
+  },
+  {
+    "source": "Call - Microsoft Teams",
+    "target": "Use Outlook Application",
+    "count": 1789,
+    "userCount": 35
+  },
+  {
+    "source": "Working on shared files",
+    "target": "Working on shared files",
+    "count": 1763,
+    "userCount": 31
+  },
+  {
+    "source": "Use Outlook Application",
+    "target": "Call - Microsoft Teams",
+    "count": 1748,
+    "userCount": 35
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Activity - Microsoft Teams",
+    "count": 1744,
+    "userCount": 42
+  },
+  {
+    "source": "Working with KYP on Develop",
+    "target": "Working with KYP on Develop",
+    "count": 1740,
+    "userCount": 18
+  },
+  {
+    "source": "Work on Presentation",
+    "target": "Use Teams Application",
+    "count": 1736,
+    "userCount": 17
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Update working progress",
+    "count": 1730,
+    "userCount": 39
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Work on Presentation",
+    "count": 1725,
+    "userCount": 17
+  },
+  {
+    "source": "Activity - Microsoft Teams",
+    "target": "Use Teams Application",
+    "count": 1692,
+    "userCount": 42
+  },
+  {
+    "source": "View Agile Board",
+    "target": "View Agile Board",
+    "count": 1689,
+    "userCount": 27
+  },
+  {
+    "source": "Create notes",
+    "target": "Create notes",
+    "count": 1611,
+    "userCount": 34
+  },
+  {
+    "source": "Use Adobe Illustrator",
+    "target": "Use Adobe Illustrator",
+    "count": 1562,
+    "userCount": 1
+  },
+  {
+    "source": "Working on kyp-backend",
+    "target": "Use Teams Application",
+    "count": 1531,
+    "userCount": 8
+  },
+  {
+    "source": "Use LinkedIn",
+    "target": "Use LinkedIn",
+    "count": 1528,
+    "userCount": 25
+  },
+  {
+    "source": "Work on Presentation",
+    "target": "Work on Presentation",
+    "count": 1488,
+    "userCount": 18
+  },
+  {
+    "source": "Working on Excel Sheet",
+    "target": "Use Teams Application",
+    "count": 1477,
+    "userCount": 33
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Working on Excel Sheet",
+    "count": 1477,
+    "userCount": 33
+  },
+  {
+    "source": "Use Electron",
+    "target": "Use Electron",
+    "count": 1386,
+    "userCount": 1
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Use Google Chrome",
+    "count": 1345,
+    "userCount": 5
+  },
+  {
+    "source": "ConfluOcr",
+    "target": "Read Confluence",
+    "count": 1343,
+    "userCount": 22
+  },
+  {
+    "source": "Use kyp.ai",
+    "target": "Use Teams Application",
+    "count": 1339,
+    "userCount": 37
+  },
+  {
+    "source": "Remote connection",
+    "target": "Remote Host Access",
+    "count": 1311,
+    "userCount": 1
+  },
+  {
+    "source": "Browsing in Chrome",
+    "target": "Use kyp.ai",
+    "count": 1293,
+    "userCount": 26
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Use kyp.ai",
+    "count": 1286,
+    "userCount": 40
+  },
+  {
+    "source": "Remote Host Access",
+    "target": "Remote connection",
+    "count": 1284,
+    "userCount": 1
+  },
+  {
+    "source": "View Grafana Report",
+    "target": "View Grafana Report",
+    "count": 1271,
+    "userCount": 14
+  },
+  {
+    "source": "View Files",
+    "target": "Use Outlook Application",
+    "count": 1265,
+    "userCount": 37
+  },
+  {
+    "source": "Switch application",
+    "target": "ImageResolved",
+    "count": 1251,
+    "userCount": 1
+  },
+  {
+    "source": "Use kyp.ai",
+    "target": "Browsing in Chrome",
+    "count": 1224,
+    "userCount": 27
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Use Microsoft Edge",
+    "count": 1206,
+    "userCount": 20
+  },
+  {
+    "source": "Use Outlook Application",
+    "target": "Browsing in Chrome",
+    "count": 1195,
+    "userCount": 29
+  },
+  {
+    "source": "Working with Discovery Environment",
+    "target": "Use Teams Application",
+    "count": 1178,
+    "userCount": 37
+  },
+  {
+    "source": "Call - Microsoft Teams",
+    "target": "Browsing in Chrome",
+    "count": 1166,
+    "userCount": 30
+  },
+  {
+    "source": "Develop kyp-frontend application",
+    "target": "Use Teams Application",
+    "count": 1143,
+    "userCount": 13
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Working with Discovery Environment",
+    "count": 1135,
+    "userCount": 36
+  },
+  {
+    "source": "Create screenshot",
+    "target": "Use Teams Application",
+    "count": 1134,
+    "userCount": 35
+  },
+  {
+    "source": "Working on Excel Sheet",
+    "target": "Switch to worksheet (Activity)",
+    "count": 1132,
+    "userCount": 20
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Working on kyp-backend",
+    "count": 1109,
+    "userCount": 8
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "IntelliJOcr",
+    "count": 1096,
+    "userCount": 12
+  },
+  {
+    "source": "Browsing in Chrome",
+    "target": "Use Outlook Application",
+    "count": 1095,
+    "userCount": 30
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Develop kyp-frontend application",
+    "count": 1075,
+    "userCount": 14
+  },
+  {
+    "source": "Browsing in Chrome",
+    "target": "Call - Microsoft Teams",
+    "count": 1072,
+    "userCount": 31
+  },
+  {
+    "source": "Use Google Chrome",
+    "target": "Use Teams Application",
+    "count": 1072,
+    "userCount": 4
+  },
+  {
+    "source": "ImageResolved",
+    "target": "Switch application",
+    "count": 1041,
+    "userCount": 1
+  },
+  {
+    "source": "Build and develop local environment",
+    "target": "Build and develop local environment",
+    "count": 1037,
+    "userCount": 11
+  },
+  {
+    "source": "bob",
+    "target": "bob",
+    "count": 1020,
+    "userCount": 40
+  },
+  {
+    "source": "Check and use interface design",
+    "target": "Check and use interface design",
+    "count": 1019,
+    "userCount": 15
+  },
+  {
+    "source": "Working on support tickets",
+    "target": "Use Teams Application",
+    "count": 971,
+    "userCount": 5
+  },
+  {
+    "source": "Use Microsoft Edge",
+    "target": "Use Teams Application",
+    "count": 966,
+    "userCount": 21
+  },
+  {
+    "source": "Use Termius",
+    "target": "Use Termius",
+    "count": 961,
+    "userCount": 1
+  },
+  {
+    "source": "View Agile Board",
+    "target": "Use Teams Application",
+    "count": 960,
+    "userCount": 26
+  },
+  {
+    "source": "Read Confluence",
+    "target": "Read Confluence",
+    "count": 948,
+    "userCount": 27
+  },
+  {
+    "source": "Shell scripting",
+    "target": "Use Teams Application",
+    "count": 932,
+    "userCount": 13
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Screen zoom",
+    "count": 920,
+    "userCount": 1
+  },
+  {
+    "source": "Screen zoom",
+    "target": "Use Teams Application",
+    "count": 911,
+    "userCount": 1
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "View Agile Board",
+    "count": 909,
+    "userCount": 26
+  },
+  {
+    "source": "Use Outlook Application",
+    "target": "View Files",
+    "count": 902,
+    "userCount": 35
+  },
+  {
+    "source": "Use GitLab",
+    "target": "Use Teams Application",
+    "count": 895,
+    "userCount": 23
+  },
+  {
+    "source": "Use PBIDesktop",
+    "target": "Use PBIDesktop",
+    "count": 880,
+    "userCount": 5
+  },
+  {
+    "source": "Create screenshot",
+    "target": "Create screenshot",
+    "count": 866,
+    "userCount": 24
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Shell scripting",
+    "count": 860,
+    "userCount": 12
+  },
+  {
+    "source": "Switch to worksheet (Activity)",
+    "target": "Working on Excel Sheet",
+    "count": 859,
+    "userCount": 18
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Create screenshot",
+    "count": 858,
+    "userCount": 35
+  },
+  {
+    "source": "Working on kyp-backend",
+    "target": "kyp-backend – SnapshotService.java [kyp-data-exporter]",
+    "count": 849,
+    "userCount": 1
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Use Outlook Online STD",
+    "count": 837,
+    "userCount": 7
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Use GitLab",
+    "count": 837,
+    "userCount": 22
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Working on support tickets",
+    "count": 836,
+    "userCount": 4
+  },
+  {
+    "source": "Build and develop local environment",
+    "target": "Switch application",
+    "count": 829,
+    "userCount": 1
+  },
+  {
+    "source": "Read Confluence",
+    "target": "ConfluOcr",
+    "count": 828,
+    "userCount": 19
+  },
+  {
+    "source": "Switch application",
+    "target": "Build and develop local environment",
+    "count": 815,
+    "userCount": 1
+  },
+  {
+    "source": "kyp-backend – SnapshotService.java [kyp-data-exporter]",
+    "target": "Working on kyp-backend",
+    "count": 814,
+    "userCount": 1
+  },
+  {
+    "source": "IntelliJOcr",
+    "target": "Working on qa-admin",
+    "count": 803,
+    "userCount": 2
+  },
+  {
+    "source": "Working on shared files",
+    "target": "Use Teams Application",
+    "count": 802,
+    "userCount": 32
+  },
+  {
+    "source": "New Feed read LinkedIn",
+    "target": "Use LinkedIn",
+    "count": 800,
+    "userCount": 14
+  },
+  {
+    "source": "AI Searching",
+    "target": "AI Searching",
+    "count": 776,
+    "userCount": 23
+  },
+  {
+    "source": "Use Outlook Online STD",
+    "target": "Use Teams Application",
+    "count": 775,
+    "userCount": 5
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Working on shared files",
+    "count": 770,
+    "userCount": 33
+  },
+  {
+    "source": "Build team City Projects",
+    "target": "Use Teams Application",
+    "count": 741,
+    "userCount": 18
+  },
+  {
+    "source": "Activity - Microsoft Teams",
+    "target": "Activity - Microsoft Teams",
+    "count": 725,
+    "userCount": 37
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Remote files view",
+    "count": 691,
+    "userCount": 31
+  },
+  {
+    "source": "Working On Support Ticket",
+    "target": "Working On Support Ticket",
+    "count": 688,
+    "userCount": 18
+  },
+  {
+    "source": "Browsing in Chrome",
+    "target": "Working with Discovery Environment",
+    "count": 687,
+    "userCount": 25
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Use LinkedIn",
+    "count": 682,
+    "userCount": 24
+  },
+  {
+    "source": "Browsing in Chrome",
+    "target": "Update working progress",
+    "count": 679,
+    "userCount": 30
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Build team City Projects",
+    "count": 677,
+    "userCount": 19
+  },
+  {
+    "source": "Use LinkedIn",
+    "target": "New Feed read LinkedIn",
+    "count": 675,
+    "userCount": 14
+  },
+  {
+    "source": "Use SearchHost",
+    "target": "View Files",
+    "count": 672,
+    "userCount": 38
+  },
+  {
+    "source": "Remote files view",
+    "target": "Use Teams Application",
+    "count": 671,
+    "userCount": 25
+  },
+  {
+    "source": "SukcesOcr",
+    "target": "Update working progress",
+    "count": 671,
+    "userCount": 17
+  },
+  {
+    "source": "Use LinkedIn",
+    "target": "Use Teams Application",
+    "count": 669,
+    "userCount": 21
+  },
+  {
+    "source": "Use Monitoring KYP.ai",
+    "target": "Use Monitoring KYP.ai",
+    "count": 665,
+    "userCount": 8
+  },
+  {
+    "source": "Call - Microsoft Teams",
+    "target": "View Files",
+    "count": 664,
+    "userCount": 34
+  },
+  {
+    "source": "View Downloads  Files",
+    "target": "Use Teams Application",
+    "count": 662,
+    "userCount": 36
+  },
+  {
+    "source": "Searching Google",
+    "target": "Use Teams Application",
+    "count": 651,
+    "userCount": 32
+  },
+  {
+    "source": "Outlook",
+    "target": "Use Outlook Application",
+    "count": 650,
+    "userCount": 8
+  },
+  {
+    "source": "Build and develop local environment",
+    "target": "Use Teams Application",
+    "count": 650,
+    "userCount": 10
+  },
+  {
+    "source": "Working with KYP on Develop",
+    "target": "Use Teams Application",
+    "count": 643,
+    "userCount": 18
+  },
+  {
+    "source": "Working on kyp-backend",
+    "target": "View Files",
+    "count": 640,
+    "userCount": 8
+  },
+  {
+    "source": "IntelliJOcr",
+    "target": "Working on qa-backend",
+    "count": 639,
+    "userCount": 6
+  },
+  {
+    "source": "Use Outlook Application",
+    "target": "Outlook",
+    "count": 630,
+    "userCount": 6
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Working with KYP on Develop",
+    "count": 629,
+    "userCount": 18
+  },
+  {
+    "source": "Use LinkedIn",
+    "target": "Browsing in Chrome",
+    "count": 609,
+    "userCount": 16
+  },
+  {
+    "source": "Browsing in Chrome",
+    "target": "View Files",
+    "count": 608,
+    "userCount": 31
+  },
+  {
+    "source": "View Files",
+    "target": "Checking logs",
+    "count": 603,
+    "userCount": 6
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Searching Google",
+    "count": 595,
+    "userCount": 34
+  },
+  {
+    "source": "Shell scripting",
+    "target": "Shell scripting",
+    "count": 595,
+    "userCount": 15
+  },
+  {
+    "source": "Use Hubspot",
+    "target": "Use Hubspot",
+    "count": 586,
+    "userCount": 12
+  },
+  {
+    "source": "Use Outlook Application",
+    "target": "Working on Excel Sheet",
+    "count": 574,
+    "userCount": 25
+  },
+  {
+    "source": "Working on Excel Sheet",
+    "target": "Use Outlook Application",
+    "count": 573,
+    "userCount": 25
+  },
+  {
+    "source": "Update working progress",
+    "target": "Browsing in Chrome",
+    "count": 570,
+    "userCount": 27
+  },
+  {
+    "source": "Browsing in Chrome",
+    "target": "Use LinkedIn",
+    "count": 569,
+    "userCount": 18
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Build and develop local environment",
+    "count": 563,
+    "userCount": 10
+  },
+  {
+    "source": "View Files",
+    "target": "Create notes",
+    "count": 551,
+    "userCount": 29
+  },
+  {
+    "source": "Update working progress",
+    "target": "Clipboard Content View Name",
+    "count": 543,
+    "userCount": 31
+  },
+  {
+    "source": "Call - Microsoft Teams",
+    "target": "Working on Excel Sheet",
+    "count": 539,
+    "userCount": 22
+  },
+  {
+    "source": "Use klogg_BA",
+    "target": "Use klogg_BA",
+    "count": 535,
+    "userCount": 5
+  },
+  {
+    "source": "Create notes",
+    "target": "Use Teams Application",
+    "count": 527,
+    "userCount": 30
+  },
+  {
+    "source": "Working on Excel Sheet",
+    "target": "Use Microsoft Edge",
+    "count": 527,
+    "userCount": 7
+  },
+  {
+    "source": "Web Searching",
+    "target": "Web Searching",
+    "count": 526,
+    "userCount": 13
+  },
+  {
+    "source": "View Issue List",
+    "target": "View Issue List",
+    "count": 524,
+    "userCount": 22
+  },
+  {
+    "source": "View Downloads  Files",
+    "target": "View Files",
+    "count": 523,
+    "userCount": 35
+  },
+  {
+    "source": "Use Termius",
+    "target": "Use Teams Application",
+    "count": 513,
+    "userCount": 1
+  },
+  {
+    "source": "Call - Microsoft Teams",
+    "target": "Update working progress",
+    "count": 510,
+    "userCount": 31
+  },
+  {
+    "source": "Working with Discovery Environment",
+    "target": "Browsing in Chrome",
+    "count": 507,
+    "userCount": 25
+  },
+  {
+    "source": "Use Microsoft Edge",
+    "target": "Working on Excel Sheet",
+    "count": 507,
+    "userCount": 8
+  },
+  {
+    "source": "Read Public Documentation",
+    "target": "Read Public Documentation",
+    "count": 506,
+    "userCount": 20
+  },
+  {
+    "source": "Browsing in Chrome",
+    "target": "Create screenshot",
+    "count": 505,
+    "userCount": 25
+  },
+  {
+    "source": "Use Xpcproxy",
+    "target": "Use Xpcproxy",
+    "count": 501,
+    "userCount": 3
+  },
+  {
+    "source": "Working on qa-admin",
+    "target": "IntelliJOcr",
+    "count": 501,
+    "userCount": 2
+  },
+  {
+    "source": "AI Searching",
+    "target": "Use Teams Application",
+    "count": 500,
+    "userCount": 21
+  },
+  {
+    "source": "Checking logs",
+    "target": "View Files",
+    "count": 500,
+    "userCount": 5
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Create notes",
+    "count": 498,
+    "userCount": 29
+  },
+  {
+    "source": "View Files",
+    "target": "Browsing in Chrome",
+    "count": 497,
+    "userCount": 31
+  },
+  {
+    "source": "Browsing in Chrome",
+    "target": "New Feed read LinkedIn",
+    "count": 496,
+    "userCount": 8
+  },
+  {
+    "source": "View Files",
+    "target": "Use SearchHost",
+    "count": 495,
+    "userCount": 34
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "View Downloads  Files",
+    "count": 492,
+    "userCount": 35
+  },
+  {
+    "source": "Remote files view",
+    "target": "Remote files view",
+    "count": 486,
+    "userCount": 26
+  },
+  {
+    "source": "View Agile Board",
+    "target": "Update working progress",
+    "count": 485,
+    "userCount": 27
+  },
+  {
+    "source": "Update working progress",
+    "target": "Call - Microsoft Teams",
+    "count": 483,
+    "userCount": 31
+  },
+  {
+    "source": "Create screenshot",
+    "target": "Browsing in Chrome",
+    "count": 477,
+    "userCount": 23
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Use Termius",
+    "count": 476,
+    "userCount": 1
+  },
+  {
+    "source": "New Feed read LinkedIn",
+    "target": "Use Teams Application",
+    "count": 475,
+    "userCount": 14
+  },
+  {
+    "source": "Work on Presentation",
+    "target": "Use Outlook Application",
+    "count": 473,
+    "userCount": 15
+  },
+  {
+    "source": "Java Development",
+    "target": "Java Development",
+    "count": 469,
+    "userCount": 6
+  },
+  {
+    "source": "Use Google Chrome",
+    "target": "Use Termius",
+    "count": 468,
+    "userCount": 1
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "New Feed read LinkedIn",
+    "count": 467,
+    "userCount": 14
+  },
+  {
+    "source": "Use Termius",
+    "target": "Use Google Chrome",
+    "count": 465,
+    "userCount": 1
+  },
+  {
+    "source": "View Files",
+    "target": "Use klogg_BA",
+    "count": 464,
+    "userCount": 4
+  },
+  {
+    "source": "View Files",
+    "target": "View Downloads  Files",
+    "count": 463,
+    "userCount": 38
+  },
+  {
+    "source": "Working on Excel Sheet",
+    "target": "Call - Microsoft Teams",
+    "count": 449,
+    "userCount": 20
+  },
+  {
+    "source": "Call - Microsoft Teams",
+    "target": "Work on Presentation",
+    "count": 445,
+    "userCount": 12
+  },
+  {
+    "source": "bob",
+    "target": "Use Teams Application",
+    "count": 444,
+    "userCount": 37
+  },
+  {
+    "source": "ImageResolved",
+    "target": "Develop kyp-frontend application",
+    "count": 443,
+    "userCount": 1
+  },
+  {
+    "source": "View Files",
+    "target": "Working on Excel Sheet",
+    "count": 439,
+    "userCount": 25
+  },
+  {
+    "source": "Shell scripting",
+    "target": "Browsing in Chrome",
+    "count": 437,
+    "userCount": 8
+  },
+  {
+    "source": "Use Outlook Application",
+    "target": "Update working progress",
+    "count": 436,
+    "userCount": 33
+  },
+  {
+    "source": "Check and use interface design",
+    "target": "Use Teams Application",
+    "count": 435,
+    "userCount": 13
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "AI Searching",
+    "count": 434,
+    "userCount": 22
+  },
+  {
+    "source": "Update working progress",
+    "target": "SukcesOcr",
+    "count": 434,
+    "userCount": 18
+  },
+  {
+    "source": "Use Outlook Online STD",
+    "target": "Use Outlook Online STD",
+    "count": 431,
+    "userCount": 6
+  },
+  {
+    "source": "Use Hubspot",
+    "target": "Use Teams Application",
+    "count": 429,
+    "userCount": 9
+  },
+  {
+    "source": "Browsing in Chrome",
+    "target": "Shell scripting",
+    "count": 428,
+    "userCount": 6
+  },
+  {
+    "source": "Browsing in Chrome",
+    "target": "AI Searching",
+    "count": 427,
+    "userCount": 21
+  },
+  {
+    "source": "Admin Space",
+    "target": "Admin Space",
+    "count": 427,
+    "userCount": 21
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "bob",
+    "count": 425,
+    "userCount": 37
+  },
+  {
+    "source": "View Files",
+    "target": "Call - Microsoft Teams",
+    "count": 424,
+    "userCount": 32
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Outlook",
+    "count": 424,
+    "userCount": 6
+  },
+  {
+    "source": "Working on text document",
+    "target": "Use Teams Application",
+    "count": 423,
+    "userCount": 20
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Use SearchHost",
+    "count": 421,
+    "userCount": 35
+  },
+  {
+    "source": "Update working progress",
+    "target": "View Agile Board",
+    "count": 421,
+    "userCount": 27
+  },
+  {
+    "source": "Clipboard Content View Name",
+    "target": "Update working progress",
+    "count": 420,
+    "userCount": 26
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Remote connection",
+    "count": 419,
+    "userCount": 4
+  },
+  {
+    "source": "Use Outlook Application",
+    "target": "Work on Presentation",
+    "count": 416,
+    "userCount": 12
+  },
+  {
+    "source": "Outlook",
+    "target": "Use Teams Application",
+    "count": 416,
+    "userCount": 4
+  },
+  {
+    "source": "View Files",
+    "target": "Work on Presentation",
+    "count": 415,
+    "userCount": 16
+  },
+  {
+    "source": "Use Google Chrome",
+    "target": "Use Finder",
+    "count": 414,
+    "userCount": 2
+  },
+  {
+    "source": "View Grafana Report",
+    "target": "Use Teams Application",
+    "count": 414,
+    "userCount": 12
+  },
+  {
+    "source": "Use klogg_BA",
+    "target": "View Files",
+    "count": 409,
+    "userCount": 4
+  },
+  {
+    "source": "Work on Presentation",
+    "target": "Call - Microsoft Teams",
+    "count": 406,
+    "userCount": 13
+  },
+  {
+    "source": "Develop kyp-frontend application",
+    "target": "Use Microsoft Edge",
+    "count": 405,
+    "userCount": 4
+  },
+  {
+    "source": "Develop kyp-frontend application",
+    "target": "ImageResolved",
+    "count": 403,
+    "userCount": 3
+  },
+  {
+    "source": "Use Microsoft Edge",
+    "target": "Develop kyp-frontend application",
+    "count": 402,
+    "userCount": 4
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Check and use interface design",
+    "count": 401,
+    "userCount": 12
+  },
+  {
+    "source": "Use Claude",
+    "target": "Use Teams Application",
+    "count": 401,
+    "userCount": 10
+  },
+  {
+    "source": "Use Outlook Application",
+    "target": "Use Microsoft Edge",
+    "count": 399,
+    "userCount": 16
+  },
+  {
+    "source": "Use SearchHost",
+    "target": "Windows Explorer",
+    "count": 399,
+    "userCount": 31
+  },
+  {
+    "source": "Use Microsoft Edge",
+    "target": "Web Searching",
+    "count": 397,
+    "userCount": 14
+  },
+  {
+    "source": "Working on Excel Sheet",
+    "target": "Browsing in Chrome",
+    "count": 396,
+    "userCount": 18
+  },
+  {
+    "source": "Develop kyp-frontend application",
+    "target": "Shell scripting",
+    "count": 396,
+    "userCount": 3
+  },
+  {
+    "source": "Working on kyp-backend",
+    "target": "Call - Microsoft Teams",
+    "count": 396,
+    "userCount": 6
+  },
+  {
+    "source": "Browsing in Chrome",
+    "target": "Working on shared files",
+    "count": 395,
+    "userCount": 22
+  },
+  {
+    "source": "Call - Microsoft Teams",
+    "target": "View Agile Board",
+    "count": 392,
+    "userCount": 21
+  },
+  {
+    "source": "Use PBIDesktop",
+    "target": "Use MsedgeWebView",
+    "count": 392,
+    "userCount": 3
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Working on text document",
+    "count": 388,
+    "userCount": 21
+  },
+  {
+    "source": "Update working progress",
+    "target": "Use Outlook Application",
+    "count": 388,
+    "userCount": 32
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Use Claude",
+    "count": 388,
+    "userCount": 8
+  },
+  {
+    "source": "Shell scripting",
+    "target": "Develop kyp-frontend application",
+    "count": 387,
+    "userCount": 3
+  },
+  {
+    "source": "AI Searching",
+    "target": "Browsing in Chrome",
+    "count": 386,
+    "userCount": 18
+  },
+  {
+    "source": "Working on qa-backend",
+    "target": "IntelliJOcr",
+    "count": 386,
+    "userCount": 6
+  },
+  {
+    "source": "Working on shared files",
+    "target": "Browsing in Chrome",
+    "count": 384,
+    "userCount": 25
+  },
+  {
+    "source": "Update working progress",
+    "target": "View Files",
+    "count": 384,
+    "userCount": 29
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "Use Hubspot",
+    "count": 383,
+    "userCount": 9
+  },
+  {
+    "source": "Use Finder",
+    "target": "Use Google Chrome",
+    "count": 382,
+    "userCount": 2
+  },
+  {
+    "source": "Working with repository",
+    "target": "Working with repository",
+    "count": 382,
+    "userCount": 15
+  },
+  {
+    "source": "Remote connection",
+    "target": "Use Teams Application",
+    "count": 380,
+    "userCount": 4
+  },
+  {
+    "source": "Work on Presentation",
+    "target": "View Files",
+    "count": 377,
+    "userCount": 16
+  },
+  {
+    "source": "Use Teams Application",
+    "target": "View Grafana Report",
+    "count": 377,
+    "userCount": 12
+  },
+  {
+    "source": "New Feed read LinkedIn",
+    "target": "Browsing in Chrome",
+    "count": 374,
+    "userCount": 7
+  },
+  {
+    "source": "Working on Excel Sheet",
+    "target": "View Files",
+    "count": 372,
+    "userCount": 24
+  },
+  {
+    "source": "Use Microsoft Edge",
+    "target": "Use Outlook Application",
+    "count": 369,
+    "userCount": 16
+  },
+  {
+    "source": "Browsing in Chrome",
+    "target": "Working on Excel Sheet",
+    "count": 367,
+    "userCount": 17
+  },
+  {
+    "source": "Use Outlook Application",
+    "target": "Working on support tickets",
+    "count": 366,
+    "userCount": 4
+  },
+  {
+    "source": "Use MsedgeWebView",
+    "target": "Use Outlook Application",
+    "count": 364,
+    "userCount": 29
+  },
+  {
+    "source": "View Agile Board",
+    "target": "Call - Microsoft Teams",
+    "count": 364,
+    "userCount": 23
+  },
+  {
+    "source": "Discovery Space",
+    "target": "Use Teams Application",
+    "count": 364,
+    "userCount": 18
+  },
+  {
+    "source": "Use Outlook Application",
+    "target": "Use kyp.ai",
+    "count": 359,
+    "userCount": 27
+  },
+  {
+    "source": "IntelliJOcr",
+    "target": "Use Teams Application",
+    "count": 359,
+    "userCount": 11
+  },
+  {
+    "source": "Create notes",
+    "target": "Browsing in Chrome",
+    "count": 358,
+    "userCount": 18
+  },
+  {
+    "source": "Use Xpcproxy",
+    "target": "Use Google Chrome",
+    "count": 353,
+    "userCount": 2
+  }
+]

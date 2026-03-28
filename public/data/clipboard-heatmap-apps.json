@@ -1,0 +1,502 @@
+[
+  {
+    "sourceApplication": "IntelliJ",
+    "targetApplication": "IntelliJ",
+    "count": 1943.0
+  },
+  {
+    "sourceApplication": "Code",
+    "targetApplication": "Code",
+    "count": 1341.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "targetApplication": "Excel",
+    "count": 1217.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "targetApplication": "Sharepoint",
+    "count": 1153.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "targetApplication": "Chrome",
+    "count": 850.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "targetApplication": "PowerPoint",
+    "count": 830.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "targetApplication": "Teams",
+    "count": 737.0
+  },
+  {
+    "sourceApplication": "kyp.ai",
+    "targetApplication": "kyp.ai",
+    "count": 314.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "targetApplication": "Teams",
+    "count": 247.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "targetApplication": "WindowsTerminal",
+    "count": 211.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "targetApplication": "ChatGPT",
+    "count": 190.0
+  },
+  {
+    "sourceApplication": "kyp.ai",
+    "targetApplication": "Teams",
+    "count": 189.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "targetApplication": "Teams",
+    "count": 174.0
+  },
+  {
+    "sourceApplication": "IntelliJ",
+    "targetApplication": "Teams",
+    "count": 118.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "targetApplication": "Teams",
+    "count": 115.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "targetApplication": "Sharepoint",
+    "count": 106.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "targetApplication": "Teams",
+    "count": 106.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "targetApplication": "Teams",
+    "count": 98.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "targetApplication": "Code",
+    "count": 81.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "targetApplication": "kyp.ai",
+    "count": 74.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "targetApplication": "Chrome",
+    "count": 66.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "targetApplication": "Chrome",
+    "count": 63.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "targetApplication": "ChatGPT",
+    "count": 60.0
+  },
+  {
+    "sourceApplication": "Code",
+    "targetApplication": "Teams",
+    "count": 59.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "targetApplication": "kyp.ai",
+    "count": 52.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "targetApplication": "Teams",
+    "count": 47.0
+  },
+  {
+    "sourceApplication": "IntelliJ",
+    "targetApplication": "Chrome",
+    "count": 42.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "targetApplication": "ChatGPT",
+    "count": 41.0
+  },
+  {
+    "sourceApplication": "Code",
+    "targetApplication": "WindowsTerminal",
+    "count": 40.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "targetApplication": "Excel",
+    "count": 39.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "targetApplication": "ChatGPT",
+    "count": 39.0
+  },
+  {
+    "sourceApplication": "kyp.ai",
+    "targetApplication": "Chrome",
+    "count": 35.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "targetApplication": "Code",
+    "count": 31.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "targetApplication": "kyp.ai",
+    "count": 30.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "targetApplication": "IntelliJ",
+    "count": 29.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "targetApplication": "Chrome",
+    "count": 29.0
+  },
+  {
+    "sourceApplication": "Code",
+    "targetApplication": "Chrome",
+    "count": 28.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "targetApplication": "kyp.ai",
+    "count": 28.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "targetApplication": "Code",
+    "count": 27.0
+  },
+  {
+    "sourceApplication": "kyp.ai",
+    "targetApplication": "Code",
+    "count": 22.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "targetApplication": "Code",
+    "count": 22.0
+  },
+  {
+    "sourceApplication": "IntelliJ",
+    "targetApplication": "Code",
+    "count": 21.0
+  },
+  {
+    "sourceApplication": "kyp.ai",
+    "targetApplication": "ChatGPT",
+    "count": 21.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "targetApplication": "kyp.ai",
+    "count": 20.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "targetApplication": "WindowsTerminal",
+    "count": 20.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "targetApplication": "IntelliJ",
+    "count": 20.0
+  },
+  {
+    "sourceApplication": "Code",
+    "targetApplication": "ChatGPT",
+    "count": 20.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "targetApplication": "Chrome",
+    "count": 18.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "targetApplication": "PowerPoint",
+    "count": 18.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "targetApplication": "PowerPoint",
+    "count": 14.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "targetApplication": "WindowsTerminal",
+    "count": 12.0
+  },
+  {
+    "sourceApplication": "Code",
+    "targetApplication": "Excel",
+    "count": 12.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "targetApplication": "Sharepoint",
+    "count": 11.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "targetApplication": "Chrome",
+    "count": 11.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "targetApplication": "IntelliJ",
+    "count": 10.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "targetApplication": "Excel",
+    "count": 10.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "targetApplication": "Chrome",
+    "count": 10.0
+  },
+  {
+    "sourceApplication": "IntelliJ",
+    "targetApplication": "Sharepoint",
+    "count": 9.0
+  },
+  {
+    "sourceApplication": "IntelliJ",
+    "targetApplication": "kyp.ai",
+    "count": 9.0
+  },
+  {
+    "sourceApplication": "kyp.ai",
+    "targetApplication": "Excel",
+    "count": 8.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "targetApplication": "PowerPoint",
+    "count": 6.0
+  },
+  {
+    "sourceApplication": "Code",
+    "targetApplication": "kyp.ai",
+    "count": 6.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "targetApplication": "Code",
+    "count": 6.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "targetApplication": "Sharepoint",
+    "count": 6.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "targetApplication": "ChatGPT",
+    "count": 6.0
+  },
+  {
+    "sourceApplication": "kyp.ai",
+    "targetApplication": "IntelliJ",
+    "count": 6.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "targetApplication": "Excel",
+    "count": 6.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "targetApplication": "ChatGPT",
+    "count": 6.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "targetApplication": "Sharepoint",
+    "count": 5.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "targetApplication": "IntelliJ",
+    "count": 5.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "targetApplication": "Excel",
+    "count": 4.0
+  },
+  {
+    "sourceApplication": "IntelliJ",
+    "targetApplication": "ChatGPT",
+    "count": 4.0
+  },
+  {
+    "sourceApplication": "kyp.ai",
+    "targetApplication": "Sharepoint",
+    "count": 4.0
+  },
+  {
+    "sourceApplication": "kyp.ai",
+    "targetApplication": "PowerPoint",
+    "count": 4.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "targetApplication": "ChatGPT",
+    "count": 4.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "targetApplication": "Excel",
+    "count": 4.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "targetApplication": "PowerPoint",
+    "count": 3.0
+  },
+  {
+    "sourceApplication": "Code",
+    "targetApplication": "Sharepoint",
+    "count": 2.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "targetApplication": "kyp.ai",
+    "count": 2.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "targetApplication": "WindowsTerminal",
+    "count": 2.0
+  },
+  {
+    "sourceApplication": "Code",
+    "targetApplication": "IntelliJ",
+    "count": 1.0
+  },
+  {
+    "sourceApplication": "IntelliJ",
+    "targetApplication": "WindowsTerminal",
+    "count": 1.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "targetApplication": "IntelliJ",
+    "count": 1.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "targetApplication": "Code",
+    "count": 1.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "targetApplication": "IntelliJ",
+    "count": 1.0
+  },
+  {
+    "sourceApplication": "Code",
+    "targetApplication": "PowerPoint",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "targetApplication": "WindowsTerminal",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "IntelliJ",
+    "targetApplication": "Excel",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "IntelliJ",
+    "targetApplication": "PowerPoint",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "kyp.ai",
+    "targetApplication": "WindowsTerminal",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "targetApplication": "IntelliJ",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "targetApplication": "Code",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "targetApplication": "Sharepoint",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "targetApplication": "WindowsTerminal",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "targetApplication": "PowerPoint",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "targetApplication": "kyp.ai",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "targetApplication": "WindowsTerminal",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "targetApplication": "Excel",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "targetApplication": "Sharepoint",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "targetApplication": "PowerPoint",
+    "count": 0.0
+  }
+]

@@ -1,0 +1,702 @@
+[
+  {
+    "sourceApplication": "IntelliJ",
+    "sourceStep": "Working on kyp-backend",
+    "targetApplication": "IntelliJ",
+    "targetStep": "Working on kyp-backend",
+    "count": 1459.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "sourceStep": "Working on shared files",
+    "targetApplication": "Sharepoint",
+    "targetStep": "Working on shared files",
+    "count": 1153.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "sourceStep": "Working on Excel Sheet",
+    "targetApplication": "Excel",
+    "targetStep": "Working on Excel Sheet",
+    "count": 1133.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "sourceStep": "Browsing in Chrome",
+    "targetApplication": "Chrome",
+    "targetStep": "Browsing in Chrome",
+    "count": 850.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "sourceStep": "Work on Presentation",
+    "targetApplication": "PowerPoint",
+    "targetStep": "Work on Presentation",
+    "count": 830.0
+  },
+  {
+    "sourceApplication": "Code",
+    "sourceStep": "Develop kyp-frontend application",
+    "targetApplication": "Code",
+    "targetStep": "Develop kyp-frontend application",
+    "count": 762.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "sourceStep": "Use Teams Application",
+    "targetApplication": "Teams",
+    "targetStep": "Use Teams Application",
+    "count": 646.0
+  },
+  {
+    "sourceApplication": "Figma",
+    "sourceStep": "Check and use interface design",
+    "targetApplication": "Figma",
+    "targetStep": "Check and use interface design",
+    "count": 628.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "sourceStep": "Browsing in Chrome",
+    "targetApplication": "Teams",
+    "targetStep": "Use Teams Application",
+    "count": 237.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "sourceStep": "Shell scripting",
+    "targetApplication": "WindowsTerminal",
+    "targetStep": "Shell scripting",
+    "count": 211.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "sourceStep": "AI Searching",
+    "targetApplication": "ChatGPT",
+    "targetStep": "AI Searching",
+    "count": 190.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "sourceStep": "Work on Presentation",
+    "targetApplication": "Teams",
+    "targetStep": "Use Teams Application",
+    "count": 172.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "sourceStep": "Use Teams Application",
+    "targetApplication": "Sharepoint",
+    "targetStep": "Working on shared files",
+    "count": 99.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "sourceStep": "Working on Excel Sheet",
+    "targetApplication": "Teams",
+    "targetStep": "Use Teams Application",
+    "count": 89.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "sourceStep": "Working on shared files",
+    "targetApplication": "Teams",
+    "targetStep": "Use Teams Application",
+    "count": 86.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "sourceStep": "Shell scripting",
+    "targetApplication": "Code",
+    "targetStep": "Develop kyp-frontend application",
+    "count": 81.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "sourceStep": "AI Searching",
+    "targetApplication": "Figma",
+    "targetStep": "Check and use interface design",
+    "count": 80.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "sourceStep": "Shell scripting",
+    "targetApplication": "Teams",
+    "targetStep": "Use Teams Application",
+    "count": 78.0
+  },
+  {
+    "sourceApplication": "IntelliJ",
+    "sourceStep": "Working on kyp-backend",
+    "targetApplication": "Teams",
+    "targetStep": "Use Teams Application",
+    "count": 67.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "sourceStep": "Working on Excel Sheet",
+    "targetApplication": "Chrome",
+    "targetStep": "Browsing in Chrome",
+    "count": 63.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "sourceStep": "Use Teams Application",
+    "targetApplication": "Chrome",
+    "targetStep": "Browsing in Chrome",
+    "count": 60.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "sourceStep": "Shell scripting",
+    "targetApplication": "ChatGPT",
+    "targetStep": "AI Searching",
+    "count": 60.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "sourceStep": "AI Searching",
+    "targetApplication": "Teams",
+    "targetStep": "Use Teams Application",
+    "count": 44.0
+  },
+  {
+    "sourceApplication": "IntelliJ",
+    "sourceStep": "Working on kyp-backend",
+    "targetApplication": "Chrome",
+    "targetStep": "Browsing in Chrome",
+    "count": 42.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "sourceStep": "Browsing in Chrome",
+    "targetApplication": "ChatGPT",
+    "targetStep": "AI Searching",
+    "count": 41.0
+  },
+  {
+    "sourceApplication": "Code",
+    "sourceStep": "Develop kyp-frontend application",
+    "targetApplication": "WindowsTerminal",
+    "targetStep": "Shell scripting",
+    "count": 40.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "sourceStep": "Use Teams Application",
+    "targetApplication": "ChatGPT",
+    "targetStep": "AI Searching",
+    "count": 38.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "sourceStep": "Use Teams Application",
+    "targetApplication": "Excel",
+    "targetStep": "Working on Excel Sheet",
+    "count": 37.0
+  },
+  {
+    "sourceApplication": "Code",
+    "sourceStep": "Develop kyp-frontend application",
+    "targetApplication": "Teams",
+    "targetStep": "Use Teams Application",
+    "count": 32.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "sourceStep": "Browsing in Chrome",
+    "targetApplication": "Code",
+    "targetStep": "Develop kyp-frontend application",
+    "count": 30.0
+  },
+  {
+    "sourceApplication": "Figma",
+    "sourceStep": "Check and use interface design",
+    "targetApplication": "ChatGPT",
+    "targetStep": "AI Searching",
+    "count": 29.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "sourceStep": "Shell scripting",
+    "targetApplication": "Chrome",
+    "targetStep": "Browsing in Chrome",
+    "count": 29.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "sourceStep": "AI Searching",
+    "targetApplication": "Code",
+    "targetStep": "Develop kyp-frontend application",
+    "count": 27.0
+  },
+  {
+    "sourceApplication": "Code",
+    "sourceStep": "Develop kyp-frontend application",
+    "targetApplication": "Chrome",
+    "targetStep": "Browsing in Chrome",
+    "count": 24.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "sourceStep": "AI Searching",
+    "targetApplication": "WindowsTerminal",
+    "targetStep": "Shell scripting",
+    "count": 20.0
+  },
+  {
+    "sourceApplication": "Code",
+    "sourceStep": "Develop kyp-frontend application",
+    "targetApplication": "ChatGPT",
+    "targetStep": "AI Searching",
+    "count": 20.0
+  },
+  {
+    "sourceApplication": "IntelliJ",
+    "sourceStep": "Working on kyp-backend",
+    "targetApplication": "Code",
+    "targetStep": "Develop kyp-frontend application",
+    "count": 20.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "sourceStep": "AI Searching",
+    "targetApplication": "Chrome",
+    "targetStep": "Browsing in Chrome",
+    "count": 18.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "sourceStep": "Use Teams Application",
+    "targetApplication": "PowerPoint",
+    "targetStep": "Work on Presentation",
+    "count": 18.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "sourceStep": "Use Teams Application",
+    "targetApplication": "IntelliJ",
+    "targetStep": "Working on kyp-backend",
+    "count": 17.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "sourceStep": "Working on Excel Sheet",
+    "targetApplication": "PowerPoint",
+    "targetStep": "Work on Presentation",
+    "count": 14.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "sourceStep": "Browsing in Chrome",
+    "targetApplication": "WindowsTerminal",
+    "targetStep": "Shell scripting",
+    "count": 12.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "sourceStep": "Browsing in Chrome",
+    "targetApplication": "Sharepoint",
+    "targetStep": "Working on shared files",
+    "count": 11.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "sourceStep": "Working on shared files",
+    "targetApplication": "Chrome",
+    "targetStep": "Browsing in Chrome",
+    "count": 11.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "sourceStep": "Browsing in Chrome",
+    "targetApplication": "IntelliJ",
+    "targetStep": "Working on kyp-backend",
+    "count": 10.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "sourceStep": "Browsing in Chrome",
+    "targetApplication": "Excel",
+    "targetStep": "Working on Excel Sheet",
+    "count": 10.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "sourceStep": "Work on Presentation",
+    "targetApplication": "Chrome",
+    "targetStep": "Browsing in Chrome",
+    "count": 10.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "sourceStep": "Use Teams Application",
+    "targetApplication": "Code",
+    "targetStep": "Develop kyp-frontend application",
+    "count": 10.0
+  },
+  {
+    "sourceApplication": "Code",
+    "sourceStep": "Develop kyp-frontend application",
+    "targetApplication": "Excel",
+    "targetStep": "Working on Excel Sheet",
+    "count": 8.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "sourceStep": "Browsing in Chrome",
+    "targetApplication": "PowerPoint",
+    "targetStep": "Work on Presentation",
+    "count": 6.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "sourceStep": "Working on Excel Sheet",
+    "targetApplication": "Sharepoint",
+    "targetStep": "Working on shared files",
+    "count": 6.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "sourceStep": "Working on Excel Sheet",
+    "targetApplication": "Code",
+    "targetStep": "Develop kyp-frontend application",
+    "count": 6.0
+  },
+  {
+    "sourceApplication": "Figma",
+    "sourceStep": "Check and use interface design",
+    "targetApplication": "Teams",
+    "targetStep": "Use Teams Application",
+    "count": 6.0
+  },
+  {
+    "sourceApplication": "IntelliJ",
+    "sourceStep": "Working on kyp-backend",
+    "targetApplication": "Sharepoint",
+    "targetStep": "Working on shared files",
+    "count": 6.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "sourceStep": "Work on Presentation",
+    "targetApplication": "Excel",
+    "targetStep": "Working on Excel Sheet",
+    "count": 6.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "sourceStep": "Working on shared files",
+    "targetApplication": "ChatGPT",
+    "targetStep": "AI Searching",
+    "count": 6.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "sourceStep": "AI Searching",
+    "targetApplication": "Sharepoint",
+    "targetStep": "Working on shared files",
+    "count": 5.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "sourceStep": "Working on Excel Sheet",
+    "targetApplication": "ChatGPT",
+    "targetStep": "AI Searching",
+    "count": 5.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "sourceStep": "AI Searching",
+    "targetApplication": "Excel",
+    "targetStep": "Working on Excel Sheet",
+    "count": 4.0
+  },
+  {
+    "sourceApplication": "Figma",
+    "sourceStep": "Check and use interface design",
+    "targetApplication": "Code",
+    "targetStep": "Develop kyp-frontend application",
+    "count": 4.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "sourceStep": "Work on Presentation",
+    "targetApplication": "ChatGPT",
+    "targetStep": "AI Searching",
+    "count": 4.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "sourceStep": "Working on shared files",
+    "targetApplication": "Excel",
+    "targetStep": "Working on Excel Sheet",
+    "count": 4.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "sourceStep": "AI Searching",
+    "targetApplication": "PowerPoint",
+    "targetStep": "Work on Presentation",
+    "count": 3.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "sourceStep": "Working on Excel Sheet",
+    "targetApplication": "IntelliJ",
+    "targetStep": "Working on kyp-backend",
+    "count": 2.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "sourceStep": "Use Teams Application",
+    "targetApplication": "WindowsTerminal",
+    "targetStep": "Shell scripting",
+    "count": 2.0
+  },
+  {
+    "sourceApplication": "Code",
+    "sourceStep": "Develop kyp-frontend application",
+    "targetApplication": "IntelliJ",
+    "targetStep": "Working on kyp-backend",
+    "count": 1.0
+  },
+  {
+    "sourceApplication": "Code",
+    "sourceStep": "Develop kyp-frontend application",
+    "targetApplication": "Sharepoint",
+    "targetStep": "Working on shared files",
+    "count": 1.0
+  },
+  {
+    "sourceApplication": "Figma",
+    "sourceStep": "Check and use interface design",
+    "targetApplication": "Excel",
+    "targetStep": "Working on Excel Sheet",
+    "count": 1.0
+  },
+  {
+    "sourceApplication": "IntelliJ",
+    "sourceStep": "Working on kyp-backend",
+    "targetApplication": "WindowsTerminal",
+    "targetStep": "Shell scripting",
+    "count": 1.0
+  },
+  {
+    "sourceApplication": "ChatGPT",
+    "sourceStep": "AI Searching",
+    "targetApplication": "IntelliJ",
+    "targetStep": "Working on kyp-backend",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Chrome",
+    "sourceStep": "Browsing in Chrome",
+    "targetApplication": "Figma",
+    "targetStep": "Check and use interface design",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Code",
+    "sourceStep": "Develop kyp-frontend application",
+    "targetApplication": "PowerPoint",
+    "targetStep": "Work on Presentation",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Code",
+    "sourceStep": "Develop kyp-frontend application",
+    "targetApplication": "Figma",
+    "targetStep": "Check and use interface design",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "sourceStep": "Working on Excel Sheet",
+    "targetApplication": "Figma",
+    "targetStep": "Check and use interface design",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Excel",
+    "sourceStep": "Working on Excel Sheet",
+    "targetApplication": "WindowsTerminal",
+    "targetStep": "Shell scripting",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Figma",
+    "sourceStep": "Check and use interface design",
+    "targetApplication": "IntelliJ",
+    "targetStep": "Working on kyp-backend",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Figma",
+    "sourceStep": "Check and use interface design",
+    "targetApplication": "Sharepoint",
+    "targetStep": "Working on shared files",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Figma",
+    "sourceStep": "Check and use interface design",
+    "targetApplication": "Chrome",
+    "targetStep": "Browsing in Chrome",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Figma",
+    "sourceStep": "Check and use interface design",
+    "targetApplication": "PowerPoint",
+    "targetStep": "Work on Presentation",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Figma",
+    "sourceStep": "Check and use interface design",
+    "targetApplication": "WindowsTerminal",
+    "targetStep": "Shell scripting",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "IntelliJ",
+    "sourceStep": "Working on kyp-backend",
+    "targetApplication": "Excel",
+    "targetStep": "Working on Excel Sheet",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "IntelliJ",
+    "sourceStep": "Working on kyp-backend",
+    "targetApplication": "PowerPoint",
+    "targetStep": "Work on Presentation",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "IntelliJ",
+    "sourceStep": "Working on kyp-backend",
+    "targetApplication": "Figma",
+    "targetStep": "Check and use interface design",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "IntelliJ",
+    "sourceStep": "Working on kyp-backend",
+    "targetApplication": "ChatGPT",
+    "targetStep": "AI Searching",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "sourceStep": "Work on Presentation",
+    "targetApplication": "IntelliJ",
+    "targetStep": "Working on kyp-backend",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "sourceStep": "Work on Presentation",
+    "targetApplication": "Sharepoint",
+    "targetStep": "Working on shared files",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "sourceStep": "Work on Presentation",
+    "targetApplication": "Code",
+    "targetStep": "Develop kyp-frontend application",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "sourceStep": "Work on Presentation",
+    "targetApplication": "Figma",
+    "targetStep": "Check and use interface design",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "PowerPoint",
+    "sourceStep": "Work on Presentation",
+    "targetApplication": "WindowsTerminal",
+    "targetStep": "Shell scripting",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "sourceStep": "Working on shared files",
+    "targetApplication": "IntelliJ",
+    "targetStep": "Working on kyp-backend",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "sourceStep": "Working on shared files",
+    "targetApplication": "Code",
+    "targetStep": "Develop kyp-frontend application",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "sourceStep": "Working on shared files",
+    "targetApplication": "PowerPoint",
+    "targetStep": "Work on Presentation",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "sourceStep": "Working on shared files",
+    "targetApplication": "Figma",
+    "targetStep": "Check and use interface design",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Sharepoint",
+    "sourceStep": "Working on shared files",
+    "targetApplication": "WindowsTerminal",
+    "targetStep": "Shell scripting",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "Teams",
+    "sourceStep": "Use Teams Application",
+    "targetApplication": "Figma",
+    "targetStep": "Check and use interface design",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "sourceStep": "Shell scripting",
+    "targetApplication": "IntelliJ",
+    "targetStep": "Working on kyp-backend",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "sourceStep": "Shell scripting",
+    "targetApplication": "Sharepoint",
+    "targetStep": "Working on shared files",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "sourceStep": "Shell scripting",
+    "targetApplication": "Excel",
+    "targetStep": "Working on Excel Sheet",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "sourceStep": "Shell scripting",
+    "targetApplication": "PowerPoint",
+    "targetStep": "Work on Presentation",
+    "count": 0.0
+  },
+  {
+    "sourceApplication": "WindowsTerminal",
+    "sourceStep": "Shell scripting",
+    "targetApplication": "Figma",
+    "targetStep": "Check and use interface design",
+    "count": 0.0
+  }
+]

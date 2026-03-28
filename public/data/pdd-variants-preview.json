@@ -1,0 +1,503 @@
+[
+  {
+    "variantNumber": 1,
+    "rows": [
+      [
+        "1",
+        "Localhost",
+        "Build and develop local environment",
+        "Total: 758m 29sAvg Time: 0m 56sAvg FTE: 0.12039637",
+        "1 / 44",
+        "Occurrences: 810Count of copy: 31Count of cut: 0Count of paste: 11Count of text entry: 158",
+        ""
+      ],
+      [
+        "2",
+        "Windows Explorer",
+        "Switch application",
+        "Total: 5m 52sAvg Time: 0m 0sAvg FTE: 0.00093230",
+        "1 / 44",
+        "Occurrences: 734Count of copy: 0Count of cut: 0Count of paste: 0Count of text entry: 0",
+        ""
+      ],
+      [
+        "3",
+        "Windows Explorer",
+        "View Files",
+        "Total: 2m 23sAvg Time: 0m 1sAvg FTE: 0.00038001",
+        "1 / 44",
+        "Occurrences: 125Count of copy: 0Count of cut: 0Count of paste: 0Count of text entry: 2",
+        ""
+      ]
+    ],
+    "header": [
+      "Number",
+      "Application",
+      "Process Step",
+      "Total Time/Avg Time/FTE",
+      "Team Coverage",
+      "Activities",
+      "Notes"
+    ]
+  },
+  {
+    "variantNumber": 2,
+    "rows": [
+      [
+        "1",
+        "IntelliJ",
+        "Working on kyp-backend",
+        "Total: 397m 49sAvg Time: 0m 53sAvg FTE: 0.06314691",
+        "6 / 44",
+        "Occurrences: 447Count of copy: 133Count of cut: 22Count of paste: 125Count of text entry: 615",
+        ""
+      ],
+      [
+        "2",
+        "IntelliJ",
+        "IntelliJOcr",
+        "Total: 58m 35sAvg Time: 0m 7sAvg FTE: 0.00929941",
+        "6 / 44",
+        "Occurrences: 447Count of copy: 1Count of cut: 0Count of paste: 8Count of text entry: 45",
+        ""
+      ],
+      [
+        "3",
+        "Windows Explorer",
+        "View Files",
+        "Total: 7m 46sAvg Time: 0m 4sAvg FTE: 0.00123451",
+        "6 / 44",
+        "Occurrences: 115Count of copy: 0Count of cut: 0Count of paste: 0Count of text entry: 5",
+        ""
+      ]
+    ],
+    "header": [
+      "Number",
+      "Application",
+      "Process Step",
+      "Total Time/Avg Time/FTE",
+      "Team Coverage",
+      "Activities",
+      "Notes"
+    ]
+  },
+  {
+    "variantNumber": 3,
+    "rows": [
+      [
+        "1",
+        "Windows Explorer",
+        "View Downloads  Files",
+        "Total: 11m 27sAvg Time: 0m 7sAvg FTE: 0.00181987",
+        "5 / 44",
+        "Occurrences: 93Count of copy: 0Count of cut: 0Count of paste: 0Count of text entry: 1",
+        ""
+      ],
+      [
+        "2",
+        "IntelliJ",
+        "IntelliJOcr",
+        "Total: 16m 28sAvg Time: 0m 4sAvg FTE: 0.00261607",
+        "5 / 44",
+        "Occurrences: 208Count of copy: 0Count of cut: 0Count of paste: 0Count of text entry: 8",
+        ""
+      ],
+      [
+        "3",
+        "IntelliJ",
+        "Working on kyp-backend",
+        "Total: 177m 47sAvg Time: 0m 51sAvg FTE: 0.02821966",
+        "5 / 44",
+        "Occurrences: 208Count of copy: 26Count of cut: 1Count of paste: 10Count of text entry: 202",
+        ""
+      ]
+    ],
+    "header": [
+      "Number",
+      "Application",
+      "Process Step",
+      "Total Time/Avg Time/FTE",
+      "Team Coverage",
+      "Activities",
+      "Notes"
+    ]
+  },
+  {
+    "variantNumber": 4,
+    "rows": [
+      [
+        "1",
+        "IntelliJ",
+        "IntelliJOcr",
+        "Total: 121m 58sAvg Time: 0m 23sAvg FTE: 0.01936220",
+        "2 / 44",
+        "Occurrences: 309Count of copy: 1Count of cut: 0Count of paste: 5Count of text entry: 31",
+        ""
+      ],
+      [
+        "2",
+        "IntelliJ",
+        "Working on kyp-backend",
+        "Total: 384m 43sAvg Time: 1m 17sAvg FTE: 0.06106875",
+        "2 / 44",
+        "Occurrences: 298Count of copy: 54Count of cut: 13Count of paste: 57Count of text entry: 371",
+        ""
+      ],
+      [
+        "3",
+        "Windows Explorer",
+        "Windows Explorer",
+        "Total: 9m 28sAvg Time: 0m 5sAvg FTE: 0.00150307",
+        "2 / 44",
+        "Occurrences: 98Count of copy: 0Count of cut: 0Count of paste: 0Count of text entry: 1",
+        ""
+      ],
+      [
+        "4",
+        "Windows Explorer",
+        "View Files",
+        "Total: 1m 37sAvg Time: 0m 0sAvg FTE: 0.00025702",
+        "2 / 44",
+        "Occurrences: 99Count of copy: 0Count of cut: 0Count of paste: 0Count of text entry: 0",
+        ""
+      ]
+    ],
+    "header": [
+      "Number",
+      "Application",
+      "Process Step",
+      "Total Time/Avg Time/FTE",
+      "Team Coverage",
+      "Activities",
+      "Notes"
+    ]
+  },
+  {
+    "variantNumber": 5,
+    "rows": [
+      [
+        "1",
+        "Localhost",
+        "Build and develop local environment",
+        "Total: 81m 38sAvg Time: 0m 53sAvg FTE: 0.01295768",
+        "1 / 44",
+        "Occurrences: 91Count of copy: 10Count of cut: 1Count of paste: 9Count of text entry: 25",
+        ""
+      ],
+      [
+        "2",
+        "IntelliJ",
+        "IntelliJOcr",
+        "Total: 12m 27sAvg Time: 0m 3sAvg FTE: 0.00197875",
+        "1 / 44",
+        "Occurrences: 191Count of copy: 0Count of cut: 0Count of paste: 0Count of text entry: 3",
+        ""
+      ],
+      [
+        "3",
+        "IntelliJ",
+        "Working on qa-admin",
+        "Total: 85m 25sAvg Time: 0m 26sAvg FTE: 0.01355873",
+        "1 / 44",
+        "Occurrences: 195Count of copy: 17Count of cut: 1Count of paste: 21Count of text entry: 102",
+        ""
+      ]
+    ],
+    "header": [
+      "Number",
+      "Application",
+      "Process Step",
+      "Total Time/Avg Time/FTE",
+      "Team Coverage",
+      "Activities",
+      "Notes"
+    ]
+  },
+  {
+    "variantNumber": 6,
+    "rows": [
+      [
+        "1",
+        "Windows Explorer",
+        "View Files",
+        "Total: 43m 9sAvg Time: 0m 33sAvg FTE: 0.00685092",
+        "5 / 44",
+        "Occurrences: 78Count of copy: 6Count of cut: 0Count of paste: 6Count of text entry: 4",
+        ""
+      ],
+      [
+        "2",
+        "IntelliJ",
+        "IntelliJOcr",
+        "Total: 10m 14sAvg Time: 0m 4sAvg FTE: 0.00162674",
+        "5 / 44",
+        "Occurrences: 149Count of copy: 0Count of cut: 0Count of paste: 0Count of text entry: 12",
+        ""
+      ],
+      [
+        "3",
+        "IntelliJ",
+        "Java Development",
+        "Total: 117m 25sAvg Time: 0m 46sAvg FTE: 0.01863837",
+        "5 / 44",
+        "Occurrences: 152Count of copy: 8Count of cut: 1Count of paste: 17Count of text entry: 68",
+        ""
+      ]
+    ],
+    "header": [
+      "Number",
+      "Application",
+      "Process Step",
+      "Total Time/Avg Time/FTE",
+      "Team Coverage",
+      "Activities",
+      "Notes"
+    ]
+  },
+  {
+    "variantNumber": 7,
+    "rows": [
+      [
+        "1",
+        "Google Chrome",
+        "Use Google Chrome",
+        "Total: 563m 35sAvg Time: 2m 41sAvg FTE: 0.08945939",
+        "1 / 44",
+        "Occurrences: 210Count of copy: 58Count of cut: 5Count of paste: 99Count of text entry: 369",
+        ""
+      ],
+      [
+        "2",
+        "Finder",
+        "Use Finder",
+        "Total: 79m 48sAvg Time: 0m 32sAvg FTE: 0.01266874",
+        "1 / 44",
+        "Occurrences: 147Count of copy: 16Count of cut: 0Count of paste: 16Count of text entry: 300",
+        ""
+      ],
+      [
+        "3",
+        "Xpcproxy",
+        "Use Xpcproxy",
+        "Total: 401m 16sAvg Time: 2m 42sAvg FTE: 0.06369429",
+        "1 / 44",
+        "Occurrences: 148Count of copy: 26Count of cut: 0Count of paste: 4Count of text entry: 163",
+        ""
+      ]
+    ],
+    "header": [
+      "Number",
+      "Application",
+      "Process Step",
+      "Total Time/Avg Time/FTE",
+      "Team Coverage",
+      "Activities",
+      "Notes"
+    ]
+  },
+  {
+    "variantNumber": 8,
+    "rows": [
+      [
+        "1",
+        "Teams iOS",
+        "Use Teams Application",
+        "Total: 69m 14sAvg Time: 0m 42sAvg FTE: 0.01099078",
+        "1 / 44",
+        "Occurrences: 98Count of copy: 1Count of cut: 0Count of paste: 5Count of text entry: 77",
+        ""
+      ],
+      [
+        "2",
+        "Google Chrome",
+        "Use Google Chrome",
+        "Total: 95m 52sAvg Time: 0m 56sAvg FTE: 0.01521868",
+        "1 / 44",
+        "Occurrences: 102Count of copy: 7Count of cut: 0Count of paste: 7Count of text entry: 47",
+        ""
+      ],
+      [
+        "3",
+        "Code",
+        "Develop kyp-frontend application",
+        "Total: 77m 32sAvg Time: 0m 46sAvg FTE: 0.01230807",
+        "1 / 44",
+        "Occurrences: 101Count of copy: 20Count of cut: 4Count of paste: 17Count of text entry: 74",
+        ""
+      ]
+    ],
+    "header": [
+      "Number",
+      "Application",
+      "Process Step",
+      "Total Time/Avg Time/FTE",
+      "Team Coverage",
+      "Activities",
+      "Notes"
+    ]
+  },
+  {
+    "variantNumber": 9,
+    "rows": [
+      [
+        "1",
+        "Localhost",
+        "Build and develop local environment",
+        "Total: 30m 42sAvg Time: 0m 28sAvg FTE: 0.00487457",
+        "1 / 44",
+        "Occurrences: 65Count of copy: 1Count of cut: 0Count of paste: 3Count of text entry: 3",
+        ""
+      ],
+      [
+        "2",
+        "Windows Explorer",
+        "Switch application",
+        "Total: 0m 12sAvg Time: 0m 0sAvg FTE: 0.00003399",
+        "1 / 44",
+        "Occurrences: 103Count of copy: 0Count of cut: 0Count of paste: 0Count of text entry: 0",
+        ""
+      ],
+      [
+        "3",
+        "Code",
+        "ImageResolved",
+        "Total: 26m 49sAvg Time: 0m 31sAvg FTE: 0.00425708",
+        "1 / 44",
+        "Occurrences: 51Count of copy: 14Count of cut: 4Count of paste: 13Count of text entry: 85",
+        ""
+      ]
+    ],
+    "header": [
+      "Number",
+      "Application",
+      "Process Step",
+      "Total Time/Avg Time/FTE",
+      "Team Coverage",
+      "Activities",
+      "Notes"
+    ]
+  },
+  {
+    "variantNumber": 10,
+    "rows": [
+      [
+        "1",
+        "Localhost",
+        "Build and develop local environment",
+        "Total: 25m 45sAvg Time: 0m 20sAvg FTE: 0.00408838",
+        "1 / 44",
+        "Occurrences: 75Count of copy: 30Count of cut: 0Count of paste: 14Count of text entry: 37",
+        ""
+      ],
+      [
+        "2",
+        "IntelliJ",
+        "IntelliJOcr",
+        "Total: 5m 7sAvg Time: 0m 4sAvg FTE: 0.00081233",
+        "1 / 44",
+        "Occurrences: 66Count of copy: 3Count of cut: 0Count of paste: 2Count of text entry: 8",
+        ""
+      ],
+      [
+        "3",
+        "IntelliJ",
+        "Working on qa-backend",
+        "Total: 17m 26sAvg Time: 0m 13sAvg FTE: 0.00276767",
+        "1 / 44",
+        "Occurrences: 78Count of copy: 9Count of cut: 0Count of paste: 22Count of text entry: 41",
+        ""
+      ]
+    ],
+    "header": [
+      "Number",
+      "Application",
+      "Process Step",
+      "Total Time/Avg Time/FTE",
+      "Team Coverage",
+      "Activities",
+      "Notes"
+    ]
+  },
+  {
+    "variantNumber": 11,
+    "rows": [
+      [
+        "1",
+        "IntelliJ",
+        "Working on kyp-backend",
+        "Total: 272m 49sAvg Time: 1m 41sAvg FTE: 0.04330586",
+        "4 / 44",
+        "Occurrences: 162Count of copy: 9Count of cut: 0Count of paste: 6Count of text entry: 421",
+        ""
+      ],
+      [
+        "2",
+        "IntelliJ",
+        "IntelliJOcr",
+        "Total: 17m 45sAvg Time: 0m 6sAvg FTE: 0.00281954",
+        "4 / 44",
+        "Occurrences: 174Count of copy: 0Count of cut: 0Count of paste: 2Count of text entry: 42",
+        ""
+      ],
+      [
+        "3",
+        "IntelliJ",
+        "Working on qa-backend",
+        "Total: 380m 26sAvg Time: 1m 55sAvg FTE: 0.06038696",
+        "4 / 44",
+        "Occurrences: 198Count of copy: 29Count of cut: 1Count of paste: 20Count of text entry: 486",
+        ""
+      ]
+    ],
+    "header": [
+      "Number",
+      "Application",
+      "Process Step",
+      "Total Time/Avg Time/FTE",
+      "Team Coverage",
+      "Activities",
+      "Notes"
+    ]
+  },
+  {
+    "variantNumber": 12,
+    "rows": [
+      [
+        "1",
+        "Localhost",
+        "Build and develop local environment",
+        "Total: 59m 24sAvg Time: 0m 31sAvg FTE: 0.00942917",
+        "1 / 44",
+        "Occurrences: 112Count of copy: 3Count of cut: 0Count of paste: 2Count of text entry: 33",
+        ""
+      ],
+      [
+        "2",
+        "IntelliJ",
+        "Working on kyp-backend",
+        "Total: 556m 3sAvg Time: 4m 26sAvg FTE: 0.08826427",
+        "1 / 44",
+        "Occurrences: 125Count of copy: 107Count of cut: 16Count of paste: 101Count of text entry: 310",
+        ""
+      ],
+      [
+        "3",
+        "Windows Explorer",
+        "View Files",
+        "Total: 2m 11sAvg Time: 0m 1sAvg FTE: 0.00034659",
+        "1 / 44",
+        "Occurrences: 68Count of copy: 0Count of cut: 0Count of paste: 0Count of text entry: 0",
+        ""
+      ]
+    ],
+    "header": [
+      "Number",
+      "Application",
+      "Process Step",
+      "Total Time/Avg Time/FTE",
+      "Team Coverage",
+      "Activities",
+      "Notes"
+    ]
+  }
+]

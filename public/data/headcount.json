@@ -1,0 +1,142 @@
+[
+  {
+    "date": "01.03",
+    "measuredUsers": 8,
+    "notMeasuredUsers": 0,
+    "expectedUsers": 0,
+    "coveragePct": null
+  },
+  {
+    "date": "02.03",
+    "measuredUsers": 39,
+    "notMeasuredUsers": 56,
+    "expectedUsers": 95,
+    "coveragePct": 41.05
+  },
+  {
+    "date": "03.03",
+    "measuredUsers": 39,
+    "notMeasuredUsers": 57,
+    "expectedUsers": 96,
+    "coveragePct": 40.62
+  },
+  {
+    "date": "04.03",
+    "measuredUsers": 39,
+    "notMeasuredUsers": 57,
+    "expectedUsers": 96,
+    "coveragePct": 40.62
+  },
+  {
+    "date": "05.03",
+    "measuredUsers": 40,
+    "notMeasuredUsers": 56,
+    "expectedUsers": 96,
+    "coveragePct": 41.67
+  },
+  {
+    "date": "06.03",
+    "measuredUsers": 43,
+    "notMeasuredUsers": 54,
+    "expectedUsers": 97,
+    "coveragePct": 44.33
+  },
+  {
+    "date": "07.03",
+    "measuredUsers": 10,
+    "notMeasuredUsers": 6,
+    "expectedUsers": 16,
+    "coveragePct": 62.5
+  },
+  {
+    "date": "08.03",
+    "measuredUsers": 15,
+    "notMeasuredUsers": 0,
+    "expectedUsers": 0,
+    "coveragePct": null
+  },
+  {
+    "date": "09.03",
+    "measuredUsers": 44,
+    "notMeasuredUsers": 51,
+    "expectedUsers": 95,
+    "coveragePct": 46.32
+  },
+  {
+    "date": "10.03",
+    "measuredUsers": 42,
+    "notMeasuredUsers": 54,
+    "expectedUsers": 96,
+    "coveragePct": 43.75
+  },
+  {
+    "date": "11.03",
+    "measuredUsers": 40,
+    "notMeasuredUsers": 56,
+    "expectedUsers": 96,
+    "coveragePct": 41.67
+  },
+  {
+    "date": "12.03",
+    "measuredUsers": 40,
+    "notMeasuredUsers": 56,
+    "expectedUsers": 96,
+    "coveragePct": 41.67
+  },
+  {
+    "date": "13.03",
+    "measuredUsers": 37,
+    "notMeasuredUsers": 60,
+    "expectedUsers": 97,
+    "coveragePct": 38.14
+  },
+  {
+    "date": "14.03",
+    "measuredUsers": 7,
+    "notMeasuredUsers": 0,
+    "expectedUsers": 2,
+    "coveragePct": 350.0
+  },
+  {
+    "date": "15.03",
+    "measuredUsers": 12,
+    "notMeasuredUsers": 0,
+    "expectedUsers": 0,
+    "coveragePct": null
+  },
+  {
+    "date": "16.03",
+    "measuredUsers": 38,
+    "notMeasuredUsers": 57,
+    "expectedUsers": 95,
+    "coveragePct": 40.0
+  },
+  {
+    "date": "17.03",
+    "measuredUsers": 40,
+    "notMeasuredUsers": 56,
+    "expectedUsers": 96,
+    "coveragePct": 41.67
+  },
+  {
+    "date": "18.03",
+    "measuredUsers": 39,
+    "notMeasuredUsers": 57,
+    "expectedUsers": 96,
+    "coveragePct": 40.62
+  },
+  {
+    "date": "19.03",
+    "measuredUsers": 41,
+    "notMeasuredUsers": 55,
+    "expectedUsers": 96,
+    "coveragePct": 42.71
+  },
+  {
+    "date": "20.03",
+    "measuredUsers": 38,
+    "notMeasuredUsers": 59,
+    "expectedUsers": 97,
+    "coveragePct": 39.18
+  }
+]

@@ -1,0 +1,2268 @@
+[
+  {
+    "processStep": "Use Teams Application",
+    "activeHours": 630.177,
+    "totalHours": 849.828,
+    "passiveHours": 219.651,
+    "passiveSharePct": 25.85,
+    "clipboardOps": 8915,
+    "clicks": 230932,
+    "textEntries": 80032,
+    "instances": 97979,
+    "userCount": 48,
+    "applications": [
+      "Teams",
+      "Teams iOS"
+    ]
+  },
+  {
+    "processStep": "Call - Microsoft Teams",
+    "activeHours": 213.096,
+    "totalHours": 293.762,
+    "passiveHours": 80.666,
+    "passiveSharePct": 27.46,
+    "clipboardOps": 622,
+    "clicks": 48010,
+    "textEntries": 2799,
+    "instances": 18227,
+    "userCount": 43,
+    "applications": [
+      "Teams",
+      "Teams iOS"
+    ]
+  },
+  {
+    "processStep": "Use Outlook Application",
+    "activeHours": 187.508,
+    "totalHours": 234.252,
+    "passiveHours": 46.744,
+    "passiveSharePct": 19.95,
+    "clipboardOps": 1871,
+    "clicks": 98771,
+    "textEntries": 14527,
+    "instances": 43164,
+    "userCount": 41,
+    "applications": [
+      "New Outlook",
+      "Outlook",
+      "Outlook Online",
+      "Outlook iOS"
+    ]
+  },
+  {
+    "processStep": "Browsing in Chrome",
+    "activeHours": 173.434,
+    "totalHours": 234.281,
+    "passiveHours": 60.847,
+    "passiveSharePct": 25.97,
+    "clipboardOps": 2967,
+    "clicks": 63992,
+    "textEntries": 11021,
+    "instances": 37058,
+    "userCount": 40,
+    "applications": [
+      "Chrome"
+    ]
+  },
+  {
+    "processStep": "Working on kyp-backend",
+    "activeHours": 151.059,
+    "totalHours": 174.891,
+    "passiveHours": 23.832,
+    "passiveSharePct": 13.63,
+    "clipboardOps": 3975,
+    "clicks": 70370,
+    "textEntries": 12275,
+    "instances": 12870,
+    "userCount": 8,
+    "applications": [
+      "IntelliJ"
+    ]
+  },
+  {
+    "processStep": "Develop kyp-frontend application",
+    "activeHours": 95.54,
+    "totalHours": 119.273,
+    "passiveHours": 23.733,
+    "passiveSharePct": 19.9,
+    "clipboardOps": 3549,
+    "clicks": 32352,
+    "textEntries": 8648,
+    "instances": 8983,
+    "userCount": 16,
+    "applications": [
+      "Code"
+    ]
+  },
+  {
+    "processStep": "Update working progress",
+    "activeHours": 63.774,
+    "totalHours": 92.574,
+    "passiveHours": 28.8,
+    "passiveSharePct": 31.11,
+    "clipboardOps": 802,
+    "clicks": 31110,
+    "textEntries": 4361,
+    "instances": 18069,
+    "userCount": 43,
+    "applications": [
+      "Youtrack"
+    ]
+  },
+  {
+    "processStep": "Working on Excel Sheet",
+    "activeHours": 63.714,
+    "totalHours": 90.426,
+    "passiveHours": 26.712,
+    "passiveSharePct": 29.54,
+    "clipboardOps": 4214,
+    "clicks": 57099,
+    "textEntries": 9039,
+    "instances": 11209,
+    "userCount": 34,
+    "applications": [
+      "Excel"
+    ]
+  },
+  {
+    "processStep": "Use Google Chrome",
+    "activeHours": 57.204,
+    "totalHours": 100.7,
+    "passiveHours": 43.496,
+    "passiveSharePct": 43.19,
+    "clipboardOps": 988,
+    "clicks": 33247,
+    "textEntries": 2723,
+    "instances": 13338,
+    "userCount": 5,
+    "applications": [
+      "Google Chrome"
+    ]
+  },
+  {
+    "processStep": "Use Microsoft Edge",
+    "activeHours": 55.071,
+    "totalHours": 109.19,
+    "passiveHours": 54.12,
+    "passiveSharePct": 49.56,
+    "clipboardOps": 786,
+    "clicks": 18001,
+    "textEntries": 2596,
+    "instances": 9009,
+    "userCount": 30,
+    "applications": [
+      "Microsoft Edge"
+    ]
+  },
+  {
+    "processStep": "Work on Presentation",
+    "activeHours": 51.658,
+    "totalHours": 60.309,
+    "passiveHours": 8.651,
+    "passiveSharePct": 14.34,
+    "clipboardOps": 2793,
+    "clicks": 54171,
+    "textEntries": 7244,
+    "instances": 6444,
+    "userCount": 19,
+    "applications": [
+      "PowerPoint"
+    ]
+  },
+  {
+    "processStep": "Use kyp.ai",
+    "activeHours": 49.86,
+    "totalHours": 59.096,
+    "passiveHours": 9.236,
+    "passiveSharePct": 15.63,
+    "clipboardOps": 739,
+    "clicks": 30319,
+    "textEntries": 2391,
+    "instances": 11695,
+    "userCount": 44,
+    "applications": [
+      "kyp.ai"
+    ]
+  },
+  {
+    "processStep": "Shell scripting",
+    "activeHours": 44.268,
+    "totalHours": 52.368,
+    "passiveHours": 8.1,
+    "passiveSharePct": 15.47,
+    "clipboardOps": 2967,
+    "clicks": 6705,
+    "textEntries": 6827,
+    "instances": 5612,
+    "userCount": 18,
+    "applications": [
+      "WindowsTerminal"
+    ]
+  },
+  {
+    "processStep": "Working with Discovery Environment",
+    "activeHours": 40.311,
+    "totalHours": 54.229,
+    "passiveHours": 13.919,
+    "passiveSharePct": 25.67,
+    "clipboardOps": 406,
+    "clicks": 22809,
+    "textEntries": 1672,
+    "instances": 7824,
+    "userCount": 40,
+    "applications": [
+      "Discovery"
+    ]
+  },
+  {
+    "processStep": "Working on support tickets",
+    "activeHours": 40.046,
+    "totalHours": 46.274,
+    "passiveHours": 6.228,
+    "passiveSharePct": 13.46,
+    "clipboardOps": 432,
+    "clicks": 17636,
+    "textEntries": 2225,
+    "instances": 7869,
+    "userCount": 5,
+    "applications": [
+      "Freshdesk"
+    ]
+  },
+  {
+    "processStep": "AI Searching",
+    "activeHours": 34.685,
+    "totalHours": 39.957,
+    "passiveHours": 5.273,
+    "passiveSharePct": 13.2,
+    "clipboardOps": 1470,
+    "clicks": 14141,
+    "textEntries": 4540,
+    "instances": 5173,
+    "userCount": 27,
+    "applications": [
+      "ChatGPT"
+    ]
+  },
+  {
+    "processStep": "View Agile Board",
+    "activeHours": 33.83,
+    "totalHours": 49.091,
+    "passiveHours": 15.261,
+    "passiveSharePct": 31.09,
+    "clipboardOps": 164,
+    "clicks": 16086,
+    "textEntries": 1127,
+    "instances": 7075,
+    "userCount": 28,
+    "applications": [
+      "Youtrack"
+    ]
+  },
+  {
+    "processStep": "Build and develop local environment",
+    "activeHours": 31.929,
+    "totalHours": 34.996,
+    "passiveHours": 3.067,
+    "passiveSharePct": 8.76,
+    "clipboardOps": 312,
+    "clicks": 19556,
+    "textEntries": 906,
+    "instances": 6140,
+    "userCount": 12,
+    "applications": [
+      "Localhost"
+    ]
+  },
+  {
+    "processStep": "Check and use interface design",
+    "activeHours": 31.838,
+    "totalHours": 61.624,
+    "passiveHours": 29.786,
+    "passiveSharePct": 48.34,
+    "clipboardOps": 1313,
+    "clicks": 32275,
+    "textEntries": 2344,
+    "instances": 2980,
+    "userCount": 16,
+    "applications": [
+      "Figma"
+    ]
+  },
+  {
+    "processStep": "Working on shared files",
+    "activeHours": 31.65,
+    "totalHours": 36.997,
+    "passiveHours": 5.347,
+    "passiveSharePct": 14.45,
+    "clipboardOps": 2406,
+    "clicks": 19783,
+    "textEntries": 3913,
+    "instances": 6172,
+    "userCount": 37,
+    "applications": [
+      "Sharepoint"
+    ]
+  },
+  {
+    "processStep": "Searching Google",
+    "activeHours": 31.144,
+    "totalHours": 35.641,
+    "passiveHours": 4.497,
+    "passiveSharePct": 12.62,
+    "clipboardOps": 562,
+    "clicks": 17100,
+    "textEntries": 2647,
+    "instances": 8005,
+    "userCount": 43,
+    "applications": [
+      "Google"
+    ]
+  },
+  {
+    "processStep": "View Files",
+    "activeHours": 30.093,
+    "totalHours": 40.737,
+    "passiveHours": 10.643,
+    "passiveSharePct": 26.13,
+    "clipboardOps": 383,
+    "clicks": 27593,
+    "textEntries": 1652,
+    "instances": 22407,
+    "userCount": 44,
+    "applications": [
+      "Windows Explorer"
+    ]
+  },
+  {
+    "processStep": "Remote connection",
+    "activeHours": 29.55,
+    "totalHours": 33.608,
+    "passiveHours": 4.058,
+    "passiveSharePct": 12.07,
+    "clipboardOps": 284,
+    "clicks": 9297,
+    "textEntries": 2659,
+    "instances": 4509,
+    "userCount": 4,
+    "applications": [
+      "MobaXterm",
+      "Mtputty"
+    ]
+  },
+  {
+    "processStep": "Use GitLab",
+    "activeHours": 29.516,
+    "totalHours": 32.959,
+    "passiveHours": 3.443,
+    "passiveSharePct": 10.45,
+    "clipboardOps": 470,
+    "clicks": 14315,
+    "textEntries": 1114,
+    "instances": 7573,
+    "userCount": 26,
+    "applications": [
+      "Gitlab"
+    ]
+  },
+  {
+    "processStep": "Working with KYP on Develop",
+    "activeHours": 26.487,
+    "totalHours": 39.784,
+    "passiveHours": 13.297,
+    "passiveSharePct": 33.42,
+    "clipboardOps": 333,
+    "clicks": 14776,
+    "textEntries": 1405,
+    "instances": 5217,
+    "userCount": 21,
+    "applications": [
+      "Develop"
+    ]
+  },
+  {
+    "processStep": "Build team City Projects",
+    "activeHours": 26.293,
+    "totalHours": 34.411,
+    "passiveHours": 8.119,
+    "passiveSharePct": 23.59,
+    "clipboardOps": 273,
+    "clicks": 13343,
+    "textEntries": 698,
+    "instances": 6193,
+    "userCount": 20,
+    "applications": [
+      "Team City"
+    ]
+  },
+  {
+    "processStep": "Use Claude",
+    "activeHours": 24.71,
+    "totalHours": 26.037,
+    "passiveHours": 1.326,
+    "passiveSharePct": 5.09,
+    "clipboardOps": 1032,
+    "clicks": 6053,
+    "textEntries": 3476,
+    "instances": 2733,
+    "userCount": 15,
+    "applications": [
+      "Claude"
+    ]
+  },
+  {
+    "processStep": "Use LinkedIn",
+    "activeHours": 22.867,
+    "totalHours": 25.298,
+    "passiveHours": 2.432,
+    "passiveSharePct": 9.61,
+    "clipboardOps": 384,
+    "clicks": 14164,
+    "textEntries": 1670,
+    "instances": 4840,
+    "userCount": 31,
+    "applications": [
+      "LinkedIn"
+    ]
+  },
+  {
+    "processStep": "Create notes",
+    "activeHours": 22.564,
+    "totalHours": 23.803,
+    "passiveHours": 1.24,
+    "passiveSharePct": 5.21,
+    "clipboardOps": 2605,
+    "clicks": 17032,
+    "textEntries": 5450,
+    "instances": 5631,
+    "userCount": 34,
+    "applications": [
+      "Evernote",
+      "Notepad",
+      "Notepad++"
+    ]
+  },
+  {
+    "processStep": "ImageResolved",
+    "activeHours": 21.241,
+    "totalHours": 23.321,
+    "passiveHours": 2.079,
+    "passiveSharePct": 8.92,
+    "clipboardOps": 1917,
+    "clicks": 10709,
+    "textEntries": 4159,
+    "instances": 5418,
+    "userCount": 5,
+    "applications": [
+      "Code"
+    ]
+  },
+  {
+    "processStep": "Read Confluence",
+    "activeHours": 20.917,
+    "totalHours": 28.908,
+    "passiveHours": 7.991,
+    "passiveSharePct": 27.64,
+    "clipboardOps": 584,
+    "clicks": 8168,
+    "textEntries": 2164,
+    "instances": 3914,
+    "userCount": 30,
+    "applications": [
+      "Confluence"
+    ]
+  },
+  {
+    "processStep": "Use Termius",
+    "activeHours": 19.913,
+    "totalHours": 20.51,
+    "passiveHours": 0.597,
+    "passiveSharePct": 2.91,
+    "clipboardOps": 974,
+    "clicks": 11891,
+    "textEntries": 5777,
+    "instances": 2884,
+    "userCount": 1,
+    "applications": [
+      "Termius"
+    ]
+  },
+  {
+    "processStep": "bob",
+    "activeHours": 19.462,
+    "totalHours": 25.199,
+    "passiveHours": 5.737,
+    "passiveSharePct": 22.77,
+    "clipboardOps": 109,
+    "clicks": 8157,
+    "textEntries": 474,
+    "instances": 3270,
+    "userCount": 41,
+    "applications": [
+      "Bob",
+      "Youtrack"
+    ]
+  },
+  {
+    "processStep": "Discovery Space",
+    "activeHours": 17.6,
+    "totalHours": 19.769,
+    "passiveHours": 2.168,
+    "passiveSharePct": 10.97,
+    "clipboardOps": 101,
+    "clicks": 11605,
+    "textEntries": 385,
+    "instances": 2931,
+    "userCount": 20,
+    "applications": [
+      "kyp.ai"
+    ]
+  },
+  {
+    "processStep": "Activity - Microsoft Teams",
+    "activeHours": 17.244,
+    "totalHours": 26.058,
+    "passiveHours": 8.814,
+    "passiveSharePct": 33.82,
+    "clipboardOps": 78,
+    "clicks": 6938,
+    "textEntries": 1174,
+    "instances": 4212,
+    "userCount": 42,
+    "applications": [
+      "Teams",
+      "Teams iOS"
+    ]
+  },
+  {
+    "processStep": "View Grafana Report",
+    "activeHours": 17.104,
+    "totalHours": 21.187,
+    "passiveHours": 4.083,
+    "passiveSharePct": 19.27,
+    "clipboardOps": 60,
+    "clicks": 8088,
+    "textEntries": 465,
+    "instances": 3303,
+    "userCount": 15,
+    "applications": [
+      "Grafana"
+    ]
+  },
+  {
+    "processStep": "IntelliJOcr",
+    "activeHours": 16.499,
+    "totalHours": 20.995,
+    "passiveHours": 4.496,
+    "passiveSharePct": 21.41,
+    "clipboardOps": 98,
+    "clicks": 1753,
+    "textEntries": 971,
+    "instances": 7837,
+    "userCount": 12,
+    "applications": [
+      "IntelliJ"
+    ]
+  },
+  {
+    "processStep": "Working on qa-backend",
+    "activeHours": 16.209,
+    "totalHours": 21.061,
+    "passiveHours": 4.852,
+    "passiveSharePct": 23.04,
+    "clipboardOps": 259,
+    "clicks": 7618,
+    "textEntries": 1456,
+    "instances": 1539,
+    "userCount": 6,
+    "applications": [
+      "IntelliJ"
+    ]
+  },
+  {
+    "processStep": "Use Electron",
+    "activeHours": 15.401,
+    "totalHours": 15.956,
+    "passiveHours": 0.555,
+    "passiveSharePct": 3.48,
+    "clipboardOps": 1197,
+    "clicks": 20831,
+    "textEntries": 1574,
+    "instances": 2662,
+    "userCount": 1,
+    "applications": [
+      "Electron"
+    ]
+  },
+  {
+    "processStep": "New Feed read LinkedIn",
+    "activeHours": 15.186,
+    "totalHours": 16.574,
+    "passiveHours": 1.388,
+    "passiveSharePct": 8.37,
+    "clipboardOps": 109,
+    "clicks": 11458,
+    "textEntries": 911,
+    "instances": 2618,
+    "userCount": 16,
+    "applications": [
+      "LinkedIn"
+    ]
+  },
+  {
+    "processStep": "Use Outlook Online STD",
+    "activeHours": 14.289,
+    "totalHours": 19.074,
+    "passiveHours": 4.785,
+    "passiveSharePct": 25.09,
+    "clipboardOps": 85,
+    "clicks": 5867,
+    "textEntries": 371,
+    "instances": 2367,
+    "userCount": 11,
+    "applications": [
+      "Outlook Online STD"
+    ]
+  },
+  {
+    "processStep": "Remote Host Access",
+    "activeHours": 13.968,
+    "totalHours": 17.985,
+    "passiveHours": 4.017,
+    "passiveSharePct": 22.33,
+    "clipboardOps": 311,
+    "clicks": 2312,
+    "textEntries": 1262,
+    "instances": 2702,
+    "userCount": 4,
+    "applications": [
+      "Mintty",
+      "Putty",
+      "SuperPutty"
+    ]
+  },
+  {
+    "processStep": "Working on text document",
+    "activeHours": 13.572,
+    "totalHours": 14.093,
+    "passiveHours": 0.522,
+    "passiveSharePct": 3.7,
+    "clipboardOps": 442,
+    "clicks": 6760,
+    "textEntries": 1663,
+    "instances": 2000,
+    "userCount": 24,
+    "applications": [
+      "Word"
+    ]
+  },
+  {
+    "processStep": "Java Development",
+    "activeHours": 12.511,
+    "totalHours": 14.249,
+    "passiveHours": 1.738,
+    "passiveSharePct": 12.2,
+    "clipboardOps": 477,
+    "clicks": 7372,
+    "textEntries": 891,
+    "instances": 1399,
+    "userCount": 10,
+    "applications": [
+      "IntelliJ"
+    ]
+  },
+  {
+    "processStep": "Use klogg_BA",
+    "activeHours": 11.889,
+    "totalHours": 13.856,
+    "passiveHours": 1.966,
+    "passiveSharePct": 14.19,
+    "clipboardOps": 301,
+    "clicks": 5831,
+    "textEntries": 767,
+    "instances": 2382,
+    "userCount": 5,
+    "applications": [
+      "klogg_BA"
+    ]
+  },
+  {
+    "processStep": "Use Monitoring KYP.ai",
+    "activeHours": 11.21,
+    "totalHours": 13.372,
+    "passiveHours": 2.162,
+    "passiveSharePct": 16.17,
+    "clipboardOps": 166,
+    "clicks": 5392,
+    "textEntries": 577,
+    "instances": 2053,
+    "userCount": 8,
+    "applications": [
+      "Monitoring KYP.ai"
+    ]
+  },
+  {
+    "processStep": "Remote files view",
+    "activeHours": 11.167,
+    "totalHours": 15.428,
+    "passiveHours": 4.261,
+    "passiveSharePct": 27.62,
+    "clipboardOps": 80,
+    "clicks": 4544,
+    "textEntries": 444,
+    "instances": 2381,
+    "userCount": 36,
+    "applications": [
+      "MySharepoint"
+    ]
+  },
+  {
+    "processStep": "Use Rider",
+    "activeHours": 10.886,
+    "totalHours": 14.603,
+    "passiveHours": 3.716,
+    "passiveSharePct": 25.45,
+    "clipboardOps": 403,
+    "clicks": 6978,
+    "textEntries": 648,
+    "instances": 1331,
+    "userCount": 3,
+    "applications": [
+      "Rider"
+    ]
+  },
+  {
+    "processStep": "Use PBIDesktop",
+    "activeHours": 10.798,
+    "totalHours": 12.019,
+    "passiveHours": 1.222,
+    "passiveSharePct": 10.16,
+    "clipboardOps": 137,
+    "clicks": 6784,
+    "textEntries": 354,
+    "instances": 2150,
+    "userCount": 5,
+    "applications": [
+      "PBIDesktop"
+    ]
+  },
+  {
+    "processStep": "Working On Support Ticket",
+    "activeHours": 10.513,
+    "totalHours": 11.96,
+    "passiveHours": 1.447,
+    "passiveSharePct": 12.1,
+    "clipboardOps": 150,
+    "clicks": 4362,
+    "textEntries": 697,
+    "instances": 2905,
+    "userCount": 22,
+    "applications": [
+      "Youtrack"
+    ]
+  },
+  {
+    "processStep": "Use Xpcproxy",
+    "activeHours": 10.024,
+    "totalHours": 21.273,
+    "passiveHours": 11.25,
+    "passiveSharePct": 52.88,
+    "clipboardOps": 64,
+    "clicks": 3200,
+    "textEntries": 872,
+    "instances": 1235,
+    "userCount": 3,
+    "applications": [
+      "Xpcproxy"
+    ]
+  },
+  {
+    "processStep": "Outlook",
+    "activeHours": 8.531,
+    "totalHours": 11.065,
+    "passiveHours": 2.534,
+    "passiveSharePct": 22.9,
+    "clipboardOps": 105,
+    "clicks": 4887,
+    "textEntries": 1308,
+    "instances": 1651,
+    "userCount": 9,
+    "applications": [
+      "Outlook"
+    ]
+  },
+  {
+    "processStep": "DevOps Multi Team",
+    "activeHours": 8.247,
+    "totalHours": 9.295,
+    "passiveHours": 1.047,
+    "passiveSharePct": 11.27,
+    "clipboardOps": 76,
+    "clicks": 2937,
+    "textEntries": 263,
+    "instances": 758,
+    "userCount": 4,
+    "applications": [
+      "Youtrack"
+    ]
+  },
+  {
+    "processStep": "Read Public Documentation",
+    "activeHours": 7.803,
+    "totalHours": 8.881,
+    "passiveHours": 1.078,
+    "passiveSharePct": 12.14,
+    "clipboardOps": 95,
+    "clicks": 3284,
+    "textEntries": 279,
+    "instances": 1703,
+    "userCount": 26,
+    "applications": [
+      "Document 360 - Public"
+    ]
+  },
+  {
+    "processStep": "New Outlook",
+    "activeHours": 7.767,
+    "totalHours": 8.096,
+    "passiveHours": 0.329,
+    "passiveSharePct": 4.06,
+    "clipboardOps": 137,
+    "clicks": 5197,
+    "textEntries": 584,
+    "instances": 775,
+    "userCount": 11,
+    "applications": [
+      "New Outlook"
+    ]
+  },
+  {
+    "processStep": "Switch to worksheet (Activity)",
+    "activeHours": 7.531,
+    "totalHours": 9.079,
+    "passiveHours": 1.547,
+    "passiveSharePct": 17.04,
+    "clipboardOps": 269,
+    "clicks": 6857,
+    "textEntries": 690,
+    "instances": 1134,
+    "userCount": 20,
+    "applications": [
+      "Excel"
+    ]
+  },
+  {
+    "processStep": "Database Query",
+    "activeHours": 7.4,
+    "totalHours": 8.315,
+    "passiveHours": 0.915,
+    "passiveSharePct": 11.0,
+    "clipboardOps": 199,
+    "clicks": 3708,
+    "textEntries": 542,
+    "instances": 1124,
+    "userCount": 10,
+    "applications": [
+      "Dbeaver"
+    ]
+  },
+  {
+    "processStep": "Use Hubspot",
+    "activeHours": 7.398,
+    "totalHours": 8.003,
+    "passiveHours": 0.605,
+    "passiveSharePct": 7.56,
+    "clipboardOps": 89,
+    "clicks": 4834,
+    "textEntries": 493,
+    "instances": 2122,
+    "userCount": 12,
+    "applications": [
+      "Hubspot"
+    ]
+  },
+  {
+    "processStep": "Create screenshot",
+    "activeHours": 7.271,
+    "totalHours": 7.77,
+    "passiveHours": 0.499,
+    "passiveSharePct": 6.42,
+    "clipboardOps": 212,
+    "clicks": 6636,
+    "textEntries": 272,
+    "instances": 6088,
+    "userCount": 37,
+    "applications": [
+      "SnippingTool"
+    ]
+  },
+  {
+    "processStep": "Admin Space",
+    "activeHours": 7.229,
+    "totalHours": 9.595,
+    "passiveHours": 2.366,
+    "passiveSharePct": 24.65,
+    "clipboardOps": 108,
+    "clicks": 4575,
+    "textEntries": 410,
+    "instances": 1840,
+    "userCount": 25,
+    "applications": [
+      "kyp.ai"
+    ]
+  },
+  {
+    "processStep": "Working on qa-admin",
+    "activeHours": 6.578,
+    "totalHours": 7.114,
+    "passiveHours": 0.536,
+    "passiveSharePct": 7.53,
+    "clipboardOps": 246,
+    "clicks": 2236,
+    "textEntries": 495,
+    "instances": 990,
+    "userCount": 2,
+    "applications": [
+      "IntelliJ"
+    ]
+  },
+  {
+    "processStep": "View Downloads  Files",
+    "activeHours": 6.539,
+    "totalHours": 7.004,
+    "passiveHours": 0.465,
+    "passiveSharePct": 6.64,
+    "clipboardOps": 95,
+    "clicks": 4679,
+    "textEntries": 452,
+    "instances": 3939,
+    "userCount": 39,
+    "applications": [
+      "Windows Explorer"
+    ]
+  },
+  {
+    "processStep": "Remote Desktop Connection",
+    "activeHours": 6.157,
+    "totalHours": 6.413,
+    "passiveHours": 0.256,
+    "passiveSharePct": 3.99,
+    "clipboardOps": 32,
+    "clicks": 4466,
+    "textEntries": 685,
+    "instances": 465,
+    "userCount": 8,
+    "applications": [
+      "Remote Desktop Connection"
+    ]
+  },
+  {
+    "processStep": "Working with repository",
+    "activeHours": 5.965,
+    "totalHours": 6.41,
+    "passiveHours": 0.444,
+    "passiveSharePct": 6.93,
+    "clipboardOps": 81,
+    "clicks": 3236,
+    "textEntries": 252,
+    "instances": 1549,
+    "userCount": 19,
+    "applications": [
+      "Github",
+      "Source Tree"
+    ]
+  },
+  {
+    "processStep": "Use Windows App",
+    "activeHours": 5.835,
+    "totalHours": 6.261,
+    "passiveHours": 0.426,
+    "passiveSharePct": 6.8,
+    "clipboardOps": 56,
+    "clicks": 4769,
+    "textEntries": 530,
+    "instances": 439,
+    "userCount": 2,
+    "applications": [
+      "Windows App"
+    ]
+  },
+  {
+    "processStep": "Use Perplexity Web",
+    "activeHours": 5.546,
+    "totalHours": 6.116,
+    "passiveHours": 0.57,
+    "passiveSharePct": 9.32,
+    "clipboardOps": 225,
+    "clicks": 2348,
+    "textEntries": 507,
+    "instances": 962,
+    "userCount": 10,
+    "applications": [
+      "Perplexity Web"
+    ]
+  },
+  {
+    "processStep": "Use Adobe Illustrator",
+    "activeHours": 5.473,
+    "totalHours": 5.754,
+    "passiveHours": 0.281,
+    "passiveSharePct": 4.88,
+    "clipboardOps": 191,
+    "clicks": 6855,
+    "textEntries": 1161,
+    "instances": 1894,
+    "userCount": 1,
+    "applications": [
+      "Adobe Illustrator"
+    ]
+  },
+  {
+    "processStep": "System Start",
+    "activeHours": 5.185,
+    "totalHours": 5.185,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 0,
+    "clicks": 0,
+    "textEntries": 0,
+    "instances": 22,
+    "userCount": 11,
+    "applications": [
+      "System Start"
+    ]
+  },
+  {
+    "processStep": "View Issue List",
+    "activeHours": 5.135,
+    "totalHours": 9.588,
+    "passiveHours": 4.454,
+    "passiveSharePct": 46.45,
+    "clipboardOps": 30,
+    "clicks": 2308,
+    "textEntries": 522,
+    "instances": 1351,
+    "userCount": 26,
+    "applications": [
+      "Youtrack"
+    ]
+  },
+  {
+    "processStep": "Use Perplexity Desktop",
+    "activeHours": 5.046,
+    "totalHours": 5.854,
+    "passiveHours": 0.807,
+    "passiveSharePct": 13.79,
+    "clipboardOps": 85,
+    "clicks": 848,
+    "textEntries": 265,
+    "instances": 366,
+    "userCount": 4,
+    "applications": [
+      "Perplexity Desktop"
+    ]
+  },
+  {
+    "processStep": "Use Finder",
+    "activeHours": 5.027,
+    "totalHours": 6.923,
+    "passiveHours": 1.896,
+    "passiveSharePct": 27.39,
+    "clipboardOps": 125,
+    "clicks": 5995,
+    "textEntries": 1253,
+    "instances": 2851,
+    "userCount": 5,
+    "applications": [
+      "Finder"
+    ]
+  },
+  {
+    "processStep": "Dashboard review",
+    "activeHours": 4.776,
+    "totalHours": 7.218,
+    "passiveHours": 2.442,
+    "passiveSharePct": 33.84,
+    "clipboardOps": 4,
+    "clicks": 1649,
+    "textEntries": 27,
+    "instances": 1452,
+    "userCount": 27,
+    "applications": [
+      "Youtrack"
+    ]
+  },
+  {
+    "processStep": "Checking logs",
+    "activeHours": 4.462,
+    "totalHours": 4.684,
+    "passiveHours": 0.222,
+    "passiveSharePct": 4.75,
+    "clipboardOps": 103,
+    "clicks": 3039,
+    "textEntries": 185,
+    "instances": 1165,
+    "userCount": 6,
+    "applications": [
+      "Glogg"
+    ]
+  },
+  {
+    "processStep": "Windows Explorer",
+    "activeHours": 4.41,
+    "totalHours": 6.213,
+    "passiveHours": 1.803,
+    "passiveSharePct": 29.02,
+    "clipboardOps": 2,
+    "clicks": 1198,
+    "textEntries": 89,
+    "instances": 2003,
+    "userCount": 36,
+    "applications": [
+      "Windows Explorer"
+    ]
+  },
+  {
+    "processStep": "Use Zoom",
+    "activeHours": 4.266,
+    "totalHours": 6.404,
+    "passiveHours": 2.138,
+    "passiveSharePct": 33.39,
+    "clipboardOps": 6,
+    "clicks": 462,
+    "textEntries": 93,
+    "instances": 403,
+    "userCount": 8,
+    "applications": [
+      "Zoom"
+    ]
+  },
+  {
+    "processStep": "Use Adobe Acrobat Reader",
+    "activeHours": 4.055,
+    "totalHours": 4.141,
+    "passiveHours": 0.086,
+    "passiveSharePct": 2.08,
+    "clipboardOps": 13,
+    "clicks": 1692,
+    "textEntries": 46,
+    "instances": 1101,
+    "userCount": 23,
+    "applications": [
+      "Adobe Acrobat Reader"
+    ]
+  },
+  {
+    "processStep": "ConfluOcr",
+    "activeHours": 4.029,
+    "totalHours": 6.516,
+    "passiveHours": 2.487,
+    "passiveSharePct": 38.16,
+    "clipboardOps": 25,
+    "clicks": 371,
+    "textEntries": 179,
+    "instances": 2084,
+    "userCount": 22,
+    "applications": [
+      "Confluence"
+    ]
+  },
+  {
+    "processStep": "Overview Projects",
+    "activeHours": 4.027,
+    "totalHours": 4.983,
+    "passiveHours": 0.956,
+    "passiveSharePct": 19.19,
+    "clipboardOps": 8,
+    "clicks": 1146,
+    "textEntries": 49,
+    "instances": 952,
+    "userCount": 15,
+    "applications": [
+      "Team City"
+    ]
+  },
+  {
+    "processStep": "Use ShellExperienceHost",
+    "activeHours": 3.708,
+    "totalHours": 5.413,
+    "passiveHours": 1.706,
+    "passiveSharePct": 31.51,
+    "clipboardOps": 0,
+    "clicks": 1049,
+    "textEntries": 29,
+    "instances": 1180,
+    "userCount": 38,
+    "applications": [
+      "ShellExperienceHost"
+    ]
+  },
+  {
+    "processStep": "Working with KYP on Staging",
+    "activeHours": 3.501,
+    "totalHours": 3.905,
+    "passiveHours": 0.405,
+    "passiveSharePct": 10.36,
+    "clipboardOps": 62,
+    "clicks": 2590,
+    "textEntries": 214,
+    "instances": 885,
+    "userCount": 16,
+    "applications": [
+      "Staging"
+    ]
+  },
+  {
+    "processStep": "Backend development",
+    "activeHours": 3.464,
+    "totalHours": 4.695,
+    "passiveHours": 1.231,
+    "passiveSharePct": 26.21,
+    "clipboardOps": 147,
+    "clicks": 1951,
+    "textEntries": 219,
+    "instances": 620,
+    "userCount": 13,
+    "applications": [
+      "IntelliJ"
+    ]
+  },
+  {
+    "processStep": "Querying data",
+    "activeHours": 3.438,
+    "totalHours": 3.438,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 153,
+    "clicks": 2683,
+    "textEntries": 304,
+    "instances": 358,
+    "userCount": 6,
+    "applications": [
+      "PgAdmin"
+    ]
+  },
+  {
+    "processStep": "Screen zoom",
+    "activeHours": 3.354,
+    "totalHours": 3.437,
+    "passiveHours": 0.083,
+    "passiveSharePct": 2.4,
+    "clipboardOps": 0,
+    "clicks": 868,
+    "textEntries": 971,
+    "instances": 2230,
+    "userCount": 1,
+    "applications": [
+      "ZoomIt64"
+    ]
+  },
+  {
+    "processStep": "Clipboard Content View Name",
+    "activeHours": 3.308,
+    "totalHours": 3.935,
+    "passiveHours": 0.627,
+    "passiveSharePct": 15.94,
+    "clipboardOps": 53,
+    "clicks": 806,
+    "textEntries": 368,
+    "instances": 695,
+    "userCount": 34,
+    "applications": [
+      "Youtrack"
+    ]
+  },
+  {
+    "processStep": "document",
+    "activeHours": 3.232,
+    "totalHours": 3.735,
+    "passiveHours": 0.503,
+    "passiveSharePct": 13.48,
+    "clipboardOps": 177,
+    "clicks": 2325,
+    "textEntries": 450,
+    "instances": 466,
+    "userCount": 7,
+    "applications": [
+      "Document360 - Private"
+    ]
+  },
+  {
+    "processStep": "Use SearchHost",
+    "activeHours": 3.023,
+    "totalHours": 4.058,
+    "passiveHours": 1.035,
+    "passiveSharePct": 25.5,
+    "clipboardOps": 1,
+    "clicks": 868,
+    "textEntries": 1393,
+    "instances": 2760,
+    "userCount": 39,
+    "applications": [
+      "SearchHost"
+    ]
+  },
+  {
+    "processStep": "Use Whats App Online",
+    "activeHours": 2.914,
+    "totalHours": 2.914,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 27,
+    "clicks": 2141,
+    "textEntries": 304,
+    "instances": 666,
+    "userCount": 2,
+    "applications": [
+      "Whats App Online"
+    ]
+  },
+  {
+    "processStep": "Web Searching",
+    "activeHours": 2.832,
+    "totalHours": 3.1,
+    "passiveHours": 0.267,
+    "passiveSharePct": 8.63,
+    "clipboardOps": 26,
+    "clicks": 1123,
+    "textEntries": 215,
+    "instances": 1336,
+    "userCount": 18,
+    "applications": [
+      "Bing"
+    ]
+  },
+  {
+    "processStep": "SukcesOcr",
+    "activeHours": 2.786,
+    "totalHours": 3.479,
+    "passiveHours": 0.692,
+    "passiveSharePct": 19.9,
+    "clipboardOps": 0,
+    "clicks": 237,
+    "textEntries": 44,
+    "instances": 1527,
+    "userCount": 20,
+    "applications": [
+      "Youtrack"
+    ]
+  },
+  {
+    "processStep": "Use Application Frame Host",
+    "activeHours": 2.756,
+    "totalHours": 3.572,
+    "passiveHours": 0.816,
+    "passiveSharePct": 22.84,
+    "clipboardOps": 14,
+    "clicks": 1369,
+    "textEntries": 104,
+    "instances": 418,
+    "userCount": 24,
+    "applications": [
+      "Application Frame Host"
+    ]
+  },
+  {
+    "processStep": "traffit",
+    "activeHours": 2.74,
+    "totalHours": 2.74,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 20,
+    "clicks": 758,
+    "textEntries": 79,
+    "instances": 149,
+    "userCount": 2,
+    "applications": [
+      "Traffit"
+    ]
+  },
+  {
+    "processStep": "Use MsedgeWebView",
+    "activeHours": 2.705,
+    "totalHours": 3.659,
+    "passiveHours": 0.954,
+    "passiveSharePct": 26.07,
+    "clipboardOps": 0,
+    "clicks": 700,
+    "textEntries": 38,
+    "instances": 1290,
+    "userCount": 38,
+    "applications": [
+      "MsedgeWebView"
+    ]
+  },
+  {
+    "processStep": "Create New Ticket",
+    "activeHours": 2.595,
+    "totalHours": 2.758,
+    "passiveHours": 0.162,
+    "passiveSharePct": 5.89,
+    "clipboardOps": 95,
+    "clicks": 1692,
+    "textEntries": 388,
+    "instances": 475,
+    "userCount": 20,
+    "applications": [
+      "Youtrack"
+    ]
+  },
+  {
+    "processStep": "Use Microsoft PowerPoint",
+    "activeHours": 2.362,
+    "totalHours": 3.084,
+    "passiveHours": 0.722,
+    "passiveSharePct": 23.41,
+    "clipboardOps": 132,
+    "clicks": 2704,
+    "textEntries": 175,
+    "instances": 327,
+    "userCount": 1,
+    "applications": [
+      "Microsoft PowerPoint"
+    ]
+  },
+  {
+    "processStep": "View files",
+    "activeHours": 2.306,
+    "totalHours": 2.474,
+    "passiveHours": 0.168,
+    "passiveSharePct": 6.79,
+    "clipboardOps": 41,
+    "clicks": 2405,
+    "textEntries": 709,
+    "instances": 908,
+    "userCount": 3,
+    "applications": [
+      "TotalCmd64"
+    ]
+  },
+  {
+    "processStep": "vitally",
+    "activeHours": 2.277,
+    "totalHours": 2.871,
+    "passiveHours": 0.594,
+    "passiveSharePct": 20.7,
+    "clipboardOps": 165,
+    "clicks": 1878,
+    "textEntries": 387,
+    "instances": 382,
+    "userCount": 5,
+    "applications": [
+      "Vitally"
+    ]
+  },
+  {
+    "processStep": "Review Functions Item",
+    "activeHours": 2.254,
+    "totalHours": 2.824,
+    "passiveHours": 0.57,
+    "passiveSharePct": 20.2,
+    "clipboardOps": 38,
+    "clicks": 802,
+    "textEntries": 86,
+    "instances": 257,
+    "userCount": 9,
+    "applications": [
+      "kyp.ai"
+    ]
+  },
+  {
+    "processStep": "Working with KYP on Ondemand3",
+    "activeHours": 2.176,
+    "totalHours": 2.392,
+    "passiveHours": 0.216,
+    "passiveSharePct": 9.05,
+    "clipboardOps": 27,
+    "clicks": 1000,
+    "textEntries": 114,
+    "instances": 390,
+    "userCount": 5,
+    "applications": [
+      "Ondemand3"
+    ]
+  },
+  {
+    "processStep": "Connect App Management",
+    "activeHours": 2.165,
+    "totalHours": 2.626,
+    "passiveHours": 0.461,
+    "passiveSharePct": 17.54,
+    "clipboardOps": 136,
+    "clicks": 2205,
+    "textEntries": 96,
+    "instances": 587,
+    "userCount": 12,
+    "applications": [
+      "kyp.ai"
+    ]
+  },
+  {
+    "processStep": "pgAdmin",
+    "activeHours": 2.058,
+    "totalHours": 3.953,
+    "passiveHours": 1.895,
+    "passiveSharePct": 47.93,
+    "clipboardOps": 57,
+    "clicks": 1165,
+    "textEntries": 214,
+    "instances": 258,
+    "userCount": 10,
+    "applications": [
+      "kyp.ai"
+    ]
+  },
+  {
+    "processStep": "Creating notes",
+    "activeHours": 2.021,
+    "totalHours": 2.887,
+    "passiveHours": 0.866,
+    "passiveSharePct": 29.99,
+    "clipboardOps": 75,
+    "clicks": 974,
+    "textEntries": 162,
+    "instances": 466,
+    "userCount": 8,
+    "applications": [
+      "OneNote"
+    ]
+  },
+  {
+    "processStep": "Online Forms",
+    "activeHours": 1.99,
+    "totalHours": 2.089,
+    "passiveHours": 0.099,
+    "passiveSharePct": 4.74,
+    "clipboardOps": 10,
+    "clicks": 1199,
+    "textEntries": 114,
+    "instances": 447,
+    "userCount": 33,
+    "applications": [
+      "Office Online"
+    ]
+  },
+  {
+    "processStep": "Use Crazyshop",
+    "activeHours": 1.964,
+    "totalHours": 2.132,
+    "passiveHours": 0.169,
+    "passiveSharePct": 7.92,
+    "clipboardOps": 118,
+    "clicks": 1243,
+    "textEntries": 128,
+    "instances": 497,
+    "userCount": 3,
+    "applications": [
+      "Crazyshop"
+    ]
+  },
+  {
+    "processStep": "Use Advanced Installer",
+    "activeHours": 1.89,
+    "totalHours": 2.244,
+    "passiveHours": 0.354,
+    "passiveSharePct": 15.78,
+    "clipboardOps": 26,
+    "clicks": 2399,
+    "textEntries": 76,
+    "instances": 455,
+    "userCount": 1,
+    "applications": [
+      "Advanced Installer"
+    ]
+  },
+  {
+    "processStep": "Settings",
+    "activeHours": 1.84,
+    "totalHours": 3.535,
+    "passiveHours": 1.694,
+    "passiveSharePct": 47.94,
+    "clipboardOps": 0,
+    "clicks": 456,
+    "textEntries": 36,
+    "instances": 344,
+    "userCount": 33,
+    "applications": [
+      "Application Frame Host",
+      "Teams"
+    ]
+  },
+  {
+    "processStep": "Browse Repository",
+    "activeHours": 1.827,
+    "totalHours": 2.975,
+    "passiveHours": 1.147,
+    "passiveSharePct": 38.57,
+    "clipboardOps": 37,
+    "clicks": 1237,
+    "textEntries": 35,
+    "instances": 549,
+    "userCount": 11,
+    "applications": [
+      "Kyp repository"
+    ]
+  },
+  {
+    "processStep": "Team Wish Makers",
+    "activeHours": 1.787,
+    "totalHours": 1.916,
+    "passiveHours": 0.13,
+    "passiveSharePct": 6.76,
+    "clipboardOps": 14,
+    "clicks": 552,
+    "textEntries": 46,
+    "instances": 313,
+    "userCount": 5,
+    "applications": [
+      "Youtrack"
+    ]
+  },
+  {
+    "processStep": "Use Kyp repository",
+    "activeHours": 1.78,
+    "totalHours": 2.104,
+    "passiveHours": 0.324,
+    "passiveSharePct": 15.42,
+    "clipboardOps": 91,
+    "clicks": 1355,
+    "textEntries": 211,
+    "instances": 649,
+    "userCount": 18,
+    "applications": [
+      "Kyp repository"
+    ]
+  },
+  {
+    "processStep": "Check API request",
+    "activeHours": 1.674,
+    "totalHours": 2.557,
+    "passiveHours": 0.883,
+    "passiveSharePct": 34.54,
+    "clipboardOps": 93,
+    "clicks": 874,
+    "textEntries": 215,
+    "instances": 603,
+    "userCount": 1,
+    "applications": [
+      "Postman"
+    ]
+  },
+  {
+    "processStep": "Team Epic Eaters",
+    "activeHours": 1.661,
+    "totalHours": 1.94,
+    "passiveHours": 0.279,
+    "passiveSharePct": 14.38,
+    "clipboardOps": 0,
+    "clicks": 544,
+    "textEntries": 9,
+    "instances": 259,
+    "userCount": 2,
+    "applications": [
+      "Youtrack"
+    ]
+  },
+  {
+    "processStep": "Use Bob",
+    "activeHours": 1.619,
+    "totalHours": 2.243,
+    "passiveHours": 0.624,
+    "passiveSharePct": 27.82,
+    "clipboardOps": 6,
+    "clicks": 536,
+    "textEntries": 53,
+    "instances": 516,
+    "userCount": 41,
+    "applications": [
+      "Bob"
+    ]
+  },
+  {
+    "processStep": "Image edition",
+    "activeHours": 1.611,
+    "totalHours": 1.611,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 80,
+    "clicks": 1068,
+    "textEntries": 168,
+    "instances": 201,
+    "userCount": 11,
+    "applications": [
+      "Paint"
+    ]
+  },
+  {
+    "processStep": "Use Widgets",
+    "activeHours": 1.585,
+    "totalHours": 4.355,
+    "passiveHours": 2.77,
+    "passiveSharePct": 63.6,
+    "clipboardOps": 0,
+    "clicks": 0,
+    "textEntries": 0,
+    "instances": 252,
+    "userCount": 6,
+    "applications": [
+      "Widgets"
+    ]
+  },
+  {
+    "processStep": "Starting Docker Desktop",
+    "activeHours": 1.52,
+    "totalHours": 1.919,
+    "passiveHours": 0.4,
+    "passiveSharePct": 20.83,
+    "clipboardOps": 4,
+    "clicks": 523,
+    "textEntries": 14,
+    "instances": 320,
+    "userCount": 9,
+    "applications": [
+      "Docker Desktop"
+    ]
+  },
+  {
+    "processStep": "Use Powershell_ise",
+    "activeHours": 1.454,
+    "totalHours": 1.454,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 126,
+    "clicks": 738,
+    "textEntries": 191,
+    "instances": 155,
+    "userCount": 2,
+    "applications": [
+      "Powershell_ise"
+    ]
+  },
+  {
+    "processStep": "kyp-backend – FunctionDataBuilder.java [kyp-item-pipeline]",
+    "activeHours": 1.366,
+    "totalHours": 1.366,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 0,
+    "clicks": 198,
+    "textEntries": 0,
+    "instances": 198,
+    "userCount": 1,
+    "applications": [
+      "IntelliJ"
+    ]
+  },
+  {
+    "processStep": "PuttyOCR",
+    "activeHours": 1.339,
+    "totalHours": 1.909,
+    "passiveHours": 0.57,
+    "passiveSharePct": 29.87,
+    "clipboardOps": 38,
+    "clicks": 74,
+    "textEntries": 128,
+    "instances": 499,
+    "userCount": 2,
+    "applications": [
+      "Putty"
+    ]
+  },
+  {
+    "processStep": "Use app.powerbi.com",
+    "activeHours": 1.335,
+    "totalHours": 1.335,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 29,
+    "clicks": 839,
+    "textEntries": 68,
+    "instances": 407,
+    "userCount": 9,
+    "applications": [
+      "app.powerbi.com"
+    ]
+  },
+  {
+    "processStep": "Configure Organization Management",
+    "activeHours": 1.334,
+    "totalHours": 1.334,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 46,
+    "clicks": 1016,
+    "textEntries": 55,
+    "instances": 387,
+    "userCount": 12,
+    "applications": [
+      "kyp.ai"
+    ]
+  },
+  {
+    "processStep": "Use Document360 - Private",
+    "activeHours": 1.332,
+    "totalHours": 1.565,
+    "passiveHours": 0.233,
+    "passiveSharePct": 14.88,
+    "clipboardOps": 22,
+    "clicks": 801,
+    "textEntries": 58,
+    "instances": 185,
+    "userCount": 7,
+    "applications": [
+      "Document360 - Private"
+    ]
+  },
+  {
+    "processStep": "Configure Applications",
+    "activeHours": 1.329,
+    "totalHours": 1.923,
+    "passiveHours": 0.594,
+    "passiveSharePct": 30.87,
+    "clipboardOps": 15,
+    "clicks": 717,
+    "textEntries": 169,
+    "instances": 226,
+    "userCount": 11,
+    "applications": [
+      "kyp.ai"
+    ]
+  },
+  {
+    "processStep": "Use Vitally",
+    "activeHours": 1.329,
+    "totalHours": 1.571,
+    "passiveHours": 0.243,
+    "passiveSharePct": 15.46,
+    "clipboardOps": 8,
+    "clicks": 845,
+    "textEntries": 108,
+    "instances": 374,
+    "userCount": 7,
+    "applications": [
+      "Vitally"
+    ]
+  },
+  {
+    "processStep": "Frontend Development",
+    "activeHours": 1.327,
+    "totalHours": 1.495,
+    "passiveHours": 0.168,
+    "passiveSharePct": 11.26,
+    "clipboardOps": 43,
+    "clicks": 725,
+    "textEntries": 78,
+    "instances": 181,
+    "userCount": 2,
+    "applications": [
+      "VB",
+      "Webstorm64"
+    ]
+  },
+  {
+    "processStep": "Calculator",
+    "activeHours": 1.278,
+    "totalHours": 3.639,
+    "passiveHours": 2.361,
+    "passiveSharePct": 64.88,
+    "clipboardOps": 9,
+    "clicks": 538,
+    "textEntries": 159,
+    "instances": 235,
+    "userCount": 21,
+    "applications": [
+      "Application Frame Host",
+      "Calculator"
+    ]
+  },
+  {
+    "processStep": "Use Adobe InDesign",
+    "activeHours": 1.268,
+    "totalHours": 1.821,
+    "passiveHours": 0.553,
+    "passiveSharePct": 30.36,
+    "clipboardOps": 69,
+    "clicks": 1633,
+    "textEntries": 157,
+    "instances": 340,
+    "userCount": 1,
+    "applications": [
+      "Adobe InDesign"
+    ]
+  },
+  {
+    "processStep": "kyp-backend – DistributedReprocessService.java [kyp-application]",
+    "activeHours": 1.25,
+    "totalHours": 1.25,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 0,
+    "clicks": 316,
+    "textEntries": 0,
+    "instances": 316,
+    "userCount": 2,
+    "applications": [
+      "IntelliJ"
+    ]
+  },
+  {
+    "processStep": "Use Finway",
+    "activeHours": 1.249,
+    "totalHours": 1.249,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 2,
+    "clicks": 727,
+    "textEntries": 55,
+    "instances": 312,
+    "userCount": 12,
+    "applications": [
+      "Finway"
+    ]
+  },
+  {
+    "processStep": "Use Draw.io",
+    "activeHours": 1.224,
+    "totalHours": 1.323,
+    "passiveHours": 0.1,
+    "passiveSharePct": 7.53,
+    "clipboardOps": 17,
+    "clicks": 794,
+    "textEntries": 70,
+    "instances": 115,
+    "userCount": 3,
+    "applications": [
+      "Draw.io"
+    ]
+  },
+  {
+    "processStep": "Use SonarQube",
+    "activeHours": 1.163,
+    "totalHours": 1.372,
+    "passiveHours": 0.209,
+    "passiveSharePct": 15.21,
+    "clipboardOps": 12,
+    "clicks": 647,
+    "textEntries": 23,
+    "instances": 380,
+    "userCount": 7,
+    "applications": [
+      "SonarQube"
+    ]
+  },
+  {
+    "processStep": "Use Database Client",
+    "activeHours": 1.152,
+    "totalHours": 1.152,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 49,
+    "clicks": 617,
+    "textEntries": 102,
+    "instances": 186,
+    "userCount": 7,
+    "applications": [
+      "kyp.ai"
+    ]
+  },
+  {
+    "processStep": "Dashboard - finway",
+    "activeHours": 1.145,
+    "totalHours": 1.252,
+    "passiveHours": 0.107,
+    "passiveSharePct": 8.55,
+    "clipboardOps": 10,
+    "clicks": 514,
+    "textEntries": 46,
+    "instances": 197,
+    "userCount": 12,
+    "applications": [
+      "Finway"
+    ]
+  },
+  {
+    "processStep": "Sticky Notes",
+    "activeHours": 1.136,
+    "totalHours": 1.645,
+    "passiveHours": 0.509,
+    "passiveSharePct": 30.96,
+    "clipboardOps": 21,
+    "clicks": 427,
+    "textEntries": 87,
+    "instances": 239,
+    "userCount": 6,
+    "applications": [
+      "Application Frame Host"
+    ]
+  },
+  {
+    "processStep": "Use Portal Azure",
+    "activeHours": 1.08,
+    "totalHours": 1.08,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 28,
+    "clicks": 853,
+    "textEntries": 66,
+    "instances": 262,
+    "userCount": 2,
+    "applications": [
+      "Portal Azure"
+    ]
+  },
+  {
+    "processStep": "Collect UI component library",
+    "activeHours": 1.042,
+    "totalHours": 1.251,
+    "passiveHours": 0.209,
+    "passiveSharePct": 16.71,
+    "clipboardOps": 21,
+    "clicks": 364,
+    "textEntries": 31,
+    "instances": 233,
+    "userCount": 1,
+    "applications": [
+      "PrimeNg"
+    ]
+  },
+  {
+    "processStep": "Browse Nexus repository",
+    "activeHours": 1.005,
+    "totalHours": 1.342,
+    "passiveHours": 0.337,
+    "passiveSharePct": 25.08,
+    "clipboardOps": 9,
+    "clicks": 420,
+    "textEntries": 29,
+    "instances": 235,
+    "userCount": 13,
+    "applications": [
+      "Nexus"
+    ]
+  },
+  {
+    "processStep": "Team Agent",
+    "activeHours": 0.999,
+    "totalHours": 1.789,
+    "passiveHours": 0.79,
+    "passiveSharePct": 44.16,
+    "clipboardOps": 0,
+    "clicks": 376,
+    "textEntries": 42,
+    "instances": 264,
+    "userCount": 2,
+    "applications": [
+      "Youtrack"
+    ]
+  },
+  {
+    "processStep": "Use Allegro",
+    "activeHours": 0.961,
+    "totalHours": 0.961,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 17,
+    "clicks": 461,
+    "textEntries": 34,
+    "instances": 257,
+    "userCount": 9,
+    "applications": [
+      "Allegro"
+    ]
+  },
+  {
+    "processStep": "Connect App Profiles",
+    "activeHours": 0.957,
+    "totalHours": 0.957,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 6,
+    "clicks": 1083,
+    "textEntries": 18,
+    "instances": 172,
+    "userCount": 8,
+    "applications": [
+      "kyp.ai"
+    ]
+  },
+  {
+    "processStep": "Configure Task Level",
+    "activeHours": 0.955,
+    "totalHours": 0.955,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 2,
+    "clicks": 535,
+    "textEntries": 20,
+    "instances": 162,
+    "userCount": 10,
+    "applications": [
+      "kyp.ai"
+    ]
+  },
+  {
+    "processStep": "Remote files",
+    "activeHours": 0.954,
+    "totalHours": 1.829,
+    "passiveHours": 0.874,
+    "passiveSharePct": 47.82,
+    "clipboardOps": 2,
+    "clicks": 111,
+    "textEntries": 3,
+    "instances": 276,
+    "userCount": 34,
+    "applications": [
+      "Onedrive"
+    ]
+  },
+  {
+    "processStep": "Process User Requests",
+    "activeHours": 0.95,
+    "totalHours": 0.95,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 0,
+    "clicks": 320,
+    "textEntries": 6,
+    "instances": 157,
+    "userCount": 5,
+    "applications": [
+      "Channeltivity"
+    ]
+  },
+  {
+    "processStep": "Use Amazon",
+    "activeHours": 0.911,
+    "totalHours": 0.911,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 19,
+    "clicks": 680,
+    "textEntries": 50,
+    "instances": 245,
+    "userCount": 10,
+    "applications": [
+      "Amazon"
+    ]
+  },
+  {
+    "processStep": "Online Excel",
+    "activeHours": 0.889,
+    "totalHours": 0.889,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 8,
+    "clicks": 438,
+    "textEntries": 35,
+    "instances": 152,
+    "userCount": 11,
+    "applications": [
+      "MySharepoint"
+    ]
+  },
+  {
+    "processStep": "Configure Transaction Identification",
+    "activeHours": 0.884,
+    "totalHours": 0.884,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 49,
+    "clicks": 749,
+    "textEntries": 38,
+    "instances": 167,
+    "userCount": 8,
+    "applications": [
+      "kyp.ai"
+    ]
+  },
+  {
+    "processStep": "Use JetBrains",
+    "activeHours": 0.833,
+    "totalHours": 0.838,
+    "passiveHours": 0.006,
+    "passiveSharePct": 0.7,
+    "clipboardOps": 1,
+    "clicks": 383,
+    "textEntries": 25,
+    "instances": 178,
+    "userCount": 6,
+    "applications": [
+      "JetBrains"
+    ]
+  },
+  {
+    "processStep": "CSM Team Hub",
+    "activeHours": 0.826,
+    "totalHours": 1.016,
+    "passiveHours": 0.19,
+    "passiveSharePct": 18.67,
+    "clipboardOps": 29,
+    "clicks": 493,
+    "textEntries": 19,
+    "instances": 230,
+    "userCount": 6,
+    "applications": [
+      "Vitally"
+    ]
+  },
+  {
+    "processStep": "Use zoom.us",
+    "activeHours": 0.811,
+    "totalHours": 0.811,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 0,
+    "clicks": 586,
+    "textEntries": 0,
+    "instances": 109,
+    "userCount": 1,
+    "applications": [
+      "zoom.us"
+    ]
+  },
+  {
+    "processStep": "Calendar - Patryk Binkowski - Outlook",
+    "activeHours": 0.797,
+    "totalHours": 0.797,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 0,
+    "clicks": 186,
+    "textEntries": 0,
+    "instances": 186,
+    "userCount": 1,
+    "applications": [
+      "New Outlook"
+    ]
+  },
+  {
+    "processStep": "Edit Special Settings",
+    "activeHours": 0.783,
+    "totalHours": 0.783,
+    "passiveHours": 0.0,
+    "passiveSharePct": 0.0,
+    "clipboardOps": 24,
+    "clicks": 431,
+    "textEntries": 61,
+    "instances": 198,
+    "userCount": 10,
+    "applications": [
+      "kyp.ai"
+    ]
+  },
+  {
+    "processStep": "Working on qa-loadtest",
+    "activeHours": 0.76,
+    "totalHours": 0.871,
+    "passiveHours": 0.112,
+    "passiveSharePct": 12.83,
+    "clipboardOps": 5,
+    "clicks": 310,
+    "textEntries": 51,
+    "instances": 76,
+    "userCount": 2,
+    "applications": [
+      "IntelliJ"
+    ]
+  }
+]

@@ -1,0 +1,162 @@
+[
+  {
+    "date": "01.03",
+    "Collector": 4.711,
+    "Communication": 0.0,
+    "Youtrack Production Process": 0.0,
+    "Coding Activities": 0.0,
+    "Youtrack Support Process": 0.0
+  },
+  {
+    "date": "02.03",
+    "Collector": 51.458,
+    "Communication": 0.0,
+    "Youtrack Production Process": 0.0,
+    "Coding Activities": 0.0,
+    "Youtrack Support Process": 0.0
+  },
+  {
+    "date": "03.03",
+    "Collector": 52.819,
+    "Communication": 0.0,
+    "Youtrack Production Process": 0.0,
+    "Coding Activities": 0.0,
+    "Youtrack Support Process": 0.0
+  },
+  {
+    "date": "04.03",
+    "Collector": 56.979,
+    "Communication": 0.0,
+    "Youtrack Production Process": 0.0,
+    "Coding Activities": 0.0,
+    "Youtrack Support Process": 0.0
+  },
+  {
+    "date": "05.03",
+    "Collector": 56.274,
+    "Communication": 0.0,
+    "Youtrack Production Process": 0.0,
+    "Coding Activities": 0.0,
+    "Youtrack Support Process": 0.0
+  },
+  {
+    "date": "06.03",
+    "Collector": 53.646,
+    "Communication": 0.0,
+    "Youtrack Production Process": 0.0,
+    "Coding Activities": 0.0,
+    "Youtrack Support Process": 0.0
+  },
+  {
+    "date": "07.03",
+    "Collector": 4.013,
+    "Communication": 0.0,
+    "Youtrack Production Process": 0.0,
+    "Coding Activities": 0.0,
+    "Youtrack Support Process": 0.0
+  },
+  {
+    "date": "08.03",
+    "Collector": 31.702,
+    "Communication": 0.0,
+    "Youtrack Production Process": 0.0,
+    "Coding Activities": 0.0,
+    "Youtrack Support Process": 0.0
+  },
+  {
+    "date": "09.03",
+    "Collector": 70.056,
+    "Communication": 0.0,
+    "Youtrack Production Process": 0.0,
+    "Coding Activities": 0.0,
+    "Youtrack Support Process": 0.0
+  },
+  {
+    "date": "10.03",
+    "Collector": 59.09,
+    "Communication": 0.0,
+    "Youtrack Production Process": 0.0,
+    "Coding Activities": 0.0,
+    "Youtrack Support Process": 0.0
+  },
+  {
+    "date": "11.03",
+    "Collector": 178.982,
+    "Communication": 14.199,
+    "Youtrack Production Process": 0.0,
+    "Coding Activities": 0.0,
+    "Youtrack Support Process": 0.02
+  },
+  {
+    "date": "12.03",
+    "Collector": 200.824,
+    "Communication": 60.132,
+    "Youtrack Production Process": 7.552,
+    "Coding Activities": 7.312,
+    "Youtrack Support Process": 0.075
+  },
+  {
+    "date": "13.03",
+    "Collector": 42.973,
+    "Communication": 175.213,
+    "Youtrack Production Process": 32.893,
+    "Coding Activities": 29.208,
+    "Youtrack Support Process": 0.045
+  },
+  {
+    "date": "14.03",
+    "Collector": 0.507,
+    "Communication": 0.792,
+    "Youtrack Production Process": 1.18,
+    "Coding Activities": 0.0,
+    "Youtrack Support Process": 0.0
+  },
+  {
+    "date": "15.03",
+    "Collector": 1.248,
+    "Communication": 3.796,
+    "Youtrack Production Process": 0.686,
+    "Coding Activities": 1.872,
+    "Youtrack Support Process": 0.0
+  },
+  {
+    "date": "16.03",
+    "Collector": 41.036,
+    "Communication": 163.856,
+    "Youtrack Production Process": 44.812,
+    "Coding Activities": 28.472,
+    "Youtrack Support Process": 1.897
+  },
+  {
+    "date": "17.03",
+    "Collector": 55.323,
+    "Communication": 174.891,
+    "Youtrack Production Process": 43.363,
+    "Coding Activities": 33.243,
+    "Youtrack Support Process": 1.678
+  },
+  {
+    "date": "18.03",
+    "Collector": 53.986,
+    "Communication": 199.426,
+    "Youtrack Production Process": 37.474,
+    "Coding Activities": 30.401,
+    "Youtrack Support Process": 0.167
+  },
+  {
+    "date": "19.03",
+    "Collector": 57.189,
+    "Communication": 177.012,
+    "Youtrack Production Process": 29.701,
+    "Coding Activities": 35.151,
+    "Youtrack Support Process": 1.284
+  },
+  {
+    "date": "20.03",
+    "Collector": 21.948,
+    "Communication": 36.082,
+    "Youtrack Production Process": 7.577,
+    "Coding Activities": 8.488,
+    "Youtrack Support Process": 0.312
+  }
+]
